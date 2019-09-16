@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片滚动</title>
+<style>
+	#div1
+	{position:relative;width:650px;height:210px;overflow:hidden;
+	}
+	#div2{position:absolute;}
+	li{float:left;list-style-type:none;padding:5px;}
+	img{border:none;}
+	#div2 li a:hover{top:-10px;}
+	a{position:relative;}
+</style>
+<script>
+	window.onload=function()
+	{
+	var odiv2=document.getElementById('div2');
+	var ali=odiv2.getElementsByTagName('li');
+	var aspeed=-5;
+	var timer=null;
+	odiv2.innerHTML+=odiv2.innerHTML;
+	odiv2.style.width=ali[0].offsetWidth*ali.length+'px';
+	odiv2.onmouseover=function(){clearInterval(timer);};
+	function a()
+	{
+	timer=setInterval(function()
+	{
+	odiv2.style.left=odiv2.offsetLeft+aspeed+'px';
+	if (odiv2.offsetLeft<-odiv2.offsetWidth/2)
+	{
+	odiv2.style.left='0px';
+	}
+	},30);};
+	odiv2.onmouseout=a;
+	a();
+	}
+</script>
+</head>
+<body>
+<div id='div1'>
+<div id='div2'>
+	<li><a href=""><img src="1.jpg" /></a></li>
+	<li><a href=""><img src="2.jpg" /></a></li>
+	<li><a href=""><img src="3.jpg" /></a></li>
+	<li><a href=""><img src="4.jpg" /></a></li>
+</div>
+</div>
+</body>
+</html>
