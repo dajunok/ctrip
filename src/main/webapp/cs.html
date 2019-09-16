@@ -15,11 +15,41 @@
 
 
 <canvas id="myCanvas"></canvas>
-<script type="text/javascript">
+<script type="text/javascript" async="async" charset="utf-8">
 	var canvas=document.getElementById('myCanvas');
 	var ctx=canvas.getContext('2d');
 	ctx.fillStyle='#FF0000';
 	ctx.fillRect(0,0,80,100);
+/* 	var message;
+	function test() {
+		message="hi";
+	}
+	test();
+	alert(typeof message);
+	alert(message);
+	var v;
+	alert(typeof v);
+	
+	function addThen(num){
+		num +=10;
+		return num
+	}
+	var count =20;
+	var result=addThen(count);
+	alert(count);
+	alert(result);
+	
+	var table=new Object();
+	table.name="方桌_";
+	alert(table.name);
+	alert(table instanceof Object);
+	alert(test instanceof Function); 
+	var wroxwin=window.open("http://www.baidu.com/","topFrame");
+	wroxwin.close(); */
+	var doctype=document.doctype;
+	var body=document.body;
+	alert(doctype.name);
+	alert(body.tagName);
 </script>
 </body>
 </html>
