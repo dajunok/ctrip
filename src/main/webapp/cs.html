@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<p>My family and I visited The Epcot center this summer.</p>
-
+<p id="thisP">My family and I visited The Epcot center this summer.</p>
+<div id="myDiv" class="bd" title="Body text" lang="en" dir="ltr"></div>
 <aside>
 <h4>Epcot Center</h4>
 <p>The Epcot Center is a theme park in Disney World, Florida.</p>
@@ -48,8 +48,16 @@
 	wroxwin.close(); */
 	var doctype=document.doctype;
 	var body=document.body;
+	var div=document.getElementById("myDiv");
+	var p=document.getElementById("thisP");
 	alert(doctype.name);
 	alert(body.tagName);
+	alert(div.getAttribute("class"));
+	div.removeAttribute("class");
+	alert(div.getAttribute("class"));
+	alert(p.firstChild.nodeValue);
+	alert(p.firstChild.nodeName);     //#text
+	alert(p.innerHTML);
 </script>
 </body>
 </html>
