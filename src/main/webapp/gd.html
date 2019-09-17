@@ -1,51 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>图片滚动</title>
-<style>
-	#div1
-	{position:relative;width:650px;height:210px;overflow:hidden;
-	}
-	#div2{position:absolute;}
-	li{float:left;list-style-type:none;padding:5px;}
-	img{border:none;}
-	#div2 li a:hover{top:-10px;}
-	a{position:relative;}
-</style>
-<script>
-	window.onload=function()
-	{
-	var odiv2=document.getElementById('div2');
-	var ali=odiv2.getElementsByTagName('li');
-	var aspeed=-5;
-	var timer=null;
-	odiv2.innerHTML+=odiv2.innerHTML;
-	odiv2.style.width=ali[0].offsetWidth*ali.length+'px';
-	odiv2.onmouseover=function(){clearInterval(timer);};
-	function a()
-	{
-	timer=setInterval(function()
-	{
-	odiv2.style.left=odiv2.offsetLeft+aspeed+'px';
-	if (odiv2.offsetLeft<-odiv2.offsetWidth/2)
-	{
-	odiv2.style.left='0px';
-	}
-	},30);};
-	odiv2.onmouseout=a;
-	a();
-	}
-</script>
+<meta charset="utf-8">
+<title>W3Cschool教程(w3cschool.cn)</title>
 </head>
 <body>
-<div id='div1'>
-<div id='div2'>
-	<li><a href=""><img src="1.jpg" /></a></li>
-	<li><a href=""><img src="2.jpg" /></a></li>
-	<li><a href=""><img src="3.jpg" /></a></li>
-	<li><a href=""><img src="4.jpg" /></a></li>
-</div>
-</div>
+
+<p>图片应用:</p>
+<img src="/statics/images/lamp.jpg" id="lamp">
+<p>画布:</p>
+<button onclick="draw('repeat')">重复</button> 
+<button onclick="draw('repeat-x')">重复-x</button> 
+<button onclick="draw('repeat-y')">重复-y</button> 
+<button onclick="draw('no-repeat')">不重复</button>     
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+<script>
+function draw(direction){
+	var c=document.getElementById("myCanvas");
+	var ctx=c.getContext("2d");
+	ctx.clearRect(0,0,c.width,c.height); 
+	var img=document.getElementById("lamp")
+	var pat=ctx.createPattern(img,direction);
+	ctx.rect(0,0,220,128);
+	ctx.fillStyle=pat;
+	ctx.fill();
+}
+</script>
+
 </body>
 </html>
