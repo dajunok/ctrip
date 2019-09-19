@@ -1,2 +1,8 @@
-﻿canvas{position:absolute;left:0px;top:0px;};
-.slogan{color:#2577e3}
+﻿@charset "utf-8";
+
+#nav-canvas {position: absolute;left:0px;top:0px;}; /*导航栏背景  absolute fixed relative   z-index:1;*/
+
+.nav-bar-cont {position: absolute;left:0px;top:0px;} /*导航栏内容父元素*/
+.slogan {position: absolute;left:100px;top:10px;background-color:red;}
+
+
