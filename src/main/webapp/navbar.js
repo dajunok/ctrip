@@ -16,7 +16,7 @@ var slogan=document.getElementsByClassName("selected")[0];
 
 
 
-
+alert("html_w："+html_width+"；html_h："+html_height);  //1280 610
 /* alert(div.className);  alert("w："+nav_width+"；h："+nav_height);
 alert("html_w："+html_width+"；html_h："+html_height); */
 
