@@ -8,19 +8,18 @@ body {
 }
 /*导航栏内容div.nav-bar-cont块元素*/
 .nav-bar-cont {	position: absolute;
-				border-left-style:solid;
-				border-left-width:100px;
+				border-left-style:solid;				
 				border-left-color:#f4f4f4;
 				width:1196px;
 				height:38px;
 				background-color:#f4f4f4;				
 } 
-/*让旅行更幸福*/				
+/*div.slogan="让旅行更幸福"*/				
 .slogan {	position: absolute;
 			left:0px;
 			width:90px;
-			top:50%;
-			transform:translateY(-50%);		/*div元素向上平移自身高度的一半（50%）*/	
+			top:50%;			
+			transform:translateY(-50%);		/*div元素向上平移自身高度的一半（50%）   transform:translateY(-50%);	*/	
 			text-align: center;
 			background-color:red;
 }

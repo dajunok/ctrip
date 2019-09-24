@@ -10,8 +10,27 @@ a.setAttribute("style","line-height:"+h+"px;");             //设置a.selected�
 var slogan=document.getElementsByClassName("selected")[0];
 
 
+/*设置导航栏div.nav-bar-cont元素的边框宽度*/
+/* div.position="absolute";
+div.style.borderLeftStyle="solid";
+div.style.borderLeftColor="#f4f4f4";
+div.style.with="1196px"; */
+div.style.borderLeftWidth=(nav_width-1196)/2+"px";    	/*1196是div.nav-bar-cont元素的width内容宽度*/
+div.style.borderRightWidth=(nav_width-1196)/2+"px";		/*1196是div.nav-bar-cont元素的width内容宽度*/
+/* div.style.height="38px";
+div.style.backgroundColor="#f4f4f4"; */
 
- 
+
+
+
+
+
+
+
+
+/* border-left-style:solid;
+border-left-width:100px;
+border-left-color:#f4f4f4; */
 
 
 
