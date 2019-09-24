@@ -5,14 +5,12 @@ body {
     color: #333;
     background-color: #fff;
 }
-/*导航栏内容div块元素*/
+/*导航栏内容div.nav-bar-cont块元素*/
 .nav-bar-cont {	position: absolute;
 				margin:0px;
-				padding:0px;
-				left:0px;
-				top:0px;
-				background-color:#f4f4f4;
+				padding:100px;	
 				height:4.057%;
+				background-color:#f4f4f4;				
 } 
 /*让旅行更幸福*/				
 .slogan {	position: absolute;

@@ -1,0 +1,26 @@
+@charset "utf-8";
+ul li{list-style:none;}    /*去掉列表前面的项目符号*/
+body {
+    font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+    color: #333;      /*#333*/
+    background-color: #ffffff;
+	margin:0px;
+}
+/*导航栏内容div.nav-bar-cont块元素*/
+.nav-bar-cont {	position: absolute;
+				border-left-style:solid;
+				border-left-width:100px;
+				border-left-color:#f4f4f4;
+				width:1196px;
+				height:38px;
+				background-color:#f4f4f4;				
+} 
+/*让旅行更幸福*/				
+.slogan {	position: absolute;
+			left:0px;
+			width:90px;
+			top:50%;
+			transform:translateY(-50%);		/*div元素向上平移自身高度的一半（50%）*/	
+			text-align: center;
+			background-color:red;
+}
