@@ -8,18 +8,74 @@ body {
 }
 /*导航栏内容div.nav-bar-cont块元素*/
 .nav-bar-cont {	position: absolute;
-				border-left-style:solid;				
-				border-left-color:#f4f4f4;
 				width:1196px;
 				height:38px;
 				background-color:#f4f4f4;				
 } 
-/*div.slogan="让旅行更幸福"*/				
-.slogan {	position: absolute;
+/*元素div.slogan="让旅行更幸福"*/				
+div.slogan {	position: absolute;
 			left:0px;
 			width:90px;
-			top:50%;			
-			transform:translateY(-50%);		/*div元素向上平移自身高度的一半（50%）   transform:translateY(-50%);	*/	
+			height:38px;
+			line-height:38px;
 			text-align: center;
-			background-color:red;
+			background-color:#f4f4f4;  /*#f4f4f4*/
 }
+/*a.selected元素，innerHTML="language"  包含块：div.nav-bar-cont。（将行内元素a转换成块级元素再进行定位）利用高度height与行高line-height相同解决文本居中问题，vertical-align: middle; */
+a.selected{	display:block;
+			position: absolute;
+			top:0px;
+			left:100px;
+			width:auto;
+			height:39px;
+			line-height:38px;
+			background: white; 
+			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Downward.png');
+			background-size:18px,18px;
+			background-repeat:no-repeat,no-repeat;
+			background-position:left center,right center;
+			margin-left:0px;
+			/* margin-bottom:10px; */
+			padding-left:23px;
+			padding-right:23px;
+			text-align: center;
+			border-left-style:solid;    /*设置边框*/
+			border-left-color:white;
+			border-left-width:12px;
+			border-right-style:solid;    
+			border-right-color:white;
+			border-right-width:12px;
+			box-shadow: 2px 0px 2px #888888;   /*设置阴影*/
+			z-index:9999;
+}
+/* 元素div."language_wrap drowndrop"  包含块：div.nav-bar-cont*/
+div.language_wrap{
+			position: absolute;
+			top:38px;
+			left:100px;
+			width:583px;
+			height:302px;
+			background: white;
+			border:1px solid red;
+			z-index:9998;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

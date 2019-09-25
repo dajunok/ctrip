@@ -22,7 +22,7 @@ body {
 			background-color:red;
 }  /*position: absolute;left:215px;top:14px;margin:0 auto;background: green;margin-top:-10.5px;line-height:1.5em;display: none;*/
 
-/*元素ul，id="language" */
+/*元素ul.language*/
 .language{	position: absolute;
 			margin:0px;
 			padding:0px;
