@@ -1,5 +1,9 @@
 @charset "utf-8";
 ul li{list-style:none;}    /*去掉列表前面的项目符号*/
+a{ 
+	text-decoration:none; 
+	color: #333;      /*#333*/
+}
 body {
     font: 12px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
     color: #333;      /*#333*/
@@ -27,7 +31,7 @@ a.selected{	display:block;
 			top:0px;
 			left:100px;
 			width:auto;
-			height:39px;
+			height:38px;
 			line-height:38px;
 			background: white; 
 			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Downward.png');
@@ -45,26 +49,118 @@ a.selected{	display:block;
 			border-right-style:solid;    
 			border-right-color:white;
 			border-right-width:12px;
-			box-shadow: 2px 0px 2px #888888;   /*设置阴影*/
-			z-index:9999;
+			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
+			z-index:9997;
 }
 /* 元素div."language_wrap drowndrop"  包含块：div.nav-bar-cont*/
 div.language_wrap{
 			position: absolute;
 			top:38px;
 			left:100px;
-			width:583px;
+			width:610px;
 			height:302px;
 			background: white;
-			border:1px solid red;
+			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/	
 			z-index:9998;
 }
-
-
-
-
-
-
+/*元素ul.language_list 用于遮盖a.selected元素与div.language_wrap元素相交部分。包含块：div.language_wrap*/
+ul.language_list{
+			position: absolute;
+			top:-3px;
+			left:0px;
+			width:86px;
+			height:3px;
+			background:white;
+			z-index:9999;
+}
+/*语言列表元素ul.language_list子元素li公共属性*/
+ul.language_list li a{
+			position: absolute;
+			width:159px;
+			height:32px;
+			line-height:32px;
+			background: #f4f4f4;
+			background-size:22px,22px;
+			background-repeat:no-repeat;
+			background-position:left center;		
+			padding-left:25px;
+			border-left-style:solid;    /*设置边框*/
+			border-left-color:#f4f4f4;
+			border-left-width:8px;
+	
+}
+/*元素a#ctrip_cn，innerHTML="简体中文"*/
+a#ctrip_cn{			
+			top:22px;
+			left:13px;			 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/china_Flag.jpg');			
+}
+/*元素a#ctrip_eng，innerHTML="English (United States)"*/
+a#ctrip_eng{			
+			top:22px;
+			left:205px;   	
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/USA_Flag.jpg');			
+}
+/*元素a#ctrip_uk，innerHTML="English (United Kingdom)"*/
+a#ctrip_uk{			
+			top:22px;
+			left:397px;   
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/uk_Flag.jpg');	
+}
+/*元素a#ctrip_egy，innerHTML="埃及语（Egypt）*/
+a#ctrip_egy{			
+			top:59px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Egypt.jpg');			
+}
+/*元素a#ctrip_ire，innerHTML="爱尔兰语（Ireland）*/
+a#ctrip_ire{			
+			top:59px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Ireland.jpg');			
+}
+/*元素a#ctrip_aus，innerHTML="澳大利亚语（Australia）*/
+a#ctrip_aus{			
+			top:59px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Australia.jpg');			
+}
+/*元素a#ctrip_jap，innerHTML="日语（Japanese）*/
+a#ctrip_jap{			
+			top:96px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Japanese.jpg');			
+}
+/*元素a#ctrip_bra，innerHTML="巴西 (Brazil)"*/
+a#ctrip_bra{			
+			top:96px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Brazil.jpg');			
+}
+/*元素a#ctrip_kor，innerHTML="朝鲜 (Korea)"*/
+a#ctrip_kor{			
+			top:96px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Korea.jpg');			
+}
+/*元素a#ctrip_den，innerHTML="丹麦（Denmark"*/
+a#ctrip_den{			
+			top:133px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Denmark.jpg');			
+}
+/*元素a#ctrip_ger，innerHTML="德国（German）"*/
+a#ctrip_ger{			
+			top:133px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/German.jpg');			
+}
+/*元素a#ctrip_rus，innerHTML="俄语（Russian）"*/
+a#ctrip_rus{			
+			top:133px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Russian.jpg');			
+}
 
 
 
