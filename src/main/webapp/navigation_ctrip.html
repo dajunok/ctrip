@@ -11,8 +11,8 @@
 <div class="slogan" >让旅行更幸福</div>
 <ul class="language">
 	<li>
-		<a rel="nofollow" style="cursor:default" class="selected" ><span><em class="ico-global"></em>Language<b class="n-arrow"></b></span></a>
-		<div class="language_wrap drowndrop" >
+		<a rel="nofollow" style="cursor:default" class="selected" onmouseover="this.className='selected language_current';this.nextElementSibling.style.display='block';"onmouseout="this.className= 'selected';this.nextElementSibling.style.display='none';"><span><em class="ico-global"></em>Language<b class="n-arrow"></b></span></a>
+		<div class="language_wrap drowndrop" style="display: none;" onmouseover="this.style.display='block';this.previousElementSibling.className='selected language_current';" onmouseout="this.style.display='none';this.previousElementSibling.className='selected';">
 			<ul class="language_list" id="cui_lang_list" style="display: block;">
 				<li>
 					<a id="ctrip_cn" class="language_big5" href="//www.ctrip.com">简体中文</a>
@@ -36,16 +36,16 @@
 					<a id="ctrip_jap" class="language_jap" href="P">日语（Japanese）</a>
 				</li>
 				<li>
-					<a id="ctrip_bra" class="language_sg" href="">巴西 (Brazil)</a>
+					<a id="ctrip_bra" class="language_sg" href="">巴西语 (Brazil)</a>
 				</li>
 				<li>
-					<a id="ctrip_kor" class="language_au" href="">朝鲜 (Korea)</a>
+					<a id="ctrip_kor" class="language_au" href="">朝鲜语 (Korea)</a>
 				</li>
 				<li>
 					<a id="ctrip_den" class="language_de" href="">丹麦（Denmark）</a>
 				</li>
 				<li>
-					<a id="ctrip_ger" class="language_fr" href="">德国（German）</a>
+					<a id="ctrip_ger" class="language_fr" href="">德语（German）</a>
 				</li>
 				<li>
 					<a id="ctrip_rus" class="language_es" href="">俄语（Russian）</a>

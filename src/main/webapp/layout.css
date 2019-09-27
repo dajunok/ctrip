@@ -26,14 +26,14 @@ div.slogan {	position: absolute;
 			background-color:#f4f4f4;  /*#f4f4f4*/
 }
 /*a.selected元素，innerHTML="language"  包含块：div.nav-bar-cont。（将行内元素a转换成块级元素再进行定位）利用高度height与行高line-height相同解决文本居中问题，vertical-align: middle; */
-a.selected{	display:block;
+.selected{	display:block;
 			position: absolute;
 			top:0px;
 			left:100px;
 			width:auto;
 			height:38px;
 			line-height:38px;
-			background: white; 
+			background: #f4f4f4; 
 			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Downward.png');
 			background-size:18px,18px;
 			background-repeat:no-repeat,no-repeat;
@@ -44,13 +44,25 @@ a.selected{	display:block;
 			padding-right:23px;
 			text-align: center;
 			border-left-style:solid;    /*设置边框*/
-			border-left-color:white;
+			border-left-color:#f4f4f4;
 			border-left-width:12px;
 			border-right-style:solid;    
-			border-right-color:white;
+			border-right-color:#f4f4f4;
 			border-right-width:12px;
-			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
+			/*box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
 			z-index:9997;
+}
+/*元素a的多类形式class="selected language_current"*/
+.language_current{
+			background: white; 
+			border-left-color:white;
+			border-right-color:white;
+			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
+			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Upward.png');
+			background-size:18px,18px;
+			background-repeat:no-repeat,no-repeat;
+			background-position:left center,right center;
+			margin-left:0px;
 }
 /* 元素div."language_wrap drowndrop"  包含块：div.nav-bar-cont*/
 div.language_wrap{
@@ -77,94 +89,162 @@ ul.language_list{
 ul.language_list li a{
 			position: absolute;
 			width:159px;
-			height:32px;
+			height:30px;
 			line-height:32px;
-			background: #f4f4f4;
+			background: white;
 			background-size:22px,22px;
 			background-repeat:no-repeat;
 			background-position:left center;		
 			padding-left:25px;
 			border-left-style:solid;    /*设置边框*/
-			border-left-color:#f4f4f4;
+			border-left-color:white;
 			border-left-width:8px;
 	
 }
 /*元素a#ctrip_cn，innerHTML="简体中文"*/
 a#ctrip_cn{			
-			top:22px;
+			top:10px;
 			left:13px;			 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/china_Flag.jpg');			
 }
 /*元素a#ctrip_eng，innerHTML="English (United States)"*/
 a#ctrip_eng{			
-			top:22px;
+			top:10px;
 			left:205px;   	
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/USA_Flag.jpg');			
 }
 /*元素a#ctrip_uk，innerHTML="English (United Kingdom)"*/
 a#ctrip_uk{			
-			top:22px;
+			top:10px;
 			left:397px;   
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/uk_Flag.jpg');	
 }
 /*元素a#ctrip_egy，innerHTML="埃及语（Egypt）*/
 a#ctrip_egy{			
-			top:59px;
+			top:45px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Egypt.jpg');			
 }
 /*元素a#ctrip_ire，innerHTML="爱尔兰语（Ireland）*/
 a#ctrip_ire{			
-			top:59px;
+			top:45px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Ireland.jpg');			
 }
 /*元素a#ctrip_aus，innerHTML="澳大利亚语（Australia）*/
 a#ctrip_aus{			
-			top:59px;
+			top:45px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Australia.jpg');			
 }
 /*元素a#ctrip_jap，innerHTML="日语（Japanese）*/
 a#ctrip_jap{			
-			top:96px;
+			top:82px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Japanese.jpg');			
 }
 /*元素a#ctrip_bra，innerHTML="巴西 (Brazil)"*/
 a#ctrip_bra{			
-			top:96px;
+			top:82px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Brazil.jpg');			
 }
 /*元素a#ctrip_kor，innerHTML="朝鲜 (Korea)"*/
 a#ctrip_kor{			
-			top:96px;
+			top:82px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Korea.jpg');			
 }
 /*元素a#ctrip_den，innerHTML="丹麦（Denmark"*/
 a#ctrip_den{			
-			top:133px;
+			top:119px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Denmark.jpg');			
 }
-/*元素a#ctrip_ger，innerHTML="德国（German）"*/
+/*元素a#ctrip_ger，innerHTML="德语（German）"*/
 a#ctrip_ger{			
-			top:133px;
+			top:119px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/German.jpg');			
 }
 /*元素a#ctrip_rus，innerHTML="俄语（Russian）"*/
 a#ctrip_rus{			
-			top:133px;
+			top:119px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Russian.jpg');			
 }
-
-
-
-
+/*元素a#ctrip_fre，innerHTML="法语（French）"*/
+a#ctrip_fre{			
+			top:156px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/French.jpg');			
+}
+/*元素a#ctrip_cub，innerHTML="古巴语（Cuban）"*/
+a#ctrip_cub{			
+			top:156px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Cuban.jpg');			
+}
+/*元素a#ctrip_korn，innerHTML="韩语（Korean）"*/
+a#ctrip_korn{			
+			top:156px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Korean.jpg');			
+}
+/*元素a#ctrip_dut，innerHTML="荷兰语（Dutch）"*/
+a#ctrip_dut{			
+			top:193px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Dutch.jpg');			
+}
+/*元素a#ctrip_can，innerHTML="加拿大（Canada English）"*/
+a#ctrip_can{			
+			top:193px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Canada.jpg');			
+}
+/*元素a#ctrip_mya，innerHTML="缅甸Myanmar（Burmese）"*/
+a#ctrip_mya{			
+			top:193px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Myanmar.jpg');			
+}
+/*元素a#ctrip_mex，innerHTML="墨西哥语（Mexico）"*/
+a#ctrip_mex{			
+			top:230px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Mexico.jpg');			
+}
+/*元素a#ctrip_sou，innerHTML="南非SouthAfrica(English)"*/
+a#ctrip_sou{			
+			top:230px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/SouthAfrica.jpg');			
+}
+/*元素a#ctrip_swe，innerHTML="瑞典语（Sweden）"*/
+a#ctrip_swe{			
+			top:230px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Sweden.jpg');			
+}
+/*元素a#ctrip_swi，innerHTML="瑞士语（Switzerland）"*/
+a#ctrip_swi{			
+			top:267px;
+			left:13px;	  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Switzerland.jpg');			
+}
+/*元素a#ctrip_spa，innerHTML="西班牙语（Spanish）"*/
+a#ctrip_spa{			
+			top:267px;
+			left:205px;  
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Spanish.jpg');			
+}
+/*元素a#ctrip_gre，innerHTML="希腊语（Greek）"*/
+a#ctrip_gre{			
+			top:267px;
+			left:397px; 
+			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Greek.jpg');			
+}
 
 
 
