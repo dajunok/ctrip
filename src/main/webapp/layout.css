@@ -78,10 +78,10 @@ div.language_wrap{
 /*元素ul.language_list 用于遮盖a.selected元素与div.language_wrap元素相交部分。包含块：div.language_wrap*/
 ul.language_list{
 			position: absolute;
-			top:-3px;
+			top:-4px;
 			left:0px;
 			width:86px;
-			height:3px;
+			height:4px;
 			background:white;
 			z-index:9999;
 }

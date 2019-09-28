@@ -10,6 +10,20 @@ nav.style.borderRightStyle="solid";
 nav.style.borderRightColor="#f4f4f4";
 nav.style.borderRightWidth=(html_width-nav_width)/2+"px";  
 
+//设置导航ul.language_list鼠标触发事件
+var languageList=document.querySelectorAll("ul.language_list li a");
+for (var i=0;i<languageList.length;i++){
+	//alert(languageList[i].innerHTML);
+	languageList[i].onmouseover=function(){
+		this.style.backgroundColor="#f4f4f4";	
+		this.style.borderLeftColor="#f4f4f4";	
+	};
+	languageList[i].onmouseout=function(){
+		this.style.backgroundColor="white";	
+		this.style.borderLeftColor="white";	
+	};
+}
+
 
 
 
@@ -61,3 +75,5 @@ border-left-color:#f4f4f4; */
 alert("html_w："+html_width+"；html_h："+html_height); */
 
 //document.location.reload();//刷新当前页面  
+
+//alert(languageList[i].innerHTML);    //setTimeout(alert(languageList[i].innerHTML),1000);
