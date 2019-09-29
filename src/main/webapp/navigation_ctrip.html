@@ -91,7 +91,98 @@
 	</div>
 	</li>
 </ul>
-
+<ul class="nav-bar-set">
+<li class="set-list set-logIn" id="nav-bar-set-login" style="display:none">
+<a class="person-text" onclick="DoLogin()" style="cursor:pointer;"><span class="set-text"><span class="member-name" name="nav-bar-mname">您好</span>，请登录 </span></a>
+</li>
+<li class="set-list" id="nav-bar-set-reg" style="display:none">
+<a class="person-text nav-per" href="https://passport.ctrip.com/user/reg/home "><span class="set-text"> 免费注册 </span></a>
+</li>
+<li class="set-list myctrip-name" name="cui-nav-bar-set-list" id="nav-bar-set-myctrip-name" style="display:none">
+<a href="https://my.ctrip.com/home/myinfo.aspx#ctm_ref=ssc_hp_myctrip_a" class="person-text nav-myctrip"><span class="set-text"><span class="member-name" name="nav-bar-d-info">普通会员</span><b class="n-arrow"></b></span></a>
+<ul class="per-drowndrop" style="display: none;" id="nav-bar-set-my-info">
+<li class="my-img">
+<a rel="nofollow" href="https://sinfo.ctrip.com/MyInfo/AccountCenter/UserInfoUpdate.aspx"><img name="nav-bar-d-info" src="https://pic.c-ctrip.com/platform/online/home/ico_deafult.png"></a>
+</li>
+<li class="my-data">
+<p class="integral" name="nav-bar-d-info" rel="nofollow">积分：<a href="https://sinfo.ctrip.com/MyInfo/AccountCenter/MineMileage.aspx ">0</a>
+</p>
+<p class="member-grade" name="nav-bar-d-info">普通会员<a style="display:none">领福利</a>
+</p>
+</li>
+<li class="sign-out">
+<a rel="nofollow" href="https://passport.ctrip.com/user/logout ">退出</a>
+</li>
+</ul>
+</li>
+<li class="set-list set-infor">
+<i class="infor-notice"></i><a class="infor-num" id="nav-bar-set-msgnum" rel="nofollow">消息<span>0</span></a>
+</li>
+<li class="set-list set-myctrip-list" name="cui-nav-bar-set-list"> 
+<a class="person-text nav-myctrip" href="https://my.ctrip.com/home/myinfo.aspx#ctm_ref=ssc_hp_myctrip_a "><span class="set-text"> 我的携程 <b class="n-arrow"></b></span></a>
+<ul class="nav-drowndrop" style="display: none;">
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/favorite/myfav#ctm_ref=ssc_hp_myctrip_collect_a ">我的收藏 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://smarket.ctrip.com/Promocode/zh-cn/Promocode.aspx#ctm_ref=ssc_hp_myctrip_integral_a ">我的优惠券 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/Home/Passenger/PassengerList.aspx#ctm_ref=ssc_hp_myctrip_info_a ">常用信息 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://secure.ctrip.com/webwallet/index#ctm_ref=ssc_hp_myctrip_wallet_a ">我的钱包 </a>
+</li>
+</ul>
+</li>
+<li class="set-list set-myorder-list" name="cui-nav-bar-set-list"> 
+<a class="person-text nav-myctrip" rel="nofollow" href="https://my.ctrip.com/home/Order/AllOrder.aspx#ctm_ref=ssc_hp_myctrip_allorders_a "><span class="set-text"> 我的订单 <b class="n-arrow"></b></span></a>
+<ul class="nav-drowndrop drowndrop-order" style="display: none;">
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/Home/Order/FlightOrderList.aspx#ctm_ref=ssc_hp_myctrip_flightorders_a ">机票+相关订单 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/Home/Order/HotelOrderList.aspx#ctm_ref=ssc_hp_myctrip_hotelorders_a ">酒店订单 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/Home/Order/PkgOrderList.aspx#ctm_ref=ssc_hp_myctrip_tourorders_a ">旅游订单 </a>
+</li>
+<li>
+<a rel="nofollow" href="https://my.ctrip.com/Home/Order/RailwayOrderList.aspx#ctm_ref=ssc_hp_myctrip_trainorders_a ">火车票订单 </a>
+</li>
+<li>
+<a href="https://my.ctrip.com/home/Order/AllOrder.aspx#ctm_ref=ssc_hp_myctrip_allorders_a ">全部订单 </a>
+</li>
+<li>
+<a class="phone-line" href="https://passport.ctrip.com/user/member/fastOrder#ctm_ref=ssc_hp_myctrip_phoneorders_a ">手机号查订单 </a>
+</li>
+</ul>
+</li>
+<li class="set-list">
+<a target="_blank" class="person-text nav-per" href="http://kefu.ctrip.com"><span class="set-text"> 客服中心 </span></a>
+</li>
+<li class="set-list set-phone" name="cui-nav-bar-set-list">
+<a href="#" class="person-text nav-myctrip"><span class="set-text"><i class="ico_app"></i></span></a>
+<ul class="phone-drowndrop" style="display: none;">
+<li class="ico_code">
+<img src="//pic.c-ctrip.com/platform/online/home/er_ctrip_app.jpg" alt=""><p>手机扫码快速下载</p>
+</li>
+<li class="ctrip-app">
+<a href="http://app.ctrip.com">携程旅行手机版</a><i class="arrow-right"></i>
+</li>
+</ul>
+</li>
+<li class="set-list set-wechat" name="cui-nav-bar-set-list"> 
+<a href="#" class="person-text nav-myctrip"><span class="set-text"><i class="ico_wechat"></i></span></a>
+<ul class="wechat-drowndrop" style="display: none;">
+<li class="ico_code">
+<img src="//pic.c-ctrip.com/platform/online/home/er_ctrip_wechat.jpg" alt=""><p>携程订阅号：helloctrip</p>
+<p class="nth2">扫一扫，<span>领旅行福利</span>
+</p>
+</li>
+</ul>
+</li>
+</ul>
 
 
 

@@ -245,8 +245,16 @@ a#ctrip_gre{
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Greek.jpg');			
 }
-
-
+/*元素ul.nav-bar-set。注：导航栏靠右部分，从“您好，请登录”处开始*/
+ul.nav-bar-set{
+			position: absolute;
+			margin:0px;
+			top:0px;
+			left:583px;
+			width:613px;
+			height:38px;
+			background-color:red;
+}
 
 
 
