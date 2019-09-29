@@ -24,8 +24,14 @@ for (var i=0;i<languageList.length;i++){
 	};
 }
 
-
-
+//设置导航栏元素li#nav-bar-set-reg，唯一子元素a.person-text nav-per，innerHTML="免费注册"。鼠标触发事件如下：
+var navBarSetReg=document.querySelector("li#nav-bar-set-reg a");
+navBarSetReg.onmousemove=function(){
+		this.style.color="#0066cc";
+};
+navBarSetReg.onmouseout=function(){
+		this.style.color="#333";
+};
 
 
 
