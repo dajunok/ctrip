@@ -276,6 +276,79 @@ ul.nav-bar-set{
 			height:38px;
 			line-height:38px;
 }
+/*元素li>i.infor-notice 作为分隔竖线使用，即【消息】前面的竖线。包含块：ul.nav-bar-set*/
+.infor-notice {
+			position: absolute;
+			margin-left:16px;
+			top:0px;
+			left:136px;
+			width:15px;
+			height:38px;
+			line-height:38px;
+			background-image:url('http://localhost:8080/ctrip/image/vLine.png'); 	
+			background-size:15px,15px;
+			background-repeat:no-repeat;
+			background-position:left center;
+}
+/*元素a.infor-num，innerHTML="消息"。包含块：ul.nav-bar-set*/
+.infor-num{
+			position: absolute;
+			margin-left:10px;
+			padding-left:17px;
+			top:0px;
+			left:167px;
+			width:24px;
+			height:38px;
+			line-height:38px;
+			background-image:url('http://localhost:8080/ctrip/image/envelope.png'); 	
+			background-size:15px,15px;
+			background-repeat:no-repeat;
+			background-position:left center;
+			
+}
+/*消息数量元素a.infor-num >span，innerHTML="0"即。包含块：a.infor-num*/
+.infor-num  span{
+			position: absolute;
+			padding-left:17px;
+			padding-right:15px;
+			top:0px;
+			left:34px;
+			width:auto;
+			height:38px;
+			line-height:38px;
+			background-image:url('http://localhost:8080/ctrip/image/vLine.png'); 	
+			background-size:15px,15px;
+			background-repeat:no-repeat;
+			background-position:right center;
+			color:red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
