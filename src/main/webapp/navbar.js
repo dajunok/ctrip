@@ -35,12 +35,11 @@ navBarSetReg.onmouseout=function(){
 
 //设置导航栏元素a.infor-num >span，即消息。如果消息数量为0就不显示。
 var eInforNum=document.querySelector("a.infor-num span"); //获取消息数量元素
-eInforNum.style.color=green;
 var num=parseInt(eInforNum.innerHTML);
 if (num==0){
 	eInforNum.innerHTML="";
 } else{
-	eInforNum.style.color=green;
+	eInforNum.style.color="red"  ;
 }
 
 

@@ -1,5 +1,5 @@
 @charset "utf-8";
-ul li{list-style:none;}    /*È¥µôÁĞ±íÇ°ÃæµÄÏîÄ¿·ûºÅ*/
+ul li{list-style:none;}    /*å»æ‰åˆ—è¡¨å‰é¢çš„é¡¹ç›®ç¬¦å·*/
 a{ 
 	text-decoration:none; 
 	color: #333;      /*#333*/
@@ -10,13 +10,13 @@ body {
     background-color: #ffffff;
 	margin:0px;
 }
-/*µ¼º½À¸ÄÚÈİdiv.nav-bar-cont¿éÔªËØ*/
+/*å¯¼èˆªæ å†…å®¹div.nav-bar-contå—å…ƒç´ */
 .nav-bar-cont {	position: absolute;
 				width:1196px;
 				height:38px;
 				background-color:#f4f4f4;				
 } 
-/*ÔªËØdiv.slogan="ÈÃÂÃĞĞ¸üĞÒ¸£"*/				
+/*å…ƒç´ div.slogan="è®©æ—…è¡Œæ›´å¹¸ç¦"*/				
 div.slogan {	position: absolute;
 			left:0px;
 			width:90px;
@@ -25,7 +25,7 @@ div.slogan {	position: absolute;
 			text-align: center;
 			background-color:#f4f4f4;  /*#f4f4f4*/
 }
-/*a.selectedÔªËØ£¬innerHTML="language"  °üº¬¿é£ºdiv.nav-bar-cont¡££¨½«ĞĞÄÚÔªËØa×ª»»³É¿é¼¶ÔªËØÔÙ½øĞĞ¶¨Î»£©ÀûÓÃ¸ß¶ÈheightÓëĞĞ¸ßline-heightÏàÍ¬½â¾öÎÄ±¾¾ÓÖĞÎÊÌâ£¬vertical-align: middle; */
+/*a.selectedå…ƒç´ ï¼ŒinnerHTML="language"  åŒ…å«å—ï¼šdiv.nav-bar-contã€‚ï¼ˆå°†è¡Œå†…å…ƒç´ aè½¬æ¢æˆå—çº§å…ƒç´ å†è¿›è¡Œå®šä½ï¼‰åˆ©ç”¨é«˜åº¦heightä¸è¡Œé«˜line-heightç›¸åŒè§£å†³æ–‡æœ¬å±…ä¸­é—®é¢˜ï¼Œvertical-align: middle; */
 .selected{	display:block;
 			position: absolute;
 			top:0px;
@@ -43,28 +43,28 @@ div.slogan {	position: absolute;
 			padding-left:23px;
 			padding-right:23px;
 			text-align: center;
-			border-left-style:solid;    /*ÉèÖÃ±ß¿ò*/
+			border-left-style:solid;    /*è®¾ç½®è¾¹æ¡†*/
 			border-left-color:#f4f4f4;
 			border-left-width:12px;
 			border-right-style:solid;    
 			border-right-color:#f4f4f4;
 			border-right-width:12px;
-			/*box-shadow: 2px 2px 5px 1px #888888;   /*ÉèÖÃÒõÓ°*/
+			/*box-shadow: 2px 2px 5px 1px #888888;   /*è®¾ç½®é˜´å½±*/
 			z-index:9997;
 }
-/*ÔªËØaµÄ¶àÀàĞÎÊ½class="selected language_current"*/
+/*å…ƒç´ açš„å¤šç±»å½¢å¼class="selected language_current"*/
 .language_current{
 			background: white; 
 			border-left-color:white;
 			border-right-color:white;
-			box-shadow: 2px 2px 5px 1px #888888;   /*ÉèÖÃÒõÓ°*/
+			box-shadow: 2px 2px 5px 1px #888888;   /*è®¾ç½®é˜´å½±*/
 			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Upward.png');
 			background-size:18px,18px;
 			background-repeat:no-repeat,no-repeat;
 			background-position:left center,right center;
 			margin-left:0px;
 }
-/* ÔªËØdiv."language_wrap drowndrop"  °üº¬¿é£ºdiv.nav-bar-cont*/
+/* å…ƒç´ div."language_wrap drowndrop"  åŒ…å«å—ï¼šdiv.nav-bar-cont*/
 div.language_wrap{
 			position: absolute;
 			top:38px;
@@ -72,10 +72,10 @@ div.language_wrap{
 			width:610px;
 			height:302px;
 			background: white;
-			box-shadow: 2px 2px 5px 1px #888888;   /*ÉèÖÃÒõÓ°*/	
+			box-shadow: 2px 2px 5px 1px #888888;   /*è®¾ç½®é˜´å½±*/	
 			z-index:9998;
 }
-/*ÔªËØul.language_list ÓÃÓÚÕÚ¸Ça.selectedÔªËØÓëdiv.language_wrapÔªËØÏà½»²¿·Ö¡£°üº¬¿é£ºdiv.language_wrap*/
+/*å…ƒç´ ul.language_list ç”¨äºé®ç›–a.selectedå…ƒç´ ä¸div.language_wrapå…ƒç´ ç›¸äº¤éƒ¨åˆ†ã€‚åŒ…å«å—ï¼šdiv.language_wrap*/
 ul.language_list{
 			position: absolute;
 			top:-4px;
@@ -85,7 +85,7 @@ ul.language_list{
 			background:white;
 			z-index:9999;
 }
-/*ÓïÑÔÁĞ±íÔªËØul.language_list×ÓÔªËØli¹«¹²ÊôĞÔ*/
+/*è¯­è¨€åˆ—è¡¨å…ƒç´ ul.language_listå­å…ƒç´ liå…¬å…±å±æ€§*/
 ul.language_list li a{
 			position: absolute;
 			width:159px;
@@ -96,156 +96,156 @@ ul.language_list li a{
 			background-repeat:no-repeat;
 			background-position:left center;		
 			padding-left:25px;
-			border-left-style:solid;    /*ÉèÖÃ±ß¿ò*/
+			border-left-style:solid;    /*è®¾ç½®è¾¹æ¡†*/
 			border-left-color:white;
 			border-left-width:8px;
 	
 }
-/*ÔªËØa#ctrip_cn£¬innerHTML="¼òÌåÖĞÎÄ"*/
+/*å…ƒç´ a#ctrip_cnï¼ŒinnerHTML="ç®€ä½“ä¸­æ–‡"*/
 #ctrip_cn{			
 			top:10px;
 			left:13px;			 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/china_Flag.jpg');			
 }
-/*ÔªËØa#ctrip_eng£¬innerHTML="English (United States)"*/
+/*å…ƒç´ a#ctrip_engï¼ŒinnerHTML="English (United States)"*/
 #ctrip_eng{			
 			top:10px;
 			left:205px;   	
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/USA_Flag.jpg');			
 }
-/*ÔªËØa#ctrip_uk£¬innerHTML="English (United Kingdom)"*/
+/*å…ƒç´ a#ctrip_ukï¼ŒinnerHTML="English (United Kingdom)"*/
 #ctrip_uk{			
 			top:10px;
 			left:397px;   
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/uk_Flag.jpg');	
 }
-/*ÔªËØa#ctrip_egy£¬innerHTML="°£¼°Óï£¨Egypt£©*/
+/*å…ƒç´ a#ctrip_egyï¼ŒinnerHTML="åŸƒåŠè¯­ï¼ˆEgyptï¼‰*/
 #ctrip_egy{			
 			top:45px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Egypt.jpg');			
 }
-/*ÔªËØa#ctrip_ire£¬innerHTML="°®¶ûÀ¼Óï£¨Ireland£©*/
+/*å…ƒç´ a#ctrip_ireï¼ŒinnerHTML="çˆ±å°”å…°è¯­ï¼ˆIrelandï¼‰*/
 #ctrip_ire{			
 			top:45px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Ireland.jpg');			
 }
-/*ÔªËØa#ctrip_aus£¬innerHTML="°Ä´óÀûÑÇÓï£¨Australia£©*/
+/*å…ƒç´ a#ctrip_ausï¼ŒinnerHTML="æ¾³å¤§åˆ©äºšè¯­ï¼ˆAustraliaï¼‰*/
 #ctrip_aus{			
 			top:45px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Australia.jpg');			
 }
-/*ÔªËØa#ctrip_jap£¬innerHTML="ÈÕÓï£¨Japanese£©*/
+/*å…ƒç´ a#ctrip_japï¼ŒinnerHTML="æ—¥è¯­ï¼ˆJapaneseï¼‰*/
 #ctrip_jap{			
 			top:82px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Japanese.jpg');			
 }
-/*ÔªËØa#ctrip_bra£¬innerHTML="°ÍÎ÷ (Brazil)"*/
+/*å…ƒç´ a#ctrip_braï¼ŒinnerHTML="å·´è¥¿ (Brazil)"*/
 #ctrip_bra{			
 			top:82px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Brazil.jpg');			
 }
-/*ÔªËØa#ctrip_kor£¬innerHTML="³¯ÏÊ (Korea)"*/
+/*å…ƒç´ a#ctrip_korï¼ŒinnerHTML="æœé²œ (Korea)"*/
 #ctrip_kor{			
 			top:82px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Korea.jpg');			
 }
-/*ÔªËØa#ctrip_den£¬innerHTML="µ¤Âó£¨Denmark"*/
+/*å…ƒç´ a#ctrip_denï¼ŒinnerHTML="ä¸¹éº¦ï¼ˆDenmark"*/
 #ctrip_den{			
 			top:119px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Denmark.jpg');			
 }
-/*ÔªËØa#ctrip_ger£¬innerHTML="µÂÓï£¨German£©"*/
+/*å…ƒç´ a#ctrip_gerï¼ŒinnerHTML="å¾·è¯­ï¼ˆGermanï¼‰"*/
 #ctrip_ger{			
 			top:119px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/German.jpg');			
 }
-/*ÔªËØa#ctrip_rus£¬innerHTML="¶íÓï£¨Russian£©"*/
+/*å…ƒç´ a#ctrip_rusï¼ŒinnerHTML="ä¿„è¯­ï¼ˆRussianï¼‰"*/
 #ctrip_rus{			
 			top:119px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Russian.jpg');			
 }
-/*ÔªËØa#ctrip_fre£¬innerHTML="·¨Óï£¨French£©"*/
+/*å…ƒç´ a#ctrip_freï¼ŒinnerHTML="æ³•è¯­ï¼ˆFrenchï¼‰"*/
 #ctrip_fre{			
 			top:156px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/French.jpg');			
 }
-/*ÔªËØa#ctrip_cub£¬innerHTML="¹Å°ÍÓï£¨Cuban£©"*/
+/*å…ƒç´ a#ctrip_cubï¼ŒinnerHTML="å¤å·´è¯­ï¼ˆCubanï¼‰"*/
 #ctrip_cub{			
 			top:156px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Cuban.jpg');			
 }
-/*ÔªËØa#ctrip_korn£¬innerHTML="º«Óï£¨Korean£©"*/
+/*å…ƒç´ a#ctrip_kornï¼ŒinnerHTML="éŸ©è¯­ï¼ˆKoreanï¼‰"*/
 #ctrip_korn{			
 			top:156px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Korean.jpg');			
 }
-/*ÔªËØa#ctrip_dut£¬innerHTML="ºÉÀ¼Óï£¨Dutch£©"*/
+/*å…ƒç´ a#ctrip_dutï¼ŒinnerHTML="è·å…°è¯­ï¼ˆDutchï¼‰"*/
 #ctrip_dut{			
 			top:193px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Dutch.jpg');			
 }
-/*ÔªËØa#ctrip_can£¬innerHTML="¼ÓÄÃ´ó£¨Canada English£©"*/
+/*å…ƒç´ a#ctrip_canï¼ŒinnerHTML="åŠ æ‹¿å¤§ï¼ˆCanada Englishï¼‰"*/
 #ctrip_can{			
 			top:193px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Canada.jpg');			
 }
-/*ÔªËØa#ctrip_mya£¬innerHTML="ÃåµéMyanmar£¨Burmese£©"*/
+/*å…ƒç´ a#ctrip_myaï¼ŒinnerHTML="ç¼…ç”¸Myanmarï¼ˆBurmeseï¼‰"*/
 #ctrip_mya{			
 			top:193px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Myanmar.jpg');			
 }
-/*ÔªËØa#ctrip_mex£¬innerHTML="Ä«Î÷¸çÓï£¨Mexico£©"*/
+/*å…ƒç´ a#ctrip_mexï¼ŒinnerHTML="å¢¨è¥¿å“¥è¯­ï¼ˆMexicoï¼‰"*/
 #ctrip_mex{			
 			top:230px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Mexico.jpg');			
 }
-/*ÔªËØa#ctrip_sou£¬innerHTML="ÄÏ·ÇSouthAfrica(English)"*/
+/*å…ƒç´ a#ctrip_souï¼ŒinnerHTML="å—éSouthAfrica(English)"*/
 #ctrip_sou{			
 			top:230px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/SouthAfrica.jpg');			
 }
-/*ÔªËØa#ctrip_swe£¬innerHTML="ÈğµäÓï£¨Sweden£©"*/
+/*å…ƒç´ a#ctrip_sweï¼ŒinnerHTML="ç‘å…¸è¯­ï¼ˆSwedenï¼‰"*/
 #ctrip_swe{			
 			top:230px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Sweden.jpg');			
 }
-/*ÔªËØa#ctrip_swi£¬innerHTML="ÈğÊ¿Óï£¨Switzerland£©"*/
+/*å…ƒç´ a#ctrip_swiï¼ŒinnerHTML="ç‘å£«è¯­ï¼ˆSwitzerlandï¼‰"*/
 #ctrip_swi{			
 			top:267px;
 			left:13px;	  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Switzerland.jpg');			
 }
-/*ÔªËØa#ctrip_spa£¬innerHTML="Î÷°àÑÀÓï£¨Spanish£©"*/
+/*å…ƒç´ a#ctrip_spaï¼ŒinnerHTML="è¥¿ç­ç‰™è¯­ï¼ˆSpanishï¼‰"*/
 #ctrip_spa{			
 			top:267px;
 			left:205px;  
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Spanish.jpg');			
 }
-/*ÔªËØa#ctrip_gre£¬innerHTML="Ï£À°Óï£¨Greek£©"*/
+/*å…ƒç´ a#ctrip_greï¼ŒinnerHTML="å¸Œè…Šè¯­ï¼ˆGreekï¼‰"*/
 #ctrip_gre{			
 			top:267px;
 			left:397px; 
 			background-image:url('http://localhost:8080/ctrip/image/nationalFlag/Greek.jpg');			
 }
-/*ÔªËØul.nav-bar-set¡£×¢£ºµ¼º½À¸¿¿ÓÒ²¿·Ö£¬´Ó¡°ÄúºÃ£¬ÇëµÇÂ¼¡±´¦¿ªÊ¼*/
+/*å…ƒç´ ul.nav-bar-setã€‚æ³¨ï¼šå¯¼èˆªæ é å³éƒ¨åˆ†ï¼Œä»â€œæ‚¨å¥½ï¼Œè¯·ç™»å½•â€å¤„å¼€å§‹*/
 ul.nav-bar-set{
 			position: absolute;
 			margin:0px;
@@ -255,7 +255,7 @@ ul.nav-bar-set{
 			height:38px;
 			background-color:#f4f4f4;
 }
-/*ÔªËØli#nav-bar-set-login£¬Î¨Ò»×ÓÔªËØa.person-text£¬innerHTML="ÄúºÃ£¬ÇëµÇÂ¼"¡£°üº¬¿é£ºul.nav-bar-set*/
+/*å…ƒç´ li#nav-bar-set-loginï¼Œå”¯ä¸€å­å…ƒç´ a.person-textï¼ŒinnerHTML="æ‚¨å¥½ï¼Œè¯·ç™»å½•"ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
 #nav-bar-set-login  a{
 			position: absolute;
 			top:0px;
@@ -265,7 +265,7 @@ ul.nav-bar-set{
 			line-height:38px;
 			color:#0066cc;
 }
-/*ÔªËØli#nav-bar-set-reg£¬Î¨Ò»×ÓÔªËØa.person-text nav-per£¬innerHTML="Ãâ·Ñ×¢²á"¡£°üº¬¿é£ºul.nav-bar-set*/
+/*å…ƒç´ li#nav-bar-set-regï¼Œå”¯ä¸€å­å…ƒç´ a.person-text nav-perï¼ŒinnerHTML="å…è´¹æ³¨å†Œ"ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
 #nav-bar-set-reg  a.person-text.nav-per{
 			position: absolute;
 			margin-left:16px;
@@ -276,7 +276,7 @@ ul.nav-bar-set{
 			height:38px;
 			line-height:38px;
 }
-/*ÔªËØli>i.infor-notice ×÷Îª·Ö¸ôÊúÏßÊ¹ÓÃ£¬¼´¡¾ÏûÏ¢¡¿Ç°ÃæµÄÊúÏß¡£°üº¬¿é£ºul.nav-bar-set*/
+/*å…ƒç´ li>i.infor-notice ä½œä¸ºåˆ†éš”ç«–çº¿ä½¿ç”¨ï¼Œå³ã€æ¶ˆæ¯ã€‘å‰é¢çš„ç«–çº¿ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
 .infor-notice {
 			position: absolute;
 			margin-left:16px;
@@ -290,7 +290,7 @@ ul.nav-bar-set{
 			background-repeat:no-repeat;
 			background-position:left center;
 }
-/*ÔªËØa.infor-num£¬innerHTML="ÏûÏ¢"¡£°üº¬¿é£ºul.nav-bar-set*/
+/*å…ƒç´ a.infor-numï¼ŒinnerHTML="æ¶ˆæ¯"ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
 .infor-num{
 			position: absolute;
 			margin-left:10px;
@@ -306,7 +306,7 @@ ul.nav-bar-set{
 			background-position:left center;
 			
 }
-/*ÏûÏ¢ÊıÁ¿ÔªËØa.infor-num >span£¬innerHTML="0"¼´¡£°üº¬¿é£ºa.infor-num*/
+/*æ¶ˆæ¯æ•°é‡å…ƒç´ a.infor-num >spanï¼ŒinnerHTML="0"å³ã€‚åŒ…å«å—ï¼ša.infor-num*/
 .infor-num  span{
 			position: absolute;
 			padding-left:17px;
@@ -320,11 +320,35 @@ ul.nav-bar-set{
 			background-size:15px,15px;
 			background-repeat:no-repeat;
 			background-position:right center;
-			color:red;
 }
-
-
-
+/*å…ƒç´ a.person-text.nav-myctripï¼ŒinnerHTML="æˆ‘çš„æºç¨‹"ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
+li.set-list.set-myctrip-list a.person-text.nav-myctrip{
+			position: absolute;
+			margin-left:34px;
+			padding-right:15px;
+			top:0px;
+			left:221px;
+			width:70px;
+			height:38px;
+			line-height:38px;
+			background-image:url('http://localhost:8080/ctrip/image/vLine.png'); 	
+			background-size:15px,15px;
+			background-repeat:no-repeat;
+			background-position:right center;
+}
+/*è¾…åŠ©å…ƒç´ ä¸‰è§’å½¢ã€‚å…ƒç´ a.person-text.nav-myctripï¼ŒinnerHTML="æˆ‘çš„æºç¨‹"å³è¾¹çš„ä¸‰è§’å½¢ã€‚åŒ…å«å—ï¼šul.nav-bar-set*/
+li.set-list.set-myctrip-list a.person-text.nav-myctrip .n-arrow{
+			position: absolute;
+			top:0px;
+			left:40px;
+			width:36px;
+			height:38px;
+			line-height:38px;
+			background-image:url('http://localhost:8080/ctrip/image/triangle_Downward.png'); 	
+			background-size:18px,18px;
+			background-repeat:no-repeat;
+			background-position:center;
+}
 
 
 
