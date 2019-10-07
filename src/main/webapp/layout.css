@@ -324,23 +324,25 @@ ul.nav-bar-set{
 /*元素a.person-text.nav-myctrip，innerHTML="我的携程"。包含块：ul.nav-bar-set*/
 li.set-list.set-myctrip-list a.person-text.nav-myctrip{
 			position: absolute;
-			margin-left:34px;
+			margin-left:22px;
 			padding-right:15px;
+			padding-left:10px;
 			top:0px;
 			left:221px;
-			width:70px;
+			width:65px;
 			height:38px;
 			line-height:38px;
-			background-image:url('http://localhost:8080/ctrip/image/vLine.png'); 	
+			/* background-image:url('http://localhost:8080/ctrip/image/vLine.png'); 	
 			background-size:15px,15px;
-			background-repeat:no-repeat;
+			background-repeat:no-repeat; */
 			background-position:right center;
+			background:white;  
 }
 /*辅助元素三角形。元素a.person-text.nav-myctrip，innerHTML="我的携程"右边的三角形。包含块：ul.nav-bar-set*/
 li.set-list.set-myctrip-list a.person-text.nav-myctrip .n-arrow{
 			position: absolute;
 			top:0px;
-			left:40px;
+			left:50px;
 			width:36px;
 			height:38px;
 			line-height:38px;
