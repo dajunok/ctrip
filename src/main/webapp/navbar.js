@@ -14,11 +14,11 @@ nav.style.borderRightWidth=(html_width-nav_width)/2+"px";
 var languageList=document.querySelectorAll("ul.language_list li a");
 for (var i=0;i<languageList.length;i++){
 	//alert(languageList[i].innerHTML);
-	languageList[i].onmouseover=function(){
+	languageList[i].onmouseover=function(){     //鼠标移入时
 		this.style.backgroundColor="#f4f4f4";	
 		this.style.borderLeftColor="#f4f4f4";	
 	};
-	languageList[i].onmouseout=function(){
+	languageList[i].onmouseout=function(){     //鼠标移出时
 		this.style.backgroundColor="white";	
 		this.style.borderLeftColor="white";	
 	};
@@ -43,9 +43,26 @@ if (num==0){
 }
 
 
-
-
-
+//设置导航栏元素li.set-list.set--list a.person-text.nav-myctrip，innerHTML="我的携程"。鼠标触发事件如下：
+var navMyctrip=document.querySelector("li.set-list.set-myctrip-list");
+navMyctrip.onmousemove=function(){   //鼠标移入时
+	this.className="set-list set-myctrip-list current";	
+	this.lastElementChild.style.display="block";
+};
+navMyctrip.onmouseout=function(){	//鼠标移出时
+	this.className="set-list set-myctrip-list";	
+	this.lastElementChild.style.display="none";
+};
+//"我的携程"下拉框子项鼠标触发事件如下：
+var myCtripList=document.querySelectorAll("ul.nav-drowndrop li a");
+for (var i=0;i<myCtripList.length;i++){
+	myCtripList[i].onmouseover=function(){     //鼠标移入时
+		this.style.backgroundColor="#f4f4f4";	
+	};
+	myCtripList[i].onmouseout=function(){     //鼠标移出时
+		this.style.backgroundColor="white";	
+	};
+}
 
 
 
