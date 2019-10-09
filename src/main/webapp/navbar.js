@@ -64,6 +64,16 @@ for (var i=0;i<myCtripList.length;i++){
 	};
 }
 
+//设置导航栏元素li.set-list.set-myorder-list a.person-text.nav-myctrip，innerHTML="我的订单"。鼠标触发事件如下：
+var navMyorder=document.querySelector("li.set-list.set-myorder-list");
+navMyorder.onmousemove=function(){   //鼠标移入时
+	this.className="set-list set-myorder-list current";	
+	this.lastElementChild.style.display="block";
+};
+navMyorder.onmouseout=function(){	//鼠标移出时
+	this.className="set-list set-myorder-list";	
+	this.lastElementChild.style.display="none";
+};
 
 
 
@@ -75,7 +85,13 @@ for (var i=0;i<myCtripList.length;i++){
 
 
 
-/* var nav_width=window.innerWidth;  							//获取浏览器窗口宽度：1640
+
+
+/* 
+var csElement=document.querySelector("li.set-list.set-myorder-list a.person-text.nav-myctrip");
+alert(csElement.innerHTML);
+
+var nav_width=window.innerWidth;  							//获取浏览器窗口宽度：1640
 var nav_height=window.innerHeight;							//获取浏览器窗口高度：912
 var html_width=document.documentElement.clientWidth;        //HTML所在窗口宽度：1440 *  0.08`
 var html_height=document.documentElement.clientHeight;    	//HTML所在窗口高度：802
