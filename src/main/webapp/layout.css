@@ -397,7 +397,7 @@ ul.nav-drowndrop li:first-of-type{
 			background:white; 
 }
 /*元素li.myXiecheng01，innerHTML="我的收藏"。包含块：ul.nav-drowndrop*/
-#myXiecheng01{
+ul.nav-drowndrop li:first-of-type a{
 			position: absolute;
 			top:5px;
 			padding-left:10px;
@@ -407,7 +407,7 @@ ul.nav-drowndrop li:first-of-type{
 			background:white; 
 }
 /*元素li.myXiecheng02，innerHTML="我的优惠券"。包含块：ul.nav-drowndrop*/
-#myXiecheng02{
+ul.nav-drowndrop li:nth-of-type(2) a{
 			position: absolute;
 			top:33px;
 			left:0px;
@@ -418,7 +418,7 @@ ul.nav-drowndrop li:first-of-type{
 			background:white; 
 }
 /*元素li.myXiecheng03，innerHTML="常用信息"。包含块：ul.nav-drowndrop*/
-#myXiecheng03{
+ul.nav-drowndrop li:nth-of-type(3) a{
 			position: absolute;
 			top:63px;
 			left:0px;
@@ -429,7 +429,7 @@ ul.nav-drowndrop li:first-of-type{
 			background:white; 
 }
 /*元素li.myXiecheng04，innerHTML="我的钱包"。包含块：ul.nav-drowndrop*/
-#myXiecheng04{
+ul.nav-drowndrop li:nth-of-type(4) a{
 			position: absolute;
 			top:93px;
 			left:0px;
@@ -489,10 +489,11 @@ li.set-list.set-myorder-list.current a.person-text.nav-myctrip .n-arrow{
 /*元素ul.nav-drowndrop.drowndrop-order，"我的订单"下拉框。包含块：ul.nav-bar-set*/
 ul.nav-drowndrop.drowndrop-order{
 			position: absolute;
+			padding-left:0px;
 			top:38px;
 			left:329px;
-			width:90px;
-			height:180px;
+			width:115px;
+			height:186px;
 			background:white;  
 			border-style:solid;    /* 设置边框 */
 			border-color:#b7b5b5;
@@ -501,7 +502,7 @@ ul.nav-drowndrop.drowndrop-order{
 			z-index:9999;
 }
 /*"我的订单"下拉框下第一个元素li，用作辅助元素，遮盖下拉框上面的阴影线。包含块：ul.nav-drowndrop.drowndrop-order*/
-ul.nav-drowndrop.drowndrop-order li:first-of-type{
+ul.nav-drowndrop.drowndrop-order > li:first-of-type{
 			position: absolute;
 			top:-2px;
 			left:0px;
@@ -509,17 +510,98 @@ ul.nav-drowndrop.drowndrop-order li:first-of-type{
 			height:3px;
 			background:white; 
 }
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="机票+相关订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:first-of-type a{
+			position: absolute;
+			top:5px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="酒店订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:nth-of-type(2) a{
+			position: absolute;
+			top:35px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="旅游订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:nth-of-type(3) a{
+			position: absolute;
+			top:65px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="火车票订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:nth-of-type(4) a{
+			position: absolute;
+			top:95px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="全部订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:nth-of-type(5) a{
+			position: absolute;
+			top:125px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*辅助元素（水平分隔线），ul.nav-drowndrop.drowndrop-order li:last-of-type，用作"全部订单"与"手机号查订单"之间的分隔线。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:last-of-type{
+			position: absolute;
+			top:155px;
+			margin-left:17px;			
+			left:0px;
+			width:84px;
+			height:0px;
+			border-bottom: 1px solid #b7b5b5;		/*1px solid rgba(255, 255, 255, 0.3)*/	
+}
 
-
-
-
-
-
-
-
-
-
-
+/*元素ul.nav-drowndrop.drowndrop-order li a，innerHTML="手机号查订单"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-drowndrop.drowndrop-order > li:last-of-type a{
+			position: absolute;
+			margin-left:0px;	
+			top:1px;
+			left:-17px;
+			padding-left:17px;
+			width:98px;
+			height:30px;
+			line-height:30px;
+			background:white; 
+}
+/*辅助元素（垂直分隔线），ul.nav-bar-set li:nth-of-type(6)，用作"我的订单"与"客服中心"之间的分隔线。。包含块：ul.nav-bar-set*/
+ul.nav-bar-set > li:nth-of-type(6){
+			position: absolute;
+			top:12px;
+			left:423px;
+			width:0px;
+			height:15px;
+			border-left:2px solid #dddddd;
+			z-index:9997;
+}
+/*元素ul.nav-bar-set li:nth-of-type(6) a，innerHTML="客服中心"。包含块：ul.nav-drowndrop.drowndrop-order*/
+ul.nav-bar-set > li:nth-of-type(6) a{
+			position: absolute;
+			margin-left:10px;
+			width:48px;
+			top:-12px;
+			height:38px;
+			line-height:38px;
+}
 
 
 

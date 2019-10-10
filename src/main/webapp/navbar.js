@@ -53,16 +53,7 @@ navMyctrip.onmouseout=function(){	//鼠标移出时
 	this.className="set-list set-myctrip-list";	
 	this.lastElementChild.style.display="none";
 };
-//"我的携程"下拉框子项鼠标触发事件如下：
-var myCtripList=document.querySelectorAll("ul.nav-drowndrop li a");
-for (var i=0;i<myCtripList.length;i++){
-	myCtripList[i].onmouseover=function(){     //鼠标移入时
-		this.style.backgroundColor="#f4f4f4";	
-	};
-	myCtripList[i].onmouseout=function(){     //鼠标移出时
-		this.style.backgroundColor="white";	
-	};
-}
+
 
 //设置导航栏元素li.set-list.set-myorder-list a.person-text.nav-myctrip，innerHTML="我的订单"。鼠标触发事件如下：
 var navMyorder=document.querySelector("li.set-list.set-myorder-list");
@@ -74,6 +65,57 @@ navMyorder.onmouseout=function(){	//鼠标移出时
 	this.className="set-list set-myorder-list";	
 	this.lastElementChild.style.display="none";
 };
+
+//"我的携程"与"我的订单"下拉框子项鼠标触发事件如下：
+var myCtripList=document.querySelectorAll("ul.nav-drowndrop li a");
+for (var i=0;i<myCtripList.length;i++){
+	myCtripList[i].onmouseover=function(){     //鼠标移入时
+		this.style.backgroundColor="#f4f4f4";	
+	};
+	myCtripList[i].onmouseout=function(){     //鼠标移出时
+		this.style.backgroundColor="white";	
+	};
+}
+
+//设置导航栏元素ul.nav-bar-set > li:nth-of-type(6) a，唯一子元素a，innerHTML="客服中心"。鼠标触发事件如下：
+var navBarPerson=document.querySelector("ul.nav-bar-set > li:nth-of-type(6) a");
+navBarPerson.onmousemove=function(){
+		this.style.color="#0066cc";
+};
+navBarPerson.onmouseout=function(){
+		this.style.color="#333";
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
