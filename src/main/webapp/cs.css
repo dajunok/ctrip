@@ -1,0 +1,21 @@
+@charset "UTF-8";
+li{list-style:none;}    /*去掉列表前面的项目符号*/
+i{
+    width: 30px;
+    height: 24px;
+    float: left;
+    background: url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png');
+    margin: 5px 10px 0 0 ;
+}
+.cat1 i{
+    background-position: 8px -8px;
+}
+.cat2 i{
+    background-position: 90px -66px;
+}
+.cat3 i{
+    background-position: 0 -48px;
+}
+.cat4 i{
+    background-position: 0 -72px;
+}

@@ -49,7 +49,7 @@ div.slogan {	position: absolute;
 			border-right-style:solid;    
 			border-right-color:#f4f4f4;
 			border-right-width:12px;
-			/*box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
+			/*box-shadow: 2px 2px 5px 1px #c5c4c4;   /*设置阴影*/
 			z-index:9997;
 }
 /*元素a的多类形式class="selected language_current"*/
@@ -57,7 +57,7 @@ div.slogan {	position: absolute;
 			background: white; 
 			border-left-color:white;
 			border-right-color:white;
-			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/
+			box-shadow: 2px 2px 5px 1px #c5c4c4;   /*设置阴影*/
 			background-image:url('http://localhost:8080/ctrip/image/global.png'),url('http://localhost:8080/ctrip/image/triangle_Upward.png');
 			background-size:18px,18px;
 			background-repeat:no-repeat,no-repeat;
@@ -72,7 +72,7 @@ div.language_wrap{
 			width:610px;
 			height:302px;
 			background: white;
-			box-shadow: 2px 2px 5px 1px #888888;   /*设置阴影*/	
+			box-shadow: 2px 2px 5px 1px #c5c4c4;   /*设置阴影*/	
 			z-index:9998;
 }
 /*元素ul.language_list 用于遮盖a.selected元素与div.language_wrap元素相交部分。包含块：div.language_wrap*/
@@ -344,7 +344,7 @@ li.set-list.set-myctrip-list.current  a.person-text.nav-myctrip{
 			border-right-style:solid;    
 			border-right-color:#b7b5b5;
 			border-right-width:1px;
-			box-shadow: 1px 1px 1px #888888;   /*设置阴影*/ 
+			box-shadow: 1px 1px 1px #c5c4c4;   /*设置阴影*/ 
 			z-index:9998;
 }
 /*辅助元素三角形。元素a.person-text.nav-myctrip，innerHTML="我的携程"右边的三角形（朝下）。包含块：ul.nav-bar-set*/
@@ -384,7 +384,7 @@ ul.nav-drowndrop{
 			border-bottom-style:solid;    
 			border-bottom-color:#b7b5b5;
 			border-bottom-width:1px;
-			box-shadow: 1px 1px 1px #888888;   /* 设置阴影 */
+			box-shadow: 1px 1px 1px #c5c4c4;   /* 设置阴影 */
 			z-index:9999;
 }
 /*"我的携程"下拉框下第一个元素li，用作辅助元素，遮盖下拉框上面的阴影线。包含块：ul.nav-drowndrop*/
@@ -464,7 +464,7 @@ li.set-list.set-myorder-list.current  a.person-text.nav-myctrip{
 			border-right-style:solid;    
 			border-right-color:#b7b5b5;
 			border-right-width:1px;
-			box-shadow: 1px 1px 1px #888888;   /*设置阴影*/ 
+			box-shadow: 1px 1px 1px #c5c4c4;   /*设置阴影*/ 
 }
 /*辅助元素三角形。元素a.person-text.nav-myctrip，innerHTML="我的携程"右边的三角形（朝下）。包含块：ul.nav-bar-set*/
 li.set-list.set-myorder-list a.person-text.nav-myctrip .n-arrow{
@@ -498,7 +498,7 @@ ul.nav-drowndrop.drowndrop-order{
 			border-style:solid;    /* 设置边框 */
 			border-color:#b7b5b5;
 			border-width:1px;
-			box-shadow: 1px 1px 1px #888888;   /* 设置阴影 */
+			box-shadow: 1px 1px 1px #c5c4c4;   /* 设置阴影 */
 			z-index:9999;
 }
 /*"我的订单"下拉框下第一个元素li，用作辅助元素，遮盖下拉框上面的阴影线。包含块：ul.nav-drowndrop.drowndrop-order*/
@@ -583,7 +583,7 @@ ul.nav-drowndrop.drowndrop-order > li:last-of-type a{
 			line-height:30px;
 			background:white; 
 }
-/*辅助元素（垂直分隔线），ul.nav-bar-set li:nth-of-type(6)，用作"我的订单"与"客服中心"之间的分隔线。。包含块：ul.nav-bar-set*/
+/*辅助元素（垂直分隔线），ul.nav-bar-set li:nth-of-type(6)，用作"我的订单"与"客服中心"之间的垂直分隔线。。包含块：ul.nav-bar-set*/
 ul.nav-bar-set > li:nth-of-type(6){
 			position: absolute;
 			top:12px;
@@ -593,7 +593,7 @@ ul.nav-bar-set > li:nth-of-type(6){
 			border-left:2px solid #dddddd;
 			z-index:9997;
 }
-/*元素ul.nav-bar-set li:nth-of-type(6) a，innerHTML="客服中心"。包含块：ul.nav-drowndrop.drowndrop-order*/
+/*元素ul.nav-bar-set li:nth-of-type(6) a，innerHTML="客服中心"。包含块：ul.nav-bar-set li:nth-of-type(6)*/
 ul.nav-bar-set > li:nth-of-type(6) a{
 			position: absolute;
 			margin-left:10px;
@@ -602,14 +602,63 @@ ul.nav-bar-set > li:nth-of-type(6) a{
 			height:38px;
 			line-height:38px;
 }
-
-
-
-
-
-
-
-
+/*辅助元素（垂直分隔线），ul.nav-bar-set li:nth-of-type(7)，"客服中心"右边的垂直分隔线。。包含块：ul.nav-bar-set*/
+ul.nav-bar-set > li:nth-of-type(7){
+			position: absolute;
+			top:12px;
+			left:495px;
+			width:0px;
+			height:15px;
+			border-left:2px solid #dddddd;
+			z-index:9997;
+}
+/*元素ul.nav-bar-set li:nth-of-type(7) a，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
+ul.nav-bar-set > li:nth-of-type(7) a{
+			display:block;
+			position: absolute;
+			top:-12px;
+			margin-left:0px;
+			width:40px;
+			height:38px;
+			border-left-style:solid;    /*设置边框*/ 
+			border-left-color:#b7b5b5;
+			border-left-width:1px;
+			border-right-style:solid;    
+			border-right-color:#b7b5b5;
+			border-right-width:1px;
+			box-shadow: 1px -1px 1px #c5c4c4;   /* 设置阴影 */	
+			background:white;
+			z-index:9999;
+}
+/*元素ul.nav-bar-set li:nth-of-type(7) a i.ico_app，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
+ul.nav-bar-set > li:nth-of-type(7) a  i.ico_app{
+			display:block;
+			position: absolute;
+			top:12px;
+			left:0px;
+			margin-left:5px;
+			width:30px;
+			height:18px;
+			background-image:url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png'); 	/*使用sprite雪碧图图标*/
+			background-repeat:no-repeat;
+			background-position:-90px -68px;	
+}
+/*元素ul.phone-drowndrop，（手机App扫描下载下拉框）。包含块：ul.nav-bar-set li:nth-of-type(7)*/
+ul.phone-drowndrop{
+			position: absolute;
+			padding-left:0px;
+			top:25px;
+			left:-107px;
+			width:147px;
+			height:205px;
+			background:white;  
+			border-style:solid;    /* 设置边框 */
+			border-color:#b7b5b5;
+			border-width:1px;
+			box-shadow: 1px 1px 5px #c5c4c4;   /* 设置阴影 */	
+			z-index:9998;			
+}
+/*元素ul.phone-drowndrop，（手机App扫描下载下拉框）。包含块：ul.phone-drowndrop*/
 
 
 

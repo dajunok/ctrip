@@ -2,7 +2,7 @@
 var nav=document.getElementsByClassName("nav-bar-cont")[0];  
 var nav_width=nav.offsetWidth;
 
-//设置导航栏的边框
+//设置导航栏的边框及内容居中宽度
 nav.style.borderLeftStyle="solid";
 nav.style.borderLeftColor="#f4f4f4";
 nav.style.borderLeftWidth=(html_width-nav_width)/2+"px"; 
