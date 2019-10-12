@@ -97,7 +97,16 @@ navMyMobilDown.onmouseout=function(){	//鼠标移出时
 	this.lastElementChild.style.display="none";
 };
 
-
+//设置导航栏【微信二维码扫描图标】元素li.set-list.set-wechat。鼠标触发事件如下：
+var navWechat=document.querySelector("li.set-list.set-wechat");
+navWechat.onmousemove=function(){   //鼠标移入时
+	this.className="set-list set-wechat current";	
+	this.lastElementChild.style.display="block";
+};
+navWechat.onmouseout=function(){	//鼠标移出时
+	this.className="set-list set-wechat";	
+	this.lastElementChild.style.display="none";
+};
 
 
 

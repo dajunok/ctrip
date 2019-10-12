@@ -613,7 +613,7 @@ ul.nav-bar-set > li:nth-of-type(7){
 			z-index:9997;
 }
 /*元素ul.nav-bar-set li:nth-of-type(7) a，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
-ul.nav-bar-set > li.set-list.set-phone a{    
+ul.nav-bar-set > li.set-list.set-phone >a{    
 			display:block;
 			position: absolute;
 			top:-12px;
@@ -623,7 +623,7 @@ ul.nav-bar-set > li.set-list.set-phone a{
 			z-index:9999;
 }
 /*元素ul.nav-bar-set li:nth-of-type(7) a，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
-ul.nav-bar-set > li.set-list.set-phone.current a{           /*鼠标移入*/
+ul.nav-bar-set > li.set-list.set-phone.current  >a{           /*鼠标移入*/
 			border-left-style:solid;    /*设置边框*/
 			border-left-color:#b7b5b5;
 			border-left-width:1px;
@@ -670,29 +670,139 @@ ul.phone-drowndrop  > li.ico_code img{
 			top:10px;
 			margin-left:15px;
 }
-/*元素ul.phone-drowndrop > li.ico_code，（手机扫码二维码图片）。包含块：ul.phone-drowndrop*/
+/*元素ul.phone-drowndrop > li.ico_code p，innerHTML="手机扫码快速下载"。包含块：ul.phone-drowndrop*/
 ul.phone-drowndrop  > li.ico_code p{
 			position: absolute;
 			top:115px;
 			margin-left:22px;
 }
 /*元素ul.phone-drowndrop  > li.ctrip-app，innerHTML="携程旅行手机版"。包含块：ul.phone-drowndrop*/
-ul.phone-drowndrop  > li.ctrip-app{
+ul.phone-drowndrop > li.ctrip-app {
 			position: absolute;
 			top:155px;
 			left:0px;
-			width:147px;
+			padding-left:22px;
+			width:125px;
 			height:35px;
 			background:#91bbf1;
 }
-/*元素ul.phone-drowndrop  > li.ctrip-app，innerHTML="携程旅行手机版"。包含块：ul.phone-drowndrop*/
-ul.phone-drowndrop  > li.ctrip-app a{			
+/*元素ul.phone-drowndrop  > li.ctrip-app a，innerHTML="携程旅行手机版"。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop > li.ctrip-app  a:first-of-type {
 			display:block;
-			top:10px;
-			left:15px;
-			width:200px;
+			position: absolute;
+			top:0px;
+			width:84px;
 			height:35px;
+			line-height:35px;
+			color:white;
 }
+/*【携程旅行手机版】文本右边的白色大于号图标元素ul.phone-drowndrop  > li.ctrip-app i.arrow-right。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop > li.ctrip-app  i.arrow-right{
+			position: absolute;
+			top:12px;
+			left:106px;
+			width:12px;
+			height:18px;
+			background-image:url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png'); 	/*使用sprite雪碧图图标*/
+			background-repeat:no-repeat;
+			background-position:-72px -10px;	
+}
+/*微信二维码图标元素li.set-list.set-wechat，（该元素用于确定位置）。包含块：ul.nav-bar-set*/
+li.set-list.set-wechat{
+			position: absolute;
+			top:0px;
+			left:537px;
+			z-index:9997;
+}
+/*微信二维码图标元素a.person-text.nav-myctrip。包含块：li.set-list.set-wechat*/
+li.set-list.set-wechat > a.person-text.nav-myctrip{
+			position: absolute;
+			width:54px;
+			height:38px;
+			z-index:9998;
+}
+/*微信二维码图标元素a.person-text.nav-myctrip。（鼠标移入）包含块：li.set-list.set-wechat*/
+li.set-list.set-wechat.current > a.person-text.nav-myctrip{  
+			border-left-style:solid;    /*设置边框*/
+			border-left-color:#b7b5b5;
+			border-left-width:1px;
+			border-right-style:solid;    
+			border-right-color:#b7b5b5;
+			border-right-width:1px;
+			box-shadow: 1px -1px 1px #c5c4c4;   /*设置阴影*/	 
+			background:white;
+}
+
+
+/*微信二维码图标元素a.person-text.nav-myctrip 。包含块：li.set-list.set-wechat*/
+li.set-list.set-wechat > a.person-text.nav-myctrip  span.set-text  i.ico_wechat{
+			position: absolute;
+			top:15px;
+			margin-left:17px;
+			width:20px;
+			height:18px;
+			background-image:url('//localhost:8080/ctrip/image/sprite/platform/sprite2019527.png'); 	/*使用sprite雪碧图图标*/
+			background-repeat:no-repeat;
+			background-position:-96px -102px;	
+}
+/*元素ul.wechat-drowndrop，（微信扫码下拉框）。包含块：li.set-list.set-wechat*/
+ul.wechat-drowndrop{
+			position: absolute;
+			padding-left:0px;
+			top:37px;
+			left:-93px;
+			width:147px;
+			height:180px;
+			background:white;  
+			border-style:solid;    /* 设置边框 */
+			border-color:#b7b5b5;
+			border-width:1px;
+			box-shadow: 1px 1px 5px #c5c4c4;   /* 设置阴影 */	
+			z-index:9997;			
+}
+/*元素ul.wechat-drowndrop > li.ico_code img，（微信二维码图片）。包含块：ul.wechat-drowndrop*/
+ul.wechat-drowndrop > li.ico_code img{
+			position: absolute;
+			top:10px;
+			margin-left:15px;
+}
+/*元素ul.wechat-drowndrop > li.ico_code p:first-of-type，innerHTML="携程订阅号：helloctrip"。包含块：ul.wechat-drowndrop*/
+ul.wechat-drowndrop > li.ico_code > p:first-of-type {
+			position: absolute;
+			top:120px;
+			margin-left:10px;
+	
+}
+/*元素ul.wechat-drowndrop > li.ico_code p:last-of-type，innerHTML="扫一扫，领旅行福利"。包含块：ul.wechat-drowndrop*/
+ul.wechat-drowndrop > li.ico_code > p:last-of-type {
+			position: absolute;
+			top:138px;
+			margin-left:10px;
+	
+}
+/*元素ul.wechat-drowndrop > li.ico_code p:last-of-type span，innerHTML="领旅行福利"。包含块：ul.wechat-drowndrop*/
+ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
