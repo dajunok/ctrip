@@ -613,25 +613,31 @@ ul.nav-bar-set > li:nth-of-type(7){
 			z-index:9997;
 }
 /*元素ul.nav-bar-set li:nth-of-type(7) a，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
-ul.nav-bar-set > li:nth-of-type(7) a{
+ul.nav-bar-set > li.set-list.set-phone a{    
 			display:block;
 			position: absolute;
 			top:-12px;
-			margin-left:0px;
+			margin-left:-2px;
 			width:40px;
 			height:38px;
-			border-left-style:solid;    /*设置边框*/ 
+			z-index:9999;
+}
+/*元素ul.nav-bar-set li:nth-of-type(7) a，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
+ul.nav-bar-set > li.set-list.set-phone.current a{           /*鼠标移入*/
+			border-left-style:solid;    /*设置边框*/
 			border-left-color:#b7b5b5;
 			border-left-width:1px;
 			border-right-style:solid;    
 			border-right-color:#b7b5b5;
 			border-right-width:1px;
-			box-shadow: 1px -1px 1px #c5c4c4;   /* 设置阴影 */	
+			box-shadow: 1px -1px 1px #c5c4c4;   /*设置阴影*/	 
 			background:white;
 			z-index:9999;
 }
+
+
 /*元素ul.nav-bar-set li:nth-of-type(7) a i.ico_app，（手机App扫描下载）用于确定位置。包含块：ul.nav-bar-set li:nth-of-type(7)*/
-ul.nav-bar-set > li:nth-of-type(7) a  i.ico_app{
+ul.nav-bar-set > li.set-list.set-phone a  i.ico_app{
 			display:block;
 			position: absolute;
 			top:12px;
@@ -648,9 +654,9 @@ ul.phone-drowndrop{
 			position: absolute;
 			padding-left:0px;
 			top:25px;
-			left:-107px;
+			left:-109px;
 			width:147px;
-			height:205px;
+			height:190px;
 			background:white;  
 			border-style:solid;    /* 设置边框 */
 			border-color:#b7b5b5;
@@ -658,11 +664,35 @@ ul.phone-drowndrop{
 			box-shadow: 1px 1px 5px #c5c4c4;   /* 设置阴影 */	
 			z-index:9998;			
 }
-/*元素ul.phone-drowndrop，（手机App扫描下载下拉框）。包含块：ul.phone-drowndrop*/
-
-
-
-
+/*元素ul.phone-drowndrop > li.ico_code img，（手机扫码二维码图片）。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop  > li.ico_code img{
+			position: absolute;
+			top:10px;
+			margin-left:15px;
+}
+/*元素ul.phone-drowndrop > li.ico_code，（手机扫码二维码图片）。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop  > li.ico_code p{
+			position: absolute;
+			top:115px;
+			margin-left:22px;
+}
+/*元素ul.phone-drowndrop  > li.ctrip-app，innerHTML="携程旅行手机版"。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop  > li.ctrip-app{
+			position: absolute;
+			top:155px;
+			left:0px;
+			width:147px;
+			height:35px;
+			background:#91bbf1;
+}
+/*元素ul.phone-drowndrop  > li.ctrip-app，innerHTML="携程旅行手机版"。包含块：ul.phone-drowndrop*/
+ul.phone-drowndrop  > li.ctrip-app a{			
+			display:block;
+			top:10px;
+			left:15px;
+			width:200px;
+			height:35px;
+}
 
 
 

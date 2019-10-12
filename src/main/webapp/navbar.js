@@ -86,7 +86,16 @@ navBarPerson.onmouseout=function(){
 		this.style.color="#333";
 };
 
-
+//设置导航栏【手机App扫描下载】元素li.set-list.set-phone。鼠标触发事件如下：
+var navMyMobilDown=document.querySelector("li.set-list.set-phone");
+navMyMobilDown.onmousemove=function(){   //鼠标移入时
+	this.className="set-list set-phone current";	
+	this.lastElementChild.style.display="block";
+};
+navMyMobilDown.onmouseout=function(){	//鼠标移出时
+	this.className="set-list set-phone";	
+	this.lastElementChild.style.display="none";
+};
 
 
 
