@@ -2,13 +2,29 @@
 var nav=document.getElementsByClassName("nav-bar-cont")[0];  
 var nav_width=nav.offsetWidth;
 
+
+
 //设置导航栏的边框及内容居中宽度
-nav.style.borderLeftStyle="solid";
-nav.style.borderLeftColor="#f4f4f4";
-nav.style.borderLeftWidth=(html_width-nav_width)/2+"px"; 
-nav.style.borderRightStyle="solid";
-nav.style.borderRightColor="#f4f4f4";
-nav.style.borderRightWidth=(html_width-nav_width)/2+"px";  
+var Diff_value=html_width-nav_width;
+var nav_setLeft=document.querySelector("ul.nav-bar-set"); //或取“你好，请登录”元素。
+if(Diff_value>0 ){
+	nav.style.marginLeft=(html_width-nav_width)/2+"px"; 
+	nav.style.marginRight=(html_width-nav_width)/2+"px"; 
+}else if(Diff_value>=30 && Diff_value<100){
+	nav.style.marginLeft=(html_width-nav_width)/2+"px"; 
+	nav.style.marginRight=(html_width-nav_width)/2+"px"; 
+	nav_setLeft.style.left=380+"px";  //设置“你好，请登录”元素margin-left值。
+}else if(Diff_value<30){
+	nav.style.marginLeft=15+"px";
+	nav_setLeft.style.left=380+"px";  //设置“你好，请登录”元素margin-left值。	
+}
+
+
+
+
+//当浏览器窗口改变时刷新
+window.onresize = function(){ location.reload();}
+
 
 //设置导航ul.language_list鼠标触发事件
 var languageList=document.querySelectorAll("ul.language_list li a");
@@ -23,6 +39,10 @@ for (var i=0;i<languageList.length;i++){
 		this.style.borderLeftColor="white";	
 	};
 }
+
+
+
+
 
 //设置导航栏元素li#nav-bar-set-reg，唯一子元素a.person-text nav-per，innerHTML="免费注册"。鼠标触发事件如下：
 var navBarSetReg=document.querySelector("li#nav-bar-set-reg a");
@@ -108,7 +128,7 @@ navWechat.onmouseout=function(){	//鼠标移出时
 	this.lastElementChild.style.display="none";
 };
 
-
+//==================================================第二栏相关脚本================================================
 
 
 

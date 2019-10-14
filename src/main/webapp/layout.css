@@ -10,11 +10,17 @@ body {
     background-color: #ffffff;
 	margin:0px;
 }
-/*导航栏内容div.nav-bar-cont块元素*/
+/*设置导航块第一行*/
+.cui-nav-bar{	position:relative;
+				height:38px;
+				background-color:#f4f4f4;
+				
+}
+/*导航栏第一行内容div.nav-bar-cont块元素*/
 .nav-bar-cont {	position: absolute;
 				width:1196px;
 				height:38px;
-				background-color:#f4f4f4;				
+				background:#f4f4f4;
 } 
 /*元素div.slogan="让旅行更幸福"*/				
 div.slogan {	position: absolute;
@@ -250,7 +256,7 @@ ul.nav-bar-set{
 			position: absolute;
 			margin:0px;
 			top:0px;
-			left:583px;
+			left:583px;      /*最小值：185*/
 			width:613px;
 			height:38px;
 			background-color:#f4f4f4;
@@ -783,7 +789,7 @@ ul.wechat-drowndrop > li.ico_code > p:last-of-type {
 /*元素ul.wechat-drowndrop > li.ico_code p:last-of-type span，innerHTML="领旅行福利"。包含块：ul.wechat-drowndrop*/
 ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
 
-
+/***=================================================【第二栏】==================================================================================================
 
 
 

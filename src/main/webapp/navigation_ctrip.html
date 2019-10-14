@@ -3,10 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>携程导航栏</title>
-<link rel="stylesheet" type="text/css" href="layout.css" media="all">
 </head>
 <body>
-		
+		<div class="pop_attention" id="qqcaibei" style="display:none"></div>
+    	<div class="pop_attention" id="popup" style="display:none"> </div>
+    	<div class="pop_attention" id="bindemail" style="display:none"></div>
+    	<div class="pop_attention" id="accountSec" style="display:none"></div>
+		<!-- header start-->
+    	<input type="hidden" id="CorrelationId" name="CorrelationId" value="1409745155152559744"/>
+    	<!-- <link href="//webresource.c-ctrip.com/ResCRMOnline/R1/pageheader/css/PageHeader_V4.css?temp=3,534,431,920,678,118,334" rel="stylesheet" />   -->
+		<link rel="stylesheet" type="text/css" href="layout.css" media="all" />
+<div class="cui-nav-bar">		
 <div class="nav-bar-cont">
 <div class="slogan" >让旅行更幸福</div>
 <ul class="language">
@@ -165,14 +172,39 @@
 </ul>
 </li>
 </ul>
-
-
-
-
-
-
-
 </div>
+</div><div class="cui_hd_cont">  <!-- 第二栏 Start -->
+<div class="cui_hd">
+<input type="hidden" id="_searchboxNo_" value="ws_www20140409"><input type="hidden" id="_newHeaderFlag_" value="true">
+<div class="ctriplogo">
+<a title="携程旅行网" href="//www.ctrip.com">携程旅行网 </a>
+</div>
+<div class="cui_search">
+<input type="text" id="_allSearchKeyword" onfocus="_historyResultDiv();" onkeydown="_allSearchEnterIn(this,event);" onkeyup="_callMCtripData(this.value,event);" autocomplete="off"><button type="button" id="search_button_global"></button>
+<div class="cui_search_list" id="_allSearchResult" style="display:none;"></div>
+</div>
+<div class="nav-tel">
+<ul class="nav-tel-list" id="cui-nav-tel-list">
+<li> 境内：95010</li>
+<li>（或）400-830-6666</li>
+<li class="tel-list-more">香港(中国)：+852-3069-9966</li>
+<li class="tel-list-more">境外：+86-21-3406-4888</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript"  src="navbar.js" charset="utf-8" ></script>
 </body>
 </html>
