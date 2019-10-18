@@ -794,11 +794,12 @@ ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
 .cui_hd_cont{
 				position:relative;
 				height:80px;
-				background-color:#aeacac;
+				background-color:#aeacac;         /*   #aeacac   */
 }
 .cui_hd .ctriplogo {
 	display: inline-block;
-    position: relative;    
+    position: relative;  
+	left:240px;
     width: 126px;
     height: 43px;
     margin: 18px 0;     /*设置上下边距18px 左右边距0px*/
@@ -809,7 +810,7 @@ ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
     display: block;
     width: 126px;
     height: 43px;
-    background: url(//pic.c-ctrip.com/common/c_logo2013.png) no-repeat;
+    background: url('//localhost:8080/ctrip/image/sprite/common/c_logo2013.png') no-repeat;
     text-indent: -999px;
     overflow: hidden;
 }
