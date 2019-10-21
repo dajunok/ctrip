@@ -129,9 +129,48 @@ navWechat.onmouseout=function(){	//鼠标移出时
 };
 
 //==================================================第二栏相关脚本================================================
+var secSearch=document.getElementsByClassName("cui_search")[0];   //获取搜索框
+var secInput=document.querySelector("#_allSearchKeyword");		  //获取输入框
+var secButton=document.querySelector("#search_button_global");    //获取搜索按钮
+var status=0;
+secInput.setAttribute("placeholder","搜索旅行地/酒店/旅游/景点门票/交通");  //设置搜索框的默认文本。
 
-
-
+function _historyResultDiv(){
+	secInput.style.boxShadow="0px 1px 1px #2b82f4 inset";
+	secSearch.style.background="#2b82f4";
+	secButton.style.background="#2b82f4";
+	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	secButton.style.backgroundPosition="-50px -628px";
+	status=1;
+}
+secInput.onblur=function(){
+	secInput.style.boxShadow="none";
+	secSearch.style.background="#a4cbff";
+	secButton.style.background="#a4cbff";
+	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	secButton.style.backgroundPosition="-50px -603px";
+	status=0;
+}
+secButton.onmousemove=function(){   //鼠标移入时
+	secSearch.style.background="#299cff";
+	this.style.background="#299cff";
+	this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	this.style.backgroundPosition="-50px -653px";
+};
+secButton.onmouseout=function(){	//鼠标移出时
+	if (status==0){
+		secSearch.style.background="#a4cbff";
+		this.style.background="#a4cbff";
+		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+		this.style.backgroundPosition="-50px -603px";
+	}else if(status==1){
+		secSearch.style.background="#2b82f4";
+		this.style.background="#2b82f4";
+		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+		this.style.backgroundPosition="-50px -628px";
+	}
+	
+};
 
 
 
