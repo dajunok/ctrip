@@ -801,7 +801,7 @@ ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
 .cui_hd_cont{
 	position:relative;
 	height:80px;
-	background-color:white;         /*   #aeacac   */
+	background-color:#888;         /*   #aeacac   */
 }
 
 .cui_hd .ctriplogo {
@@ -860,8 +860,15 @@ div.cui_search{
 	background-repeat:no-repeat;
 	background-position:-50px -603px;
 }
-
-
+/*元素div.nav-tel，携程客服电话。包含块：div.cui_hd*/
+div.nav-tel{
+	position: absolute;
+	top:12px;
+	left:1200px;
+	width:216px;
+	height:105;
+	background:red;
+}
 
 
 

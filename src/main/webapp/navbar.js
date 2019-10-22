@@ -156,6 +156,7 @@ secButton.onmousemove=function(){   //鼠标移入时
 	this.style.background="#299cff";
 	this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
 	this.style.backgroundPosition="-50px -653px";
+	this.style.cursor="pointer";
 };
 secButton.onmouseout=function(){	//鼠标移出时
 	if (status==0){
