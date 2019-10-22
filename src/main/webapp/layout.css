@@ -801,7 +801,7 @@ ul.wechat-drowndrop > li.ico_code > p:last-of-type  span{ color:red; }
 .cui_hd_cont{
 	position:relative;
 	height:80px;
-	background-color:#888;         /*   #aeacac   */
+	background-color:white;         /*   #aeacac   */
 }
 
 .cui_hd .ctriplogo {
@@ -863,15 +863,27 @@ div.cui_search{
 /*元素div.nav-tel，携程客服电话。包含块：div.cui_hd*/
 div.nav-tel{
 	position: absolute;
-	top:12px;
-	left:1200px;
-	width:216px;
-	height:105;
-	background:red;
+	top:0px;
+	left:1190px;
+	
 }
-
-
-
+/*元素ul.nav-tel-list，携程客服电话列表。包含块：div.nav-tel*/
+#cui-nav-tel-list{
+	position: absolute;
+	margin:12px 0px 0px 0px;
+	padding:12px 25px 0 0;
+	width:194px;
+	height:40px;
+	border:1px solid white;       /*边框*/
+	box-shadow: 1px 1px 2px 1px white;   /*设置阴影*/
+	text-align:right;
+	
+}
+/*元素li.tel-list-more，携程客服电话列表后两项。包含块：ul.nav-tel-list*/
+li.tel-list-more{
+	display:none;           /*隐藏后两项*/
+}
+/***=================================================【第三栏】==================================================================================================*/
 
 
 

@@ -139,7 +139,7 @@ function _historyResultDiv(){
 	secInput.style.boxShadow="0px 1px 1px #2b82f4 inset";
 	secSearch.style.background="#2b82f4";
 	secButton.style.background="#2b82f4";
-	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";  /*使用sprite雪碧图图标*/
 	secButton.style.backgroundPosition="-50px -628px";
 	status=1;
 }
@@ -147,14 +147,14 @@ secInput.onblur=function(){
 	secInput.style.boxShadow="none";
 	secSearch.style.background="#a4cbff";
 	secButton.style.background="#a4cbff";
-	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	secButton.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";  /*使用sprite雪碧图图标*/
 	secButton.style.backgroundPosition="-50px -603px";
 	status=0;
 }
 secButton.onmousemove=function(){   //鼠标移入时
 	secSearch.style.background="#299cff";
 	this.style.background="#299cff";
-	this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+	this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";  /*使用sprite雪碧图图标*/
 	this.style.backgroundPosition="-50px -653px";
 	this.style.cursor="pointer";
 };
@@ -162,23 +162,55 @@ secButton.onmouseout=function(){	//鼠标移出时
 	if (status==0){
 		secSearch.style.background="#a4cbff";
 		this.style.background="#a4cbff";
-		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";  /*使用sprite雪碧图图标*/
 		this.style.backgroundPosition="-50px -603px";
 	}else if(status==1){
 		secSearch.style.background="#2b82f4";
 		this.style.background="#2b82f4";
-		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";
+		this.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/un_header_footer20160610.png')";  /*使用sprite雪碧图图标*/
 		this.style.backgroundPosition="-50px -628px";
 	}
 	
 };
-
-
-
-
-
-
-
+//------------------------携程客服热线栏（右侧）
+var triLi=document.createElement("li");   //创建元素li，用作携程热线右侧的三角形占位。
+var secLi_tel=document.querySelector("#cui-nav-tel-list li:last-of-type");
+//alert(secLi_tel.innerHTML);
+var parenN=secLi_tel.parentNode;   //获取父节点ul
+parenN.appendChild(triLi);         //将新创建的元素li添加到携程热线列表ul#cui-nav-tel-list
+triLi.style.position="absolute";
+triLi.style.top="25px";
+triLi.style.left="195px";
+triLi.style.width="15px";
+triLi.style.height="15px";
+triLi.style.background="white";
+triLi.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png')"; /*使用sprite雪碧图图标*/
+triLi.style.backgroundPosition="-42px -52px";
+//鼠标移入移除时隐藏设置
+var secUl_tel=document.querySelector("#cui-nav-tel-list");
+var secTelList=document.querySelectorAll("li.tel-list-more");
+secUl_tel.onmousemove=function(){   //鼠标移入时
+	this.style.height="90px";
+	this.style.borderColor="#b7b5b5";
+	this.style.boxShadow="1px 1px 2px 1px #e8e3e3";
+	triLi.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png')";  /*使用sprite雪碧图图标*/
+	triLi.style.backgroundPosition="-42px -70px";
+	
+	for(var i=0;i<secTelList.length;i++){
+		secTelList[i].style.display="block";
+	}
+};
+secUl_tel.onmouseout=function(){	//鼠标移出时
+	this.style.height="40px";
+	this.style.borderColor="white";
+	this.style.boxShadow="1px 1px 2px 1px white";
+	triLi.style.backgroundImage="url('http://localhost:8080/ctrip/image/sprite/platform/sprite2019527.png')"; /*使用sprite雪碧图图标*/
+	triLi.style.backgroundPosition="-42px -52px";
+	for(var i=0;i<secTelList.length;i++){
+		secTelList[i].style.display="none";
+	}
+}
+//==================================================第三栏相关脚本================================================
 
 
 
