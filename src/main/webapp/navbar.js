@@ -7,18 +7,13 @@ var nav_width=nav.offsetWidth;
 //设置导航栏的边框及内容居中宽度
 var Diff_value=html_width-nav_width;
 var nav_setLeft=document.querySelector("ul.nav-bar-set"); //或取“你好，请登录”元素。
-if(Diff_value>0 ){
+if(html_width>nav_width){
 	nav.style.marginLeft=(html_width-nav_width)/2+"px"; 
 	nav.style.marginRight=(html_width-nav_width)/2+"px"; 
-}else if(Diff_value>=30 && Diff_value<100){
-	nav.style.marginLeft=(html_width-nav_width)/2+"px"; 
-	nav.style.marginRight=(html_width-nav_width)/2+"px"; 
-	nav_setLeft.style.left=380+"px";  //设置“你好，请登录”元素margin-left值。
-}else if(Diff_value<30){
+}else if(html_width<=1200){
 	nav.style.marginLeft=15+"px";
 	nav_setLeft.style.left=380+"px";  //设置“你好，请登录”元素margin-left值。	
 }
-
 
 
 
@@ -129,7 +124,18 @@ navWechat.onmouseout=function(){	//鼠标移出时
 };
 
 //==================================================第二栏相关脚本================================================
-var secSearch=document.getElementsByClassName("cui_search")[0];   //获取搜索框
+var secCui_hd=document.querySelector("div.cui_hd");
+var cui_hd_width=secCui_hd.offsetWidth;
+var secNav_tel=document.querySelector("div.nav-tel");
+if(html_width>=cui_hd_width){                                  //html_width：浏览器窗口宽度 
+	secCui_hd.style.left=(html_width-cui_hd_width)/2+"px";
+}else if(html_width<=1200){
+	secCui_hd.style.left="0px";
+	secNav_tel.style.left="747px";
+}
+
+
+var secSearch=document.getElementsByClassName("cui_search")[0];   //获取搜索框  
 var secInput=document.querySelector("#_allSearchKeyword");		  //获取输入框
 var secButton=document.querySelector("#search_button_global");    //获取搜索按钮
 var status=0;
@@ -211,8 +217,13 @@ secUl_tel.onmouseout=function(){	//鼠标移出时
 	}
 }
 //==================================================第三栏相关脚本================================================
-
-
+var thdBase_nav=document.querySelector("div.base_nav");
+var base_nav_width=thdBase_nav.offsetWidth;
+if(html_width>=base_nav_width){                                  //html_width：浏览器窗口宽度 
+	thdBase_nav.style.left=(html_width-base_nav_width)/2+"px";
+}else {
+	thdBase_nav.style.left="0px";
+}
 
 
 
