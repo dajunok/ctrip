@@ -894,31 +894,48 @@ li.tel-list-more{
 div#cui_nav{
 	position:relative;
 	height:40px;
-	/* font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif; */
 	background:#2577e3;
 }
 div.base_nav{
 	position: relative;
+	margin:0px;
+	padding:0px;
 	width:1196px;
 	height:40px;
-	background:red;
 }
-ul#cui_nav_ul> li{
+ul#cui_nav_ul{
+	position: absolute;
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:40px;
+}
+/*行列表内容公共属性设置：【首页】、【酒店】、【跟团游】、【自由行】、【机票】、【火车】、【汽车▪船】、【用车】、【门票】、【攻略】、【全球卡】、【礼品卡】、【商旅】、【游轮】、【目的地】、【金融】、【跟多】。*/
+ul#cui_nav_ul >li{   
 	position: relative;
-	padding:0px 10px;
-	width:auto;
+	float:left;
+	padding:0px 15px;
+	width:30px;
 	height:40px;
 	line-height:40px;
-	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-	color:white;
-	background:#2577e3;	
+	background:green;
 }
-
-
-
-
-
-
+/*行列表内容分隔符【|】属性设置：*/
+ul#cui_nav_ul >li.divider{
+	padding:0px;
+	top:13px;
+	width:0px;	
+	height:14px;
+	border-left:1px solid red;
+}
+/*行列表内容字体及颜色*/
+ul#cui_nav_ul >li >a{
+	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+	color:white;
+}
+#cui_nav_ul >#cui_nav_hotel{     /*酒店*/
+	width:45px;
+}
 
 
 
