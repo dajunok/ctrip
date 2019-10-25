@@ -897,25 +897,24 @@ div#cui_nav{
 	background:#2577e3;
 }
 div.base_nav{
-	position: relative;
-	margin:0px;
-	padding:0px;
-	width:1196px;
-	height:40px;
-}
-ul#cui_nav_ul{
 	position: absolute;
 	margin:0px;
 	padding:0px;
 	width:1196px;
 	height:40px;
 }
-/*行列表内容公共属性设置：【首页】、【酒店】、【跟团游】、【自由行】、【机票】、【火车】、【汽车▪船】、【用车】、【门票】、【攻略】、【全球卡】、【礼品卡】、【商旅】、【游轮】、【目的地】、【金融】、【跟多】。*/
-ul#cui_nav_ul >li{   
+ul#cui_nav_ul{
 	position: relative;
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:40px;
+}
+/*行列表内容公共属性设置：【首页】、【酒店】、【跟团游】、【自由行】、【机票】、【火车】、【汽车▪船】、【用车】、【门票】、【攻略】、【全球卡】、【礼品卡】、【商旅】、【游轮】、【目的地】、【金融】、【跟多】。*/
+ul#cui_nav_ul >li{
 	float:left;
-	padding:0px 15px;
-	width:30px;
+	padding:0px 10px;
+	width:45px;
 	height:40px;
 	line-height:40px;
 	background:green;
@@ -933,14 +932,32 @@ ul#cui_nav_ul >li >a{
 	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
 	color:white;
 }
-#cui_nav_ul >#cui_nav_hotel{     /*酒店*/
-	width:45px;
+ul#cui_nav_ul >#cui_c_ph_hp{
+	width:30px;        /*首页*/
 }
-
-
-
-
-
+ul#cui_nav_ul >#cui_nav_destination{
+	width:75px;        /*汽车▪船*/
+}
+ul#cui_nav_ul >#cui_c_ph_you{
+	width:30px;        /*攻略*/
+}
+ul#cui_nav_ul >#cui_nav_cruise{
+	width:30px;        /*邮轮*/
+}
+ul#cui_nav_ul >#cui_finance_pc{
+	width:30px;        /*金融*/
+}
+ul#cui_nav_ul >#cui_nav_more{
+}
+li#cui_nav_hotel > div.cui_subnav_wrap{
+	position: absolute;
+	top:40px;	
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:40px;
+	background:red;
+}
 
 
 
