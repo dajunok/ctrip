@@ -225,11 +225,14 @@ if(html_width>=base_nav_width){                                  //html_width：
 	thdBase_nav.style.left="0px";
 }
 
-
-
-
-
-
+//将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
+var thdSubnavList=document.querySelectorAll("div.cui_subnav_wrap");
+var thdParentNode=thdSubnavList[0].parentNode.parentNode;
+for(var i=0;i<thdSubnavList.length;i++){
+	thdSubnavList[i].style.display="none";
+	thdParentNode.appendChild(thdSubnavList[i]);
+}
+thdSubnavList[3].style.display="block";
 
 
 
@@ -251,6 +254,13 @@ if(html_width>=base_nav_width){                                  //html_width：
 
 
 /* 
+alert(thdSubnavList[1].className);
+var thdCui_subnav_wrap=document.querySelector("li#cui_nav_hotel >div.cui_subnav_wrap");
+var thdParentNode=thdCui_subnav_wrap.parentNode.parentNode;
+thdParentNode.appendChild(thdCui_subnav_wrap); 
+
+alert(thdParentNode.lastElementChild.className);
+alert(thdParentNode.lastElementChild.firstElementChild.className);
 var csElement=document.querySelector("li.set-list.set-myorder-list a.person-text.nav-myctrip");
 alert(csElement.innerHTML);
 
