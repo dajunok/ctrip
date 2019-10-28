@@ -229,12 +229,20 @@ if(html_width>=base_nav_width){                                  //html_width：
 var thdSubnavList=document.querySelectorAll("div.cui_subnav_wrap");
 var thdParentNode=thdSubnavList[0].parentNode.parentNode;
 for(var i=0;i<thdSubnavList.length;i++){
-	thdSubnavList[i].style.display="none";
 	thdParentNode.appendChild(thdSubnavList[i]);
 }
-
-
-
+//以下是第三栏相关的鼠标事件
+var thdStatus=0;
+var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
+for(var i=0;i<thdLiList.length;i++){
+	thdLiList[i].onmouseover=function(){     //鼠标移入时
+		alert(i);
+		thdSubnavList[0].style.display="block";
+	};
+	thdLiList[i].onmouseout=function(){     //鼠标移出时
+		
+	};	
+}
 
 
 

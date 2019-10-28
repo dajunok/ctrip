@@ -918,7 +918,7 @@ ul#cui_nav_ul >li{
 	width:45px;
 	height:40px;
 	line-height:40px;
-	background:green;
+	background:#2577e3;
 }
 ul#cui_nav_ul >#cui_c_ph_hp{
 	width:30px;        /*首页*/
@@ -935,7 +935,11 @@ ul#cui_nav_ul >#cui_nav_cruise{
 ul#cui_nav_ul >#cui_finance_pc{
 	width:30px;        /*金融*/
 }
-ul#cui_nav_ul >#cui_nav_more{
+ul#cui_nav_ul >#cui_nav_g{
+	width:60px;			/*全球购*/
+}
+ul#cui_nav_ul >#cui_nav_lpk{
+	width:60px;			/*礼品卡*/
 }
 /*行列表内容分隔符【|】属性设置：*/
 ul#cui_nav_ul >li.divider{
@@ -944,12 +948,15 @@ ul#cui_nav_ul >li.divider{
 	top:13px;
 	width:0px;	
 	height:14px;
-	border-left:1px solid red;
+	border-left:1px solid #1a5fbb;
 }
 /*行列表内容字体及颜色*/
 ul#cui_nav_ul >li >a{
 	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
 	color:white;
+}
+ul#cui_nav_ul >li:hover{     /*鼠标移入时*/
+	background:#0a56bb;
 }
 ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占位*/
 	position: absolute;	
@@ -958,17 +965,27 @@ ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占�
 	left:40px;
 	width:15px;
 	height:15px;
-	background:red;
 	background-image:url('//localhost:8080/ctrip/image/sprite/platform/sprite2019527.png'); 	/*使用sprite雪碧图图标*/
 	background-repeat:no-repeat;
 	background-position:-98px -149px;	
 	transform:rotate(180deg);
 	-ms-transform:rotate(180deg);      /* IE 9 */
 	-webkit-transform:rotate(180deg);  /* Safari and Chrome */
+	transition: transform 0.2s ease 0s;  /*transition与transform结合使用*/
+	-webkit-transition: transform 0.2s ease 0s; /* Safari and Chrome */    
 }
+ul.cui_nav.cui_content >li >a#nav_destination >i.cui_ico_triangle{left:70px;}   /*汽车▪船*/ 
+ul.cui_nav.cui_content >li >a#nav_g >i.cui_ico_triangle{left:55px;}   /*全球购*/ 
+ul.cui_nav.cui_content >li >a#nav_lpk >i.cui_ico_triangle{left:55px;}   /*礼品卡*/
 
-div.cui_subnav_wrap{
+ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白色三角形旋转360度*/
+	transform:rotate(360deg);
+	-ms-transform:rotate(360deg);      /* IE 9 */
+	-webkit-transform:rotate(360deg);  /* Safari and Chrome */
+}
+div.cui_subnav_wrap{   /*酒店、旅游、机票、火车...等元素的子栏目*/
 	position: absolute;	
+	display:none;
 	top:40px;
 	margin:0px;
 	padding:0px;
@@ -979,6 +996,7 @@ div.cui_subnav_wrap{
 	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
 	background:white;
 }
+
 div.cui_subnav_wrap > ul.cui_sub_nav{
 	position: relative;
 	margin:0px;
