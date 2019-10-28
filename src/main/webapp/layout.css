@@ -920,20 +920,6 @@ ul#cui_nav_ul >li{
 	line-height:40px;
 	background:green;
 }
-/*行列表内容分隔符【|】属性设置：*/
-ul#cui_nav_ul >li.divider{
-	position: relative;
-	padding:0px;
-	top:13px;
-	width:0px;	
-	height:14px;
-	border-left:1px solid red;
-}
-/*行列表内容字体及颜色*/
-ul#cui_nav_ul >li >a{
-	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-	color:white;
-}
 ul#cui_nav_ul >#cui_c_ph_hp{
 	width:30px;        /*首页*/
 }
@@ -951,6 +937,36 @@ ul#cui_nav_ul >#cui_finance_pc{
 }
 ul#cui_nav_ul >#cui_nav_more{
 }
+/*行列表内容分隔符【|】属性设置：*/
+ul#cui_nav_ul >li.divider{
+	position: relative;
+	padding:0px;
+	top:13px;
+	width:0px;	
+	height:14px;
+	border-left:1px solid red;
+}
+/*行列表内容字体及颜色*/
+ul#cui_nav_ul >li >a{
+	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+	color:white;
+}
+ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占位*/
+	position: absolute;	
+	display:inline-block;
+	top:13px;
+	left:40px;
+	width:15px;
+	height:15px;
+	background:red;
+	background-image:url('//localhost:8080/ctrip/image/sprite/platform/sprite2019527.png'); 	/*使用sprite雪碧图图标*/
+	background-repeat:no-repeat;
+	background-position:-98px -149px;	
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg);      /* IE 9 */
+	-webkit-transform:rotate(180deg);  /* Safari and Chrome */
+}
+
 div.cui_subnav_wrap{
 	position: absolute;	
 	top:40px;

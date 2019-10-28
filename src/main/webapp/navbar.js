@@ -232,7 +232,7 @@ for(var i=0;i<thdSubnavList.length;i++){
 	thdSubnavList[i].style.display="none";
 	thdParentNode.appendChild(thdSubnavList[i]);
 }
-thdSubnavList[3].style.display="block";
+
 
 
 
