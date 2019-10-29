@@ -983,19 +983,32 @@ ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白�
 	-ms-transform:rotate(360deg);      /* IE 9 */
 	-webkit-transform:rotate(360deg);  /* Safari and Chrome */
 }
-div.cui_subnav_wrap{   /*酒店、旅游、机票、火车...等元素的子栏目*/
+
+ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{  
 	position: absolute;	
-	display:none;
+	display:block;
 	top:40px;
+	left:0px;
 	margin:0px;
 	padding:0px;
-	width:1172px;
+	width:1196px;
 	height:40px;
 	border:1px solid #2577e3;
 	border-top:none;
 	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
 	background:white;
 }
+ul#cui_nav_ul >li#cui_nav_hotel.sub >div.cui_subnav_wrap{left:-51px;}   /* 酒店下拉列表*/
+ul#cui_nav_ul >li#cui_nav_vac.sub >div.cui_subnav_wrap{left:-117px;}   /* 旅游下拉列表*/
+ul#cui_nav_ul >li#cui_nav_flight.sub >div.cui_subnav_wrap{left:-315px;}   /* 机票拉列表*/
+ul#cui_nav_ul >li#cui_nav_trains.sub >div.cui_subnav_wrap{left:-381px;}   /* 火车下拉列表*/
+ul#cui_nav_ul >li#cui_nav_destination.sub >div.cui_subnav_wrap{left:-447px;}   /* 汽车▪船下拉列表*/
+ul#cui_nav_ul >li#cui_nav_car.sub >div.cui_subnav_wrap{left:-543px;}   /* 用车下拉列表*/
+ul#cui_nav_ul >li#cui_nav_ticket.sub >div.cui_subnav_wrap{left:-609px;}   /* 门票下拉列表*/
+ul#cui_nav_ul >li#cui_nav_g.sub >div.cui_subnav_wrap{left:-726px;}   /* 全球购下拉列表*/
+ul#cui_nav_ul >li#cui_nav_lpk.sub >div.cui_subnav_wrap{left:-807px;}   /* 礼品卡下拉列表*/
+ul#cui_nav_ul >li#cui_nav_sl.sub >div.cui_subnav_wrap{left:-888px;}   /* 商旅下拉列表*/
+ul#cui_nav_ul >li#cui_nav_more.sub >div.cui_subnav_wrap{left:-1122px;z-index:500}   /* 旅游下拉列表*/
 
 div.cui_subnav_wrap > ul.cui_sub_nav{
 	position: relative;
@@ -1028,7 +1041,6 @@ div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	height:14px;
 	border-left:1px solid red;
 }
-
 
 
 

@@ -224,20 +224,11 @@ if(html_width>=base_nav_width){                                  //html_width：
 }else {
 	thdBase_nav.style.left="0px";
 }
-
-//将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
-var thdSubnavList=document.querySelectorAll("div.cui_subnav_wrap");
-var thdParentNode=thdSubnavList[0].parentNode.parentNode;
-for(var i=0;i<thdSubnavList.length;i++){
-	thdParentNode.appendChild(thdSubnavList[i]);
-}
 //以下是第三栏相关的鼠标事件
 var thdStatus=0;
 var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
 for(var i=0;i<thdLiList.length;i++){
 	thdLiList[i].onmouseover=function(){     //鼠标移入时
-		alert(i);
-		thdSubnavList[0].style.display="block";
 	};
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
 		
@@ -262,6 +253,31 @@ for(var i=0;i<thdLiList.length;i++){
 
 
 /* 
+//将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
+var thdSubnavList=document.querySelectorAll("div.cui_subnav_wrap");
+var thdParentNode=thdSubnavList[0].parentNode.parentNode;
+for(var i=0;i<thdSubnavList.length;i++){
+	thdParentNode.appendChild(thdSubnavList[i]);
+}
+//以下是第三栏相关的鼠标事件
+var thdStatus=0;
+var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
+for(var i=0;i<thdLiList.length;i++){
+	thdLiList[i].onmouseover=function(){     //鼠标移入时
+	};
+	thdLiList[i].onmouseout=function(){     //鼠标移出时
+		
+	};	
+}
+
+
+
+
+
+
+
+
+
 alert(thdSubnavList[1].className);
 var thdCui_subnav_wrap=document.querySelector("li#cui_nav_hotel >div.cui_subnav_wrap");
 var thdParentNode=thdCui_subnav_wrap.parentNode.parentNode;
