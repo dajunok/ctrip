@@ -978,6 +978,7 @@ ul.cui_nav.cui_content >li >a#nav_destination >i.cui_ico_triangle{left:70px;}   
 ul.cui_nav.cui_content >li >a#nav_g >i.cui_ico_triangle{left:55px;}   /*全球购*/ 
 ul.cui_nav.cui_content >li >a#nav_lpk >i.cui_ico_triangle{left:55px;}   /*礼品卡*/
 
+
 ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白色三角形旋转360度*/
 	transform:rotate(360deg);
 	-ms-transform:rotate(360deg);      /* IE 9 */
@@ -986,7 +987,7 @@ ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白�
 
 ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{  
 	position: absolute;	
-	display:block;
+	display:none;
 	top:40px;
 	left:0px;
 	margin:0px;
@@ -1008,7 +1009,7 @@ ul#cui_nav_ul >li#cui_nav_ticket.sub >div.cui_subnav_wrap{left:-609px;}   /* 门
 ul#cui_nav_ul >li#cui_nav_g.sub >div.cui_subnav_wrap{left:-726px;}   /* 全球购下拉列表*/
 ul#cui_nav_ul >li#cui_nav_lpk.sub >div.cui_subnav_wrap{left:-807px;}   /* 礼品卡下拉列表*/
 ul#cui_nav_ul >li#cui_nav_sl.sub >div.cui_subnav_wrap{left:-888px;}   /* 商旅下拉列表*/
-ul#cui_nav_ul >li#cui_nav_more.sub >div.cui_subnav_wrap{left:-1122px;z-index:500}   /* 旅游下拉列表*/
+ul#cui_nav_ul >li#cui_nav_more.sub >div.cui_subnav_wrap{left:-1122px;}   /* 更多下拉列表*/
 
 div.cui_subnav_wrap > ul.cui_sub_nav{
 	position: relative;
@@ -1017,6 +1018,31 @@ div.cui_subnav_wrap > ul.cui_sub_nav{
 	width:1200px;
 	height:40px;
 }
+div.cui_subnav_wrap > ul#ul_nav_trains{   /*火车下拉子项*/
+	left:315px;
+}
+div.cui_subnav_wrap > ul#ul_nav_destination{   /*汽车▪船下拉子项*/
+	left:381px;
+}
+div.cui_subnav_wrap > ul#ul_nav_car{   /*用车下拉子项*/
+	left:330px;
+}
+div.cui_subnav_wrap > ul#ul_nav_ticket{   /*门票下拉子项*/
+	left:432px;
+}
+div.cui_subnav_wrap > ul#ul_nav_g{   /*全球购下拉子项*/
+	left:594px;
+}
+div.cui_subnav_wrap > ul#ul_nav_lpk{   /*礼品卡下拉子项*/
+	left:543px;
+}
+div.cui_subnav_wrap > ul#ul_nav_sl{   /*商旅下拉子项*/
+	left:792px;
+}
+div.cui_subnav_wrap > ul#ul_nav_more{   /*更多下拉子项*/
+	left:839px;
+}
+
 div.cui_subnav_wrap > ul.cui_sub_nav li{
 	position: relative;
 	display:inline-block;
@@ -1026,6 +1052,11 @@ div.cui_subnav_wrap > ul.cui_sub_nav li{
 	line-height:40px;
 	float:left;
 }
+div.cui_subnav_wrap > ul.cui_sub_nav li:hover  >a,
+div.cui_subnav_wrap > a:hover{
+	color:#2577e3;
+}
+
 div.cui_subnav_wrap > a{
 	position: relative;
 	top:-30px;
@@ -1039,7 +1070,7 @@ div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	top:13px;
 	width:0px;	
 	height:14px;
-	border-left:1px solid red;
+	border-left:1px solid #cccccc;
 }
 
 

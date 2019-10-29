@@ -227,13 +227,55 @@ if(html_width>=base_nav_width){                                  //html_width：
 //以下是第三栏相关的鼠标事件
 var thdStatus=0;
 var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
+var thdTriangle=document.createElement("div");  //创建白色三角形占位元素
+thdTriangle.style.position="absolute";
+thdTriangle.style.display="none";
+thdTriangle.style.top="33px";
+thdTriangle.style.left="132px";
+thdTriangle.style.width="20px";
+thdTriangle.style.height="11px";
+thdTriangle.style.backgroundImage="url('http://localhost:8080/ctrip/image/whiteTri-up.png')"; 
+thdTriangle.style.backgroundSize="25px 22px";
+thdTriangle.style.backgroundRepeat="no-repeat";
+thdTriangle.style.backgroundPosition="center";
 for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onmouseover=function(){     //鼠标移入时
+	thdLiList[i].onmouseover=function(){    //鼠标移入时
+		this.children[1].style.display="block";  			//显示div.cui_subnav_wrap元素
+		switch(this.id){
+			case "cui_nav_destination":   //汽车▪船
+				this.appendChild(thdTriangle);     //将白色三角形占位元素添加到当前元素下面作为子元素
+				thdTriangle.style.display="block";
+				thdTriangle.style.zIndex="50";
+				thdTriangle.style.left="37px";
+				break;
+			case "cui_nav_g":        //全球购
+				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
+				thdTriangle.style.display="block";
+				thdTriangle.style.zIndex="50";
+				thdTriangle.style.left="30px";	
+				break;
+			case "cui_nav_lpk":        //礼品卡
+				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
+				thdTriangle.style.display="block";
+				thdTriangle.style.zIndex="50";
+				thdTriangle.style.left="30px";	
+				break;
+			default:
+				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
+				thdTriangle.style.display="block";
+				thdTriangle.style.zIndex="50";
+				thdTriangle.style.left="22px";				
+				break;
+		}
+		
 	};
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		
+		this.children[1].style.display="none";				//隐藏div.cui_subnav_wrap元素
+		thdTriangle.style.display="none";
 	};	
 }
+
+
 
 
 
