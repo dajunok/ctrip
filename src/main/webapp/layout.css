@@ -958,6 +958,39 @@ ul#cui_nav_ul >li >a{
 ul#cui_nav_ul >li:hover{     /*鼠标移入时*/
 	background:#0a56bb;
 }
+ul#cui_nav_ul >li.sub:hover{     /*鼠标移入时，实现背景颜色过渡（此处运用CSS动画但兼容性比较差，因此同时在JS文件中又运用了JQuery中的animate方法）*/
+	background:#2577e3; 		 /*#2577e3 #0a56bb*/
+	animation:myTransition 0.5s;
+	-moz-animation:myTransition 0.5s; 		/* 兼容Firefox #2577e3 #0a56bb*/
+	-webkit-animation:myTransition 0.5s; 	/* 兼容Safari and Chrome */
+	-o-animation:myTransition 0.5s;			/* 兼容Opera */
+}
+
+/*定义动画背景颜色渐变：myTransition*/
+@keyframes myTransition
+{
+	from {background:#0a56bb;}
+	to {background:#2577e3;}
+}
+
+@-moz-keyframes myfirst /* 兼容Firefox */
+{
+	from {background:#0a56bb;}
+	to {background:#2577e3;}
+}
+
+@-webkit-keyframes myfirst /* 兼容Safari and Chrome */
+{
+	from {background:#0a56bb;}
+	to {background:#2577e3;}
+}
+
+@-o-keyframes myfirst /* 兼容Opera */
+{
+	from {background:#0a56bb;}
+	to {background:#2577e3;}
+}
+
 ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占位*/
 	position: absolute;	
 	display:inline-block;
@@ -1063,6 +1096,45 @@ div.cui_subnav_wrap > a{
 	padding:0px 15px;
 	float:right;
 }
+div.cui_subnav_wrap > a.cui_ico_order >i {  /*第三栏下拉子项最右侧项图标*/
+	position: absolute;	
+	display:inline-block;
+	top:3px;
+	left:-8px;
+	width:22px;
+	height:20px;
+	background-image:url('//localhost:8080/ctrip/image/sprite/platform/un_icon_index_type20170111.png'); 	/*使用sprite雪碧图图标*/
+	background-repeat:no-repeat;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-hotel {  /*酒店订单*/
+	background-position:-23px 0px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-vacations {  /*旅游订单*/
+	background-position:0px -24px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-flight {  /*机票订单*/
+	background-position:0px 0px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-train {  /*火车票订单*/
+	background-position:-50px 0px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-bus {  /*汽车票订单*/
+	background-position:-76px 0px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-car {  /*用车订单*/
+	background-position:-128px 0px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-ticket {  /*门票玩乐订单*/
+	background-position:-23px -26px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-foreign {  /*外币兑换订单*/
+	background-position:-23px -78px;
+}
+div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-card {  /*礼品卡订单*/
+	background-position:-76px -53px;
+}
+
+
 /*行列表内容分隔符【|】属性设置：*/
 div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	position: relative;
@@ -1072,6 +1144,12 @@ div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	height:14px;
 	border-left:1px solid #cccccc;
 }
+
+
+
+
+
+
 
 
 

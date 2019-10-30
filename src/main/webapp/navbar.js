@@ -1,4 +1,15 @@
-﻿var html_width=document.documentElement.clientWidth;         //获取浏览器窗口宽度：1640
+﻿/*引入外部其他js脚本*/
+var script = document.createElement("script");
+script.language = "javascript";
+script.src = "function.js";
+document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
+//---------------------------------------------------------------------------------------------
+
+
+
+
+
+var html_width=document.documentElement.clientWidth;         //获取浏览器窗口宽度：1640
 var nav=document.getElementsByClassName("nav-bar-cont")[0];  
 var nav_width=nav.offsetWidth;
 
@@ -267,7 +278,9 @@ for(var i=0;i<thdLiList.length;i++){
 				thdTriangle.style.left="22px";				
 				break;
 		}
-		
+		//实现背景颜色由#0a56bb到#2577e3的过渡变化
+		$(this).css("background-color","#0a56bb"); 
+		$(this).animate({backgroundColor: '#2577e3'});
 	};
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
 		this.children[1].style.display="none";				//隐藏div.cui_subnav_wrap元素
@@ -292,15 +305,29 @@ for(var i=0;i<thdLiList.length;i++){
 
 
 
-
-
 /* 
+
+
+//$('div#cui_nav').animate({backgroundColor: 'red'});
+
+$(function(){ 
+   $("div#cui_nav").css("background-color","yellow"); 
+});
+
 //将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
-var thdSubnavList=document.querySelectorAll("div.cui_subnav_wrap");
-var thdParentNode=thdSubnavList[0].parentNode.parentNode;
-for(var i=0;i<thdSubnavList.length;i++){
-	thdParentNode.appendChild(thdSubnavList[i]);
-}
+var script = document.createElement("script");
+script.language = "javascript";
+script.src="jquery-3.4.1.js";
+document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
+//---------------------------------------------------------------------------------------------
+script = document.createElement("script");
+script.language = "javascript";
+script.src="jquery.animate-colors.js";
+document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
+//---------------------------------------------------------------------------------------------
+
+
+
 //以下是第三栏相关的鼠标事件
 var thdStatus=0;
 var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
