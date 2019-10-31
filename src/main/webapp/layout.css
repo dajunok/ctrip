@@ -1,5 +1,10 @@
 @charset "utf-8";
 ul li{list-style:none;}    /*去掉列表前面的项目符号*/
+h,h1,h2{
+	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+	font-weight:bold;
+    color: #333;      /*#333*/	
+}
 a{ 
 	text-decoration:none; 
 	color: #333;      /*#333*/
@@ -893,6 +898,8 @@ li.tel-list-more{
 /***=================================================【第三栏】==================================================================================================*/
 div#cui_nav{
 	position:relative;
+	margin:0px;
+	padding:0px;
 	height:40px;
 	background:#2577e3;
 }
@@ -1031,6 +1038,7 @@ ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{
 	border-top:none;
 	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
 	background:white;
+	z-index:9930;
 }
 ul#cui_nav_ul >li#cui_nav_hotel.sub >div.cui_subnav_wrap{left:-51px;}   /* 酒店下拉列表*/
 ul#cui_nav_ul >li#cui_nav_vac.sub >div.cui_subnav_wrap{left:-117px;}   /* 旅游下拉列表*/
@@ -1145,9 +1153,25 @@ div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	border-left:1px solid #cccccc;
 }
 
-
-
-
+/***=================================================【第四栏】==================================================================================================*/
+div.mod.cui_subway_internal{
+		position:relative;
+		margin:0px;
+		padding:0px;
+		width:1196px;
+		height:42px;
+		background:red;
+}
+h2.line-title{
+		position:absolute;
+		display:block;
+		top:0px;
+		padding:0px,5px;
+		width:70px;
+		height:42px;
+		line-height:42px;
+		background:#74a8ed;
+}
 
 
 

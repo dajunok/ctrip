@@ -287,6 +287,14 @@ for(var i=0;i<thdLiList.length;i++){
 		thdTriangle.style.display="none";
 	};	
 }
+//==================================================第四栏相关脚本================================================
+var four_mod=document.querySelector("div.mod.cui_subway_internal");
+var four_mod_width=four_mod.offsetWidth;
+if(html_width>=four_mod_width){                                  //html_width：浏览器窗口宽度 
+	four_mod.style.left=(html_width-four_mod_width)/2+"px";
+}else {
+	four_mod.style.left="0px";
+}
 
 
 
@@ -305,7 +313,8 @@ for(var i=0;i<thdLiList.length;i++){
 
 
 
-/* 
+
+/* -----------------------------------临时测试后作废内容---------------------------------------------
 
 
 //$('div#cui_nav').animate({backgroundColor: 'red'});
@@ -338,14 +347,6 @@ for(var i=0;i<thdLiList.length;i++){
 		
 	};	
 }
-
-
-
-
-
-
-
-
 
 alert(thdSubnavList[1].className);
 var thdCui_subnav_wrap=document.querySelector("li#cui_nav_hotel >div.cui_subnav_wrap");
