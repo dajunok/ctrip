@@ -1,7 +1,7 @@
 @charset "utf-8";
 ul li{list-style:none;}    /*去掉列表前面的项目符号*/
 h,h1,h2{
-	font: 14px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+	font: 12px/22px Simsun;
 	font-weight:bold;
     color: #333;      /*#333*/	
 }
@@ -1159,23 +1159,99 @@ div.mod.cui_subway_internal{
 		margin:0px;
 		padding:0px;
 		width:1196px;
-		height:42px;
-		background:red;
+		height:40px;
+		background:white;
 }
-h2.line-title{
+h2.line-title{                  /*境外直通车*/
 		position:absolute;
-		display:block;
-		top:0px;
-		padding:0px,5px;
-		width:70px;
-		height:42px;
-		line-height:42px;
-		background:#74a8ed;
+		top:9px;
+		margin:0px;
+		padding:0 5px;
+		width:auto;
+		height:auto;
+		border-radius:3px;		/*圆角*/
+		color:white;
+		background:#74a8ed;		
 }
-
-
-
-
+h2.line-title > i.icon-arrow{    /*境外直通车右边三角形图标*/
+		position:absolute;
+		top:2px;
+		width:12px;
+		height:18px;	
+		background:none;
+		background-image:url('http://localhost:8080/ctrip/image/nar-4/triangle_right.png');
+		background-size:23px,23px;
+		background-repeat:no-repeat;
+		background-position:center;		
+}
+ul.line-list{
+		position:absolute;
+		margin:0px;
+		padding:0px;
+		left:94px;
+		width:1102px;
+		height:40px;
+		line-height:40px;
+		background:white;
+}
+ul.line-list > li{
+		position: relative;
+		display:inline-block;
+		padding-left:34px;
+		height:40px;
+		line-height:40px;
+		float:left;
+}
+ul.line-list > li:hover >a{
+		color:#2577e3;
+}
+ul.line-list > li >i{
+		position: absolute;	
+		display:inline-block;
+		top:12px;
+		left:12px;
+		width:22px;
+		height:20px;
+		background-image:url('//localhost:8080/ctrip/image/sprite/platform/un_icon_index_type20170111.png'); 	/*使用sprite雪碧图图标*/
+		background-repeat:no-repeat;
+}
+ul.line-list > li >i.cui-icon-hotel {  /*海外酒店*/
+	background-position:-23px 0px;
+}
+ul.line-list > li >i.cui-icon-flight {  /*国际▪港澳台机票*/
+	background-position:0px 0px;
+}
+ul.line-list > li >i.cui-icon-car {  /*境外租车*/
+	background-position:-128px 0px;
+}
+ul.line-list > li >i.cui-icon-train {  /*国际▪港台火车票*/
+	background-position:-50px 0px;
+}
+ul.line-list > li >i.cui-icon-outboundtravel {  /*出境游*/
+	background-position:-23px -53px;
+}
+ul.line-list > li >i.cui-icon-HHtravel {  /*高端游*/
+	background-position:-102px -26px;
+}
+ul.line-list > li >i.cui-icon-ticket {  /*出境▪港澳台门票*/
+	background-position:-23px -26px;
+}
+ul.line-list > li >i.cui-icon-visa {  /*签证*/
+	background-position:0px -52px;
+}
+ul.line-list > li >i.cui-icon-insurance {  /*保险*/
+	background-position:-76px -26px;
+}
+ul.line-list > li >i.cui-icon-wifi {  /*WiFi▪电话卡？*/
+	background-position:-128px -26px;
+}
+ul.line-list > li >i.cui-icon-pickup {  /*境外接送机？*/
+	background-position:-23px -78px;
+	background-image:url('//localhost:8080/ctrip/image/sprite/platform/un_icon_index_type.png'); 	/*使用sprite雪碧图图标*/
+}
+ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
+	background-position:-23px -78px;
+}
 
 
 
