@@ -285,8 +285,11 @@ for(var i=0;i<thdLiList.length;i++){
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
 		this.children[1].style.display="none";				//隐藏div.cui_subnav_wrap元素
 		thdTriangle.style.display="none";
-	};	
+	};
+
 }
+
+
 //==================================================第四栏相关脚本================================================
 var four_mod=document.querySelector("div.mod.cui_subway_internal");
 var four_mod_width=four_mod.offsetWidth;
@@ -299,9 +302,7 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 
 
-
-
-
+alert(window.location);
 
 
 
@@ -315,6 +316,39 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+
+
+//以下是第三栏相关的鼠标事件
+//-------------
+var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
+for(var i=0;i<thdLiList.length;i++){
+	thdLiList[i].onclick=function(){    //鼠标点击时
+		this.classList.remove("sub");
+		this.classList.add("clik");
+		return false;                   //此处用于终止刷新,避免跳转
+	}
+	thdLiList[i].onmouseover=function(){    //鼠标移入时
+		
+	}
+	thdLiList[i].onmouseout=function(){     //鼠标移出时
+		this.classList.remove("clik");
+		this.classList.add("sub");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //$('div#cui_nav').animate({backgroundColor: 'red'});

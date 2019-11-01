@@ -972,7 +972,9 @@ ul#cui_nav_ul >li.sub:hover{     /*鼠标移入时，实现背景颜色过渡（
 	-webkit-animation:myTransition 0.5s; 	/* 兼容Safari and Chrome */
 	-o-animation:myTransition 0.5s;			/* 兼容Opera */
 }
-
+ul#cui_nav_ul >li.clik{
+	background:red;
+}
 /*定义动画背景颜色渐变：myTransition*/
 @keyframes myTransition
 {
@@ -997,7 +999,6 @@ ul#cui_nav_ul >li.sub:hover{     /*鼠标移入时，实现背景颜色过渡（
 	from {background:#0a56bb;}
 	to {background:#2577e3;}
 }
-
 ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占位*/
 	position: absolute;	
 	display:inline-block;
@@ -1024,7 +1025,6 @@ ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白�
 	-ms-transform:rotate(360deg);      /* IE 9 */
 	-webkit-transform:rotate(360deg);  /* Safari and Chrome */
 }
-
 ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{  
 	position: absolute;	
 	display:none;
@@ -1040,6 +1040,7 @@ ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{
 	background:white;
 	z-index:9930;
 }
+
 ul#cui_nav_ul >li#cui_nav_hotel.sub >div.cui_subnav_wrap{left:-51px;}   /* 酒店下拉列表*/
 ul#cui_nav_ul >li#cui_nav_vac.sub >div.cui_subnav_wrap{left:-117px;}   /* 旅游下拉列表*/
 ul#cui_nav_ul >li#cui_nav_flight.sub >div.cui_subnav_wrap{left:-315px;}   /* 机票拉列表*/

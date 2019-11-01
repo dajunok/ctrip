@@ -1,2 +1,35 @@
 @charset "UTF-8";
 ul li{list-style:none;}
+
+div.nav{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	height:40px;
+	background:#2577e3;
+}
+ul{
+	position: relative;
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:40px;
+}
+ul> li{
+	position: relative;
+	float:left;
+	padding:0px 10px;
+	width:auto;
+	height:40px;
+	line-height:40px;
+	background:#2577e3;
+}
+
+div.nav ul> li a{
+	color:white;
+	background:red;
+}
+div.nav.hover ul> li a{
+	background:green;
+}
+
