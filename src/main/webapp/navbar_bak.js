@@ -228,18 +228,6 @@ secUl_tel.onmouseout=function(){	//鼠标移出时
 	}
 }
 //==================================================第三栏相关脚本================================================
-var thdList=document.querySelectorAll("ul#cui_nav_ul >li[id]");
-var thdStatus=0;
-switch(String(window.location.href)){
-	case "http://localhost:8080/ctrip/navigation_ctrip.html":
-		thdList[0].style.backgroundColor="red";   //"#0a56bb"
-		thdStatus=0;
-		break;
-	default:
-		break;	
-	
-	
-}
 var thdBase_nav=document.querySelector("div.base_nav");
 var base_nav_width=thdBase_nav.offsetWidth;
 if(html_width>=base_nav_width){                                  //html_width：浏览器窗口宽度 
@@ -298,19 +286,9 @@ for(var i=0;i<thdLiList.length;i++){
 		$(this).animate({backgroundColor: '#2577e3'});
 	}
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		thdTriangle.style.display="none";
 		this.classList.remove("current");
 		this.children[1].style.display="none";  			//隐藏div.cui_subnav_wrap元素
 	}
-}
-var thdLi_a_List=document.querySelectorAll("ul#cui_nav_ul >li >a.cui_nav_non");
-for(var i=0;i<thdLi_a_List.length;i++){
-	thdLi_a_List[i].parentNode.onmouseover=function(){  //鼠标移入时
-		this.style.backgroundColor="#0a56bb";		
-	};
-	thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时		
-			this.style.backgroundColor="#2577e3";				
-	};
 }
 
 
@@ -343,16 +321,6 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
-alert(String(window.location.href));
-thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时
-		if(String(this.children[0].href)==String(window.location.href)){
-			this.style.backgroundColor="#0a56bb";
-		}else{
-			this.style.backgroundColor="#2577e3";
-		};
-				
-	};
-
 
 //==================================================第三栏相关脚本================================================
 //以下是第三栏相关的鼠标事件

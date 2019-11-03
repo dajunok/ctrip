@@ -911,7 +911,7 @@ div.base_nav{
 	height:40px;
 }
 ul#cui_nav_ul{
-	position: relative;
+	position: absolute;
 	margin:0px;
 	padding:0px;
 	width:1196px;
@@ -926,6 +926,9 @@ ul#cui_nav_ul >li{
 	height:40px;
 	line-height:40px;
 	background:#2577e3;
+}
+ul#cui_nav_ul >li.current{  /*鼠标移入或点击时背景颜色进行转换*/
+	background:#0a56bb;	
 }
 ul#cui_nav_ul >#cui_c_ph_hp{
 	width:30px;        /*首页*/
@@ -948,6 +951,11 @@ ul#cui_nav_ul >#cui_nav_g{
 ul#cui_nav_ul >#cui_nav_lpk{
 	width:60px;			/*礼品卡*/
 }
+/*行列表内容字体及颜色*/
+ul#cui_nav_ul >li >a{
+	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
+	color:white;
+}
 /*行列表内容分隔符【|】属性设置：*/
 ul#cui_nav_ul >li.divider{
 	position: relative;
@@ -956,48 +964,6 @@ ul#cui_nav_ul >li.divider{
 	width:0px;	
 	height:14px;
 	border-left:1px solid #1a5fbb;
-}
-/*行列表内容字体及颜色*/
-ul#cui_nav_ul >li >a{
-	font: 15px/1.5 "Microsoft yahei", arial, Simsun, sans-serif;
-	color:white;
-}
-ul#cui_nav_ul >li:hover{     /*鼠标移入时*/
-	background:#0a56bb;
-}
-ul#cui_nav_ul >li.sub:hover{     /*鼠标移入时，实现背景颜色过渡（此处运用CSS动画但兼容性比较差，因此同时在JS文件中又运用了JQuery中的animate方法）*/
-	background:#2577e3; 		 /*#2577e3 #0a56bb*/
-	animation:myTransition 0.5s;
-	-moz-animation:myTransition 0.5s; 		/* 兼容Firefox #2577e3 #0a56bb*/
-	-webkit-animation:myTransition 0.5s; 	/* 兼容Safari and Chrome */
-	-o-animation:myTransition 0.5s;			/* 兼容Opera */
-}
-ul#cui_nav_ul >li.clik{
-	background:red;
-}
-/*定义动画背景颜色渐变：myTransition*/
-@keyframes myTransition
-{
-	from {background:#0a56bb;}
-	to {background:#2577e3;}
-}
-
-@-moz-keyframes myfirst /* 兼容Firefox */
-{
-	from {background:#0a56bb;}
-	to {background:#2577e3;}
-}
-
-@-webkit-keyframes myfirst /* 兼容Safari and Chrome */
-{
-	from {background:#0a56bb;}
-	to {background:#2577e3;}
-}
-
-@-o-keyframes myfirst /* 兼容Opera */
-{
-	from {background:#0a56bb;}
-	to {background:#2577e3;}
 }
 ul.cui_nav.cui_content >li >a >i.cui_ico_triangle{  /*朝下白色三角形占位*/
 	position: absolute;	
@@ -1020,12 +986,13 @@ ul.cui_nav.cui_content >li >a#nav_g >i.cui_ico_triangle{left:55px;}   /*全球�
 ul.cui_nav.cui_content >li >a#nav_lpk >i.cui_ico_triangle{left:55px;}   /*礼品卡*/
 
 
-ul.cui_nav.cui_content >li:hover >a >i.cui_ico_triangle{   /*鼠标移入时白色三角形旋转360度*/
+ul.cui_nav.cui_content >li.current >a >i.cui_ico_triangle{   /*鼠标移入或点击时白色三角形旋转360度*/
 	transform:rotate(360deg);
 	-ms-transform:rotate(360deg);      /* IE 9 */
 	-webkit-transform:rotate(360deg);  /* Safari and Chrome */
 }
-ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{  
+
+ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{  /*第三栏所有li列表子项下拉框公共属性定义*/
 	position: absolute;	
 	display:none;
 	top:40px;
@@ -1040,7 +1007,6 @@ ul#cui_nav_ul >li.sub >div.cui_subnav_wrap{
 	background:white;
 	z-index:9930;
 }
-
 ul#cui_nav_ul >li#cui_nav_hotel.sub >div.cui_subnav_wrap{left:-51px;}   /* 酒店下拉列表*/
 ul#cui_nav_ul >li#cui_nav_vac.sub >div.cui_subnav_wrap{left:-117px;}   /* 旅游下拉列表*/
 ul#cui_nav_ul >li#cui_nav_flight.sub >div.cui_subnav_wrap{left:-315px;}   /* 机票拉列表*/
@@ -1060,31 +1026,6 @@ div.cui_subnav_wrap > ul.cui_sub_nav{
 	width:1200px;
 	height:40px;
 }
-div.cui_subnav_wrap > ul#ul_nav_trains{   /*火车下拉子项*/
-	left:315px;
-}
-div.cui_subnav_wrap > ul#ul_nav_destination{   /*汽车▪船下拉子项*/
-	left:381px;
-}
-div.cui_subnav_wrap > ul#ul_nav_car{   /*用车下拉子项*/
-	left:330px;
-}
-div.cui_subnav_wrap > ul#ul_nav_ticket{   /*门票下拉子项*/
-	left:432px;
-}
-div.cui_subnav_wrap > ul#ul_nav_g{   /*全球购下拉子项*/
-	left:594px;
-}
-div.cui_subnav_wrap > ul#ul_nav_lpk{   /*礼品卡下拉子项*/
-	left:543px;
-}
-div.cui_subnav_wrap > ul#ul_nav_sl{   /*商旅下拉子项*/
-	left:792px;
-}
-div.cui_subnav_wrap > ul#ul_nav_more{   /*更多下拉子项*/
-	left:839px;
-}
-
 div.cui_subnav_wrap > ul.cui_sub_nav li{
 	position: relative;
 	display:inline-block;
@@ -1094,56 +1035,6 @@ div.cui_subnav_wrap > ul.cui_sub_nav li{
 	line-height:40px;
 	float:left;
 }
-div.cui_subnav_wrap > ul.cui_sub_nav li:hover  >a,
-div.cui_subnav_wrap > a:hover{
-	color:#2577e3;
-}
-
-div.cui_subnav_wrap > a{
-	position: relative;
-	top:-30px;
-	padding:0px 15px;
-	float:right;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i {  /*第三栏下拉子项最右侧项图标*/
-	position: absolute;	
-	display:inline-block;
-	top:3px;
-	left:-8px;
-	width:22px;
-	height:20px;
-	background-image:url('//localhost:8080/ctrip/image/sprite/platform/un_icon_index_type20170111.png'); 	/*使用sprite雪碧图图标*/
-	background-repeat:no-repeat;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-hotel {  /*酒店订单*/
-	background-position:-23px 0px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-vacations {  /*旅游订单*/
-	background-position:0px -24px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-flight {  /*机票订单*/
-	background-position:0px 0px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-train {  /*火车票订单*/
-	background-position:-50px 0px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-bus {  /*汽车票订单*/
-	background-position:-76px 0px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-car {  /*用车订单*/
-	background-position:-128px 0px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-ticket {  /*门票玩乐订单*/
-	background-position:-23px -26px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-foreign {  /*外币兑换订单*/
-	background-position:-23px -78px;
-}
-div.cui_subnav_wrap > a.cui_ico_order >i.cui-icon-card {  /*礼品卡订单*/
-	background-position:-76px -53px;
-}
-
-
 /*行列表内容分隔符【|】属性设置：*/
 div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	position: relative;
@@ -1153,6 +1044,13 @@ div.cui_subnav_wrap >ul.cui_sub_nav >li.divider{
 	height:14px;
 	border-left:1px solid #cccccc;
 }
+div.cui_subnav_wrap > a{
+	position: relative;
+	top:-30px;
+	padding:0px 15px;
+	float:right;
+}
+
 
 /***=================================================【第四栏】==================================================================================================*/
 div.mod.cui_subway_internal{
