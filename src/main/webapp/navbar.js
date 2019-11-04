@@ -228,9 +228,9 @@ secUl_tel.onmouseout=function(){	//鼠标移出时
 	}
 }
 //==================================================第三栏相关脚本================================================
-var thdList=document.querySelectorAll("ul#cui_nav_ul >li[id]");
+var thdList=document.querySelectorAll("ul#cui_nav_ul >li[id]");   //获取三栏列表项：【首页】、【酒店】、【跟团游】、【自由行】、【机票】、【火车】、【汽车▪船】、【用车】、【门票】、【攻略】、【全球卡】、【礼品卡】、【商旅】、【游轮】、【目的地】、【金融】、【跟多】。
 var thdStatus=0;
-switch(String(window.location.href)){
+switch(String(window.location.href)){       //window.location.href用于获取当前页地址
 	case "http://localhost:8080/ctrip/navigation_ctrip.html":
 		thdList[0].style.backgroundColor="red";   //"#0a56bb"
 		thdStatus=0;
@@ -326,8 +326,9 @@ if(html_width>=four_mod_width){                                  //html_width：
 	four_mod.style.left="0px";
 }
 
-
-
+//==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
+var five_img=document.querySelector("#allyesId img");
+five_img.style.width=html_width+"px";
 
 
 
