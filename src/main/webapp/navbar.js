@@ -318,6 +318,7 @@ for(var i=0;i<thdLi_a_List.length;i++){
 
 
 //==================================================第四栏相关脚本================================================
+//居中显示
 var four_mod=document.querySelector("div.mod.cui_subway_internal");
 var four_mod_width=four_mod.offsetWidth;
 if(html_width>=four_mod_width){                                  //html_width：浏览器窗口宽度 
@@ -327,8 +328,127 @@ if(html_width>=four_mod_width){                                  //html_width：
 }
 
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
-var five_img=document.querySelector("#allyesId img");
-five_img.style.width=html_width+"px";
+//添加图片
+var five_a_pic=document.querySelector("#allyesId_init_img");
+var five_img_add=document.createElement("img");   //创建图片元素1。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg");
+five_img_add.setAttribute("alt", "img_one");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素2。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg");
+five_img_add.setAttribute("alt", "img_two");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素3。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg");
+five_img_add.setAttribute("alt", "img_three");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素4。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg");
+five_img_add.setAttribute("alt", "img_four");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素5。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg");
+five_img_add.setAttribute("alt", "img_five");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素6。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg");
+five_img_add.setAttribute("alt", "img_six");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素7。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg");
+five_img_add.setAttribute("alt", "img_seven");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素8。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg");
+five_img_add.setAttribute("alt", "img_eight");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素9。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg");
+five_img_add.setAttribute("alt", "img_nine");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+//居中显示
+var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
+var five_imgs=document.querySelectorAll("div.pic_banner a img");
+var five_div_pic=document.querySelector("div.pic_banner");
+var five_div_pic_width=five_div_pic.offsetWidth;
+if(html_width>=five_div_pic_width){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
+	five_div_pic.style.left=(html_width-five_div_pic_width)/2+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.maxWidth=five_div_pic_width+"px";
+		five_imgs[i].style.left=0+"px";
+	}
+}else {
+	five_div_pic.style.left=0+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.width=html_width+"px";	
+	}
+}
+
+
+//------------------------------------------------
+//滚动效果
+window.onload=function(){
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -344,6 +464,16 @@ five_img.style.width=html_width+"px";
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+console.log(screen_width,html_width,document.body.scrollWidth);
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=(html_width-1920)/2+"px";
+	}
+
+
+
+var five_pics=document.querySelectorAll("#allyesId_init_img img");
+alert(five_pics.length);
+
 alert(String(window.location.href));
 thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时
 		if(String(this.children[0].href)==String(window.location.href)){
@@ -412,25 +542,6 @@ for(var i=0;i<thdLiList.length;i++){
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //以下是第三栏相关的鼠标事件
 //-------------
 var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
@@ -449,18 +560,6 @@ for(var i=0;i<thdLiList.length;i++){
 	}
 }
 style="display:none"
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
