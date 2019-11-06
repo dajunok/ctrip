@@ -335,7 +335,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg02180000
 five_img_add.setAttribute("alt", "img_one");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=9;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -344,7 +344,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg06180000
 five_img_add.setAttribute("alt", "img_two");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=8;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -353,7 +353,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000
 five_img_add.setAttribute("alt", "img_three");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=7;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -362,7 +362,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg08180000
 five_img_add.setAttribute("alt", "img_four");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=6;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -371,7 +371,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e190000
 five_img_add.setAttribute("alt", "img_five");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=5;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -380,7 +380,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000
 five_img_add.setAttribute("alt", "img_six");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=4;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -389,7 +389,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k170000
 five_img_add.setAttribute("alt", "img_seven");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=3;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -398,7 +398,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000
 five_img_add.setAttribute("alt", "img_eight");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=2;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -407,7 +407,7 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t180000
 five_img_add.setAttribute("alt", "img_nine");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
+five_img_add.style.display="none";
 five_img_add.style.zIndex=1;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
@@ -447,29 +447,16 @@ var follPic;
 var timerId;
 window.onload=function(){
 	var picNum=0;
-	timerId=setInterval(leftRoll, 500);		
+	five_imgs[0].style.display="block";
+	five_imgs[1].style.display="block";
+	timerId=setInterval(move(five_imgs[0],-1000), 50);		
 }
 
 
-function leftRoll(){
-		changePIC();
-		picNum++;	
+function move(curPIC,step){
+	if(curPIC.offsetLeft> -curPIC.offsetWidth){
+		curPIC.style.left=(curPIC.offsetLeft+step)+"px";
 	}
-function changePIC(){
-	if(picNum==five_imgs.length){
-		picNum=0;
-	}
-	curPic=five_imgs[picNum];
-	if(picNum==(five_imgs.length-1)){
-		follPic=five_imgs[0];
-	}else{
-		follPic=five_imgs[picNum+1];
-	}
-	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.left=0+"px";
-	}
-	follPic.style.left=1780+"px";
-	curPic.style.left=-500+"px";
 }
 
 
@@ -524,7 +511,7 @@ five_imgs[6]：//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg img
 five_imgs[7]：//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg img_eight			【一起来泡温泉】
 five_imgs[8]：//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg img_nine			【秋风起蟹飘香】
 //------------------------------------------------
-//滚动效果
+//滚动效果（简单图片切换）
 window.onload=function(){
 	var picNum=0;
 	var timerId=setInterval(leftRoll, 3000);
