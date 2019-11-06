@@ -1152,7 +1152,7 @@ ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
 	background-position:-23px -78px;
 }
 
-/***=================================================【第五栏：搜索栏（滚动广告）】==================================================================================================*/
+/***=================================================【第五栏：搜索栏（滚动轮播广告）】==================================================================================================*/
 div.mod-banner{
 		position:relative;
 		margin:0px;
@@ -1166,8 +1166,7 @@ div.pic_banner {
 		margin:0px;
 		padding:0px;
 		width:1920px;
-		height:340px;		
-		background:green;
+		height:340px;	
 }
 div.pic_banner a{
 		position:relative;
@@ -1176,8 +1175,7 @@ div.pic_banner a{
 		padding:0px;
 		left:0px;
 		width:1920px;
-		height:340px;		
-		background:red;
+		height:340px;	
 }
 div.pic_banner a img{
 		position:absolute;

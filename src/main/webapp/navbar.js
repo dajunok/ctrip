@@ -335,6 +335,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg02180000
 five_img_add.setAttribute("alt", "img_one");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=9;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素2。
@@ -342,6 +344,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg06180000
 five_img_add.setAttribute("alt", "img_two");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=8;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素3。
@@ -349,6 +353,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000
 five_img_add.setAttribute("alt", "img_three");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=7;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素4。
@@ -356,6 +362,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg08180000
 five_img_add.setAttribute("alt", "img_four");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=6;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素5。
@@ -363,6 +371,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e190000
 five_img_add.setAttribute("alt", "img_five");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=5;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素6。
@@ -370,6 +380,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000
 five_img_add.setAttribute("alt", "img_six");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=4;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素7。
@@ -377,6 +389,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k170000
 five_img_add.setAttribute("alt", "img_seven");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=3;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素8。
@@ -384,6 +398,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000
 five_img_add.setAttribute("alt", "img_eight");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=2;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 five_img_add=document.createElement("img");   //创建图片元素9。
@@ -391,6 +407,8 @@ five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t180000
 five_img_add.setAttribute("alt", "img_nine");
 //five_img_add.style.width=html_width+"px";
 five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=1;
 five_a_pic.appendChild(five_img_add);
 //------------------------------------------------
 //居中显示
@@ -404,6 +422,12 @@ if(html_width>=five_div_pic_width){                                  //html_widt
 		five_imgs[i].style.maxWidth=five_div_pic_width+"px";
 		five_imgs[i].style.left=0+"px";
 	}
+}else if(html_width<=1000){
+	five_div_pic.style.left=0+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-550+"px";
+		five_imgs[i].style.width=html_width+"px";	
+	}
 }else {
 	five_div_pic.style.left=0+"px";
 	for(var i=0;i<five_imgs.length;i++){
@@ -413,15 +437,40 @@ if(html_width>=five_div_pic_width){                                  //html_widt
 
 
 //------------------------------------------------
+for (var i=0;i<five_imgs.length;i++){
+	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
+}
 //滚动效果
+var curPic,follPic;
+var picNum=0;
+var follPic;
+var timerId;
 window.onload=function(){
-	
-	
+	var picNum=0;
+	timerId=setInterval(leftRoll, 500);		
 }
 
 
-
-
+function leftRoll(){
+		changePIC();
+		picNum++;	
+	}
+function changePIC(){
+	if(picNum==five_imgs.length){
+		picNum=0;
+	}
+	curPic=five_imgs[picNum];
+	if(picNum==(five_imgs.length-1)){
+		follPic=five_imgs[0];
+	}else{
+		follPic=five_imgs[picNum+1];
+	}
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=0+"px";
+	}
+	follPic.style.left=1780+"px";
+	curPic.style.left=-500+"px";
+}
 
 
 
@@ -464,6 +513,52 @@ window.onload=function(){
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+//广告轮播图片
+five_imgs[0]：//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg img_one            【泰国水灯节】
+five_imgs[1]：//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg img_two				【水底世界】
+five_imgs[2]：//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg img_three			【假期已过优哉游世界】
+five_imgs[3]：//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg img_four			【准备好燃一个冬天】
+five_imgs[4]：//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg img_five			【多伦多】
+five_imgs[5]：//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg img_six				【喜迎进博会】
+five_imgs[6]：//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg img_seven			【枫玩日本】
+five_imgs[7]：//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg img_eight			【一起来泡温泉】
+five_imgs[8]：//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg img_nine			【秋风起蟹飘香】
+//------------------------------------------------
+//滚动效果
+window.onload=function(){
+	var picNum=0;
+	var timerId=setInterval(leftRoll, 3000);
+	function leftRoll(){
+		changePIC();
+		picNum++;	
+	}
+	function changePIC(){
+		if(picNum==five_imgs.length){
+			picNum=0;
+		}
+		for(var i=0;i<five_imgs.length;i++){
+			if(i==picNum){
+				five_imgs[i].style.display="block"
+			}else{
+				five_imgs[i].style.display="none"
+			}
+		}
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log(screen_width,html_width,document.body.scrollWidth);
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=(html_width-1920)/2+"px";
