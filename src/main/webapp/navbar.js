@@ -445,19 +445,20 @@ var curPic,follPic;
 var picNum=0;
 var follPic;
 var timerId;
-window.onload=function(){
-	var picNum=0;
-	five_imgs[0].style.display="block";
-	five_imgs[1].style.display="block";
-	timerId=setInterval(move(five_imgs[0],-1000), 50);		
-}
-
+var picNum=0;
+five_imgs[0].style.display="block";
+five_imgs[1].style.display="block";
+timerId=window.setInterval(move(five_imgs[0],-1000), 50);	
 
 function move(curPIC,step){
 	if(curPIC.offsetLeft> -curPIC.offsetWidth){
 		curPIC.style.left=(curPIC.offsetLeft+step)+"px";
 	}
 }
+console.log(html_width);
+
+
+
 
 
 
