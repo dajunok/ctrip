@@ -3,8 +3,8 @@
  */
 
 /*-----------------------------------实现暂停函数*/
-//--方法1
- function sleep(ms){
+//--方法1    
+ function sleep(ms){         //涉及暂停的函数前必须使用关键字【async】
 	 return new Promise(function(resolve, reject) {
 		 setTimeout(resolve, ms)})
 }
@@ -25,7 +25,7 @@ function sleep3(d){
 }
 //--方法4
 function sleep4(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))   
 }
 
 

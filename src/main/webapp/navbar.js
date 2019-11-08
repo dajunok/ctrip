@@ -440,22 +440,28 @@ if(html_width>=five_div_pic_width){                                  //html_widt
 for (var i=0;i<five_imgs.length;i++){
 	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
 }
-//滚动效果
-var curPic,follPic;
-var picNum=0;
-var follPic;
-var timerId;
-var picNum=0;
-five_imgs[0].style.display="block";
-five_imgs[1].style.display="block";
-timerId=window.setInterval(move(five_imgs[0],-1000), 50);	
-
-function move(curPIC,step){
-	if(curPIC.offsetLeft> -curPIC.offsetWidth){
-		curPIC.style.left=(curPIC.offsetLeft+step)+"px";
+//滚动效果（简单图片切换）
+window.onload=function(){
+	var picNum=0;
+	var timerId=setInterval(leftRoll, 2000);
+	function leftRoll(){
+		//five_imgs[picNum].animate({'left':html_width+'px'});
+		changePIC();
+		picNum++;	
 	}
+	function changePIC(){
+		if(picNum==five_imgs.length){
+			picNum=0;
+		}
+		for(var i=0;i<five_imgs.length;i++){
+			if(i==picNum){
+				five_imgs[i].style.display="block"
+			}else{
+				five_imgs[i].style.display="none"
+			}
+		}
+	}	
 }
-console.log(html_width);
 
 
 
