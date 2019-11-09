@@ -441,11 +441,11 @@ for (var i=0;i<five_imgs.length;i++){
 	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
 }
 //滚动效果（简单图片切换）
+//滚动效果（简单图片切换）
 window.onload=function(){
 	var picNum=0;
-	var timerId=setInterval(leftRoll, 2000);
+	var timerId=setInterval(leftRoll, 3000);
 	function leftRoll(){
-		//five_imgs[picNum].animate({'left':html_width+'px'});
 		changePIC();
 		picNum++;	
 	}
@@ -505,8 +505,28 @@ window.onload=function(){
 
 
 
-
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+//jquery data()方法的使用
+var dom = document.body;
+$.data(dom, 'name', '张三');   //将数据绑定到body元素上
+alert($('body').data('name'));
+
+//扩展JQuery函数库
+jQuery.extend({
+    min: function(a, b) {
+        return a < b ? a : b;
+    },
+    max: function(a, b) {
+        return a > b ? a : b;
+    }
+});
+jQuery.min(2, 3); //  2 
+jQuery.max(4, 5); //  5
+$.min(8,10);
+console.log(jQuery.min(2, 3),jQuery.max(4, 5),$.min(8,10));
+
+
+
 //广告轮播图片
 five_imgs[0]：//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg img_one            【泰国水灯节】
 five_imgs[1]：//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg img_two				【水底世界】
