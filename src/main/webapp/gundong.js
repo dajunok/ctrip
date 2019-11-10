@@ -48,29 +48,8 @@ window.onload = function(){
 		eUL.style.left = eUL.offsetLeft + speed + 'px';
 
 	}  
-	
-	var Obj={
-		max: function(a,b){
-			return a > b ? a : b;
-		},
-		min: function(a,b){
-			return a < b ? a : b;
-		}
-	}
-	
-	var objcase=Object.create(Obj);
-	alert(objcase.max(10,12));
-	
-	jQuery.fn.test1= function(){
-   this.css("background","#ff0");//这里面的this为jquery对象，而不是dom对象
-   return this.each(function(){ //遍历匹配的元素，此处的this表示为jquery对象，而不是dom对象
-           
-          });
  
-};
-  
-  
-}
+}; 
 
 
 

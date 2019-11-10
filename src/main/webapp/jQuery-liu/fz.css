@@ -1,0 +1,17 @@
+@charset "UTF-8";
+div{
+	position: relative;
+	height: 340px;
+	margin: 100px auto;
+	overflow: hidden;
+	background-color: #646464;    
+	
+}
+div img{
+	position: relative;
+	width:1680px;
+	height: 340px;
+	overflow: hidden;
+	background-color: red;    
+	
+}
