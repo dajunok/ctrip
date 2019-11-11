@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  jQuery OwlCarousel v1.3.3
  *
  *  Copyright (c) 2013 Bartosz Wojciechowski
@@ -21,11 +21,11 @@ if (typeof Object.create !== "function") {
 }
 (function ($, window, document) {
 
-    var Carousel = {
+    var Carousel = {									//创建（定义）Carousel类对象，主要用于工厂方法定义（存储页面JS函数）
         init : function (options, el) {
             var base = this;
 
-            base.$elem = $(el);
+            base.$elem = $(el);    						//调用元素对象
             base.options = $.extend({}, $.fn.owlCarousel.options, base.$elem.data(), options);
 
             base.userOptions = options;
@@ -65,7 +65,7 @@ if (typeof Object.create !== "function") {
         logIn : function () {
             var base = this;
 
-            base.$elem.data("owl-originalStyles", base.$elem.attr("style"));
+            base.$elem.data("owl-originalStyles", base.$elem.attr("style"));     ////调用元素对象
             base.$elem.data("owl-originalClasses", base.$elem.attr("class"));
 
             base.$elem.css({opacity: 0});
@@ -1437,13 +1437,13 @@ if (typeof Object.create !== "function") {
 
     };
 
-    $.fn.owlCarousel = function (options) {
+    $.fn.owlCarousel = function (options) {            //实例化上面的工厂方法类对象，并添加到JQuery的$.fn命名空间
         return this.each(function () {
             if ($(this).data("owl-init") === true) {
                 return false;
             }
-            $(this).data("owl-init", true);
-            var carousel = Object.create(Carousel);
+            $(this).data("owl-init", true);    			//将临时数据以key/value的形式绑定到当前调用元素。
+            var carousel = Object.create(Carousel);     //使用Object.create()函数实例化Carousel类对象（上面定义的）
             carousel.init(options, this);
             $.data(this, "owlCarousel", carousel);
         });

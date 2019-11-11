@@ -93,6 +93,8 @@
 
 	
 	
+	
+	
 //3、--------------------------------测试1
 (function($, window, document) {
 	
@@ -131,19 +133,64 @@
     alert("name:"+student.name+"\n"+"age:"+student.age+"\n"+"grade:"+student.grade);  
     //大家可以看到测试结果name:zhangsan age:21  grade:一年级  
     //学生类里面我没有给name和age属性赋值啊,为什么又存在这两个属性的值呢,这个就是apply的神奇之处. 
-
-
-
-
 }(jQuery, window, document));	
 //-------------------------------------------------------------end	
 		
-//4、--------------------------------测试2
-(function($, window, document) {
-	
-	
-	
 
+		
+
+		
+
+
+
+//4、--------------------------------使用jQuery Ajax实现异步请求功能（避免页面刷新）
+	/*
+		jQuery的$.ajax()方法里
+		1、success成功回调方法参数
+			function(response,status,xhr)	
+				response： 包含来自请求的结果数据
+				status： 包含请求的状态（“success”, “notmodified”, “error”, “timeout” 或 “parsererror”）
+				xhr ： 包含 XMLHttpRequest 对象，可用xhr.status获取状态码
+		2、报错回调函数：
+			error: function (jqXHR, textStatus, errorThrown)
+	*/
+(function($, window, document) {	
+	 
+	//------------------方法1：使用【$.ajax】完整格式，并以字符串格式输出
+	var getData=function(result){	console.log(result); }        //success函数
+	$(function(){
+        //请求参数
+        var list = {};
+        $.ajax({
+            //请求方式
+            type : "POST",
+            //请求的媒体类型
+            contentType: "application/json;charset=UTF-8",
+            //请求地址
+            url : "./JSON/json.js",
+            //数据，json字符串
+            data : JSON.stringify(list),        
+            //请求成功
+            success : getData,
+            //请求失败，包含具体的错误信息
+            error : function(e){
+                console.log(e.status);
+                console.log(e.responseText);
+            }
+        });
+    });
+	
+	//-------------方法2：使用【$.getJSON】
+	var f_success=function(result){	console.log("姓名："+result[0].name); }        //success函数
+	var data={              //数据请求格式（数组形式）
+		tags:"cat",
+		tagmode:"any",
+		format:"json",
+	}
+	$.getJSON("./JSON/json.js",data,f_success);   
+	/*输出结果：
+		姓名：吴者然
+	*/
 
 }(jQuery, window, document));	
 //-------------------------------------------------------------end		
