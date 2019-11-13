@@ -26,7 +26,7 @@ if (typeof Object.create !== "function") {
             var base = this;
 
             base.$elem = $(el);    						//调用元素对象
-            base.options = $.extend({}, $.fn.owlCarousel.options, base.$elem.data(), options);
+            base.options = $.extend({}, $.fn.owlCarousel.options, base.$elem.data(), options);   //合并滚动栏所有选项options，包括滚动栏临时绑定的data数据
 
             base.userOptions = options;
             base.loadContent();
@@ -65,22 +65,22 @@ if (typeof Object.create !== "function") {
         logIn : function () {
             var base = this;
 
-            base.$elem.data("owl-originalStyles", base.$elem.attr("style"));     ////调用元素对象
-            base.$elem.data("owl-originalClasses", base.$elem.attr("class"));
+            base.$elem.data("owl-originalStyles", base.$elem.attr("style"));     ////将滚动栏样式绑定到滚动栏元素data数据对象"owl-originalStyles"中。
+            base.$elem.data("owl-originalClasses", base.$elem.attr("class"));     //将滚动栏【class】属性绑定到滚动栏元素data数据对象"owl-originalClasses"中。
 
-            base.$elem.css({opacity: 0});
-            base.orignalItems = base.options.items;
-            base.checkBrowser();
+            base.$elem.css({opacity: 0});    //滚动栏（框）透明度为0，即不透明
+            base.orignalItems = base.options.items;    //orignalItems：滚动栏数量
+            base.checkBrowser();        //判断客户端是不是触摸屏以及是否支持translate3d动画，将结果存储在browser:{support3d: true, isTouch: undefined}数组中。
             base.wrapperWidth = 0;
             base.checkVisible = null;
-            base.setVars();
+            base.setVars();   //调用setVars()函数
         },
 
         setVars : function () {
             var base = this;
-            if (base.$elem.children().length === 0) {return false; }
-            base.baseClass();
-            base.eventTypes();
+            if (base.$elem.children().length === 0) {return false; }  //判断图片滚动框是否有子元素（即是否有滚动图片）
+            base.baseClass();		//调用baseClass()函数给滚动栏添加baseClass和theme选项对应字符串指定的class属性
+            base.eventTypes();      //调用eventTypes()函数给滚动栏添加鼠标拖动滚动图片的功能
             base.$userItems = base.$elem.children();
             base.itemsAmount = base.$userItems.length;
             base.wrapItems();
@@ -193,16 +193,16 @@ if (typeof Object.create !== "function") {
             base.$elem.css("display", "block");
         },
 
-        baseClass : function () {
+        baseClass : function () {   //给滚动栏添加baseClass和theme选项对应字符串指定的class属性：用户调用carousel.init(options, this)时可以由options参数指定，它是一个数组对象。默认由$.fn.owlCarousel.options指定。
             var base = this,
                 hasBaseClass = base.$elem.hasClass(base.options.baseClass),
                 hasThemeClass = base.$elem.hasClass(base.options.theme);
 
-            if (!hasBaseClass) {
-                base.$elem.addClass(base.options.baseClass);
+            if (!hasBaseClass) {								//判断并添加baseClass选项对应的class属性，默认是baseClass : "owl-carousel"
+                base.$elem.addClass(base.options.baseClass);    
             }
 
-            if (!hasThemeClass) {
+            if (!hasThemeClass) {                               //判断并添加theme选项对应的class属性，默认是theme : "owl-theme"
                 base.$elem.addClass(base.options.theme);
             }
         },
@@ -801,9 +801,9 @@ if (typeof Object.create !== "function") {
                                   "; transform:"         + translate3D;
             regex = /translate3d\(0px, 0px, 0px\)/g;
             asSupport = tempElem.style.cssText.match(regex);
-            support3d = (asSupport !== null && asSupport.length === 1);
+            support3d = (asSupport !== null && asSupport.length === 1);    //判断是否支持translate3D
 
-            isTouch = "ontouchstart" in window || window.navigator.msMaxTouchPoints;
+            isTouch = "ontouchstart" in window || window.navigator.msMaxTouchPoints;   //判断是否为触摸屏（移到端或触摸屏显示器）
 
             base.browser = {
                 "support3d" : support3d,
@@ -819,11 +819,11 @@ if (typeof Object.create !== "function") {
             }
         },
 
-        eventTypes : function () {
+        eventTypes : function () {		//给滚动栏添加鼠标拖动滚动图片的功能
             var base = this,
                 types = ["s", "e", "x"];
 
-            base.ev_types = {};
+            base.ev_types = {};  //给Carousel类对象（即此类）添加数据成员ev_types用于存储图片拖动事件
 
             if (base.options.mouseDrag === true && base.options.touchDrag === true) {
                 types = [
@@ -1442,7 +1442,7 @@ if (typeof Object.create !== "function") {
             if ($(this).data("owl-init") === true) {
                 return false;
             }
-            $(this).data("owl-init", true);    			//将临时数据以key/value的形式绑定到当前调用元素。
+            $(this).data("owl-init", true);    			//将临时数据以key/value的形式绑定到当前调用元素（本案例就是div#owl-demo.owl-carousel元素）。
             var carousel = Object.create(Carousel);     //使用Object.create()函数实例化Carousel类对象（上面定义的）
             carousel.init(options, this);
             $.data(this, "owlCarousel", carousel);
