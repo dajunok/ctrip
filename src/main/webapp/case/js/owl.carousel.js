@@ -5,7 +5,8 @@
  *  http://www.owlgraphic.com/owlcarousel/
  *
  *  Licensed under MIT
- *
+ *  注意：
+		1、本案例中注释说明中的滚动图片指的是包含图片img的a标签元素。
  */
 
 /*JS Lint helpers: */
@@ -80,17 +81,17 @@ if (typeof Object.create !== "function") {
             var base = this;
             if (base.$elem.children().length === 0) {return false; }  //判断图片滚动框是否有子元素（即是否有滚动图片）
             base.baseClass();		//调用baseClass()函数给滚动栏添加baseClass和theme选项对应字符串指定的class属性
-            base.eventTypes();      //调用eventTypes()函数给滚动栏添加鼠标拖动滚动图片的功能
-            base.$userItems = base.$elem.children();
-            base.itemsAmount = base.$userItems.length;
-            base.wrapItems();
-            base.$owlItems = base.$elem.find(".owl-item");
-            base.$owlWrapper = base.$elem.find(".owl-wrapper");
-            base.playDirection = "next";
-            base.prevItem = 0;
-            base.prevArr = [0];
-            base.currentItem = 0;
-            base.customEvents();
+            base.eventTypes();      //调用eventTypes()函数给滚动栏添加鼠标拖动滚动图片的事件类型
+            base.$userItems = base.$elem.children();  //保存滚动栏所有图片元素
+            base.itemsAmount = base.$userItems.length;  //保存滚动栏所有图片元素数量
+            base.wrapItems();  //重新包装滚动图片元素到新创建的三层div块元素中。
+            base.$owlItems = base.$elem.find(".owl-item");  		//每张滚动图片包含在一个选择器为".owl-item"块元素中。
+            base.$owlWrapper = base.$elem.find(".owl-wrapper");		//所有div.owl-item元素包含在一个选择器为".owl-wrapper"块元素中。
+            base.playDirection = "next";  		//保存滚动图片播放顺序选项
+            base.prevItem = 0;    //用于存储前一张滚动图片元素
+            base.prevArr = [0];	  //用于存储前一张滚动图片元素属性
+            base.currentItem = 0; //用于存储当前滚动图片元素
+            base.customEvents();  //该函数用于创建滚动图片自定义事件
             base.onStartup();
         },
 
@@ -109,7 +110,7 @@ if (typeof Object.create !== "function") {
                 base.transitionTypes(base.options.transitionStyle);
             }
             if (base.options.autoPlay === true) {
-                base.options.autoPlay = 5000;
+                base.options.autoPlay = 2000;
             }
             base.play();
 
@@ -185,10 +186,10 @@ if (typeof Object.create !== "function") {
             }, 500);
         },
 
-        wrapItems : function () {
+        wrapItems : function () { //重新包装滚动图片元素
             var base = this;
-            base.$userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");
-            base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");
+            base.$userItems.wrapAll("<div class=\"owl-wrapper\">").wrap("<div class=\"owl-item\"></div>");//创建div.owl-wrapper元素，并将所有滚动栏图片项作为子元素添加到该元素中，再将每一张滚动图片包装到div.owl-item元素，每个div.owl-item元素作为div.owl-wrapper的子元素。
+            base.$elem.find(".owl-wrapper").wrap("<div class=\"owl-wrapper-outer\">");			
             base.wrapperOuter = base.$elem.find(".owl-wrapper-outer");
             base.$elem.css("display", "block");
         },
@@ -821,23 +822,23 @@ if (typeof Object.create !== "function") {
 
         eventTypes : function () {		//给滚动栏添加鼠标拖动滚动图片的功能
             var base = this,
-                types = ["s", "e", "x"];
+                types = ["s", "e", "x"];  //存储自定义事件类型
 
-            base.ev_types = {};  //给Carousel类对象（即此类）添加数据成员ev_types用于存储图片拖动事件
+            base.ev_types = {};  //给Carousel类对象（即此类）添加数据成员ev_types用于存储图片拖动事件类型（JSON数据格式）
 
-            if (base.options.mouseDrag === true && base.options.touchDrag === true) {
+            if (base.options.mouseDrag === true && base.options.touchDrag === true) { 	//支持鼠标拖拽和移动端触摸拖拽（由option选项判断）
                 types = [
-                    "touchstart.owl mousedown.owl",
+                    "touchstart.owl mousedown.owl",  
                     "touchmove.owl mousemove.owl",
                     "touchend.owl touchcancel.owl mouseup.owl"
                 ];
-            } else if (base.options.mouseDrag === false && base.options.touchDrag === true) {
+            } else if (base.options.mouseDrag === false && base.options.touchDrag === true) {  //支持移动端触摸拖拽，不支持鼠标拖拽（由option选项判断）
                 types = [
                     "touchstart.owl",
                     "touchmove.owl",
                     "touchend.owl touchcancel.owl"
                 ];
-            } else if (base.options.mouseDrag === true && base.options.touchDrag === false) {
+            } else if (base.options.mouseDrag === true && base.options.touchDrag === false) {  //支持鼠标拖拽，不支持移动端触摸拖拽（由option选项判断）
                 types = [
                     "mousedown.owl",
                     "mousemove.owl",
@@ -845,14 +846,14 @@ if (typeof Object.create !== "function") {
                 ];
             }
 
-            base.ev_types.start = types[0];
-            base.ev_types.move = types[1];
-            base.ev_types.end = types[2];
+            base.ev_types.start = types[0];     //鼠标拖拽或触摸拖拽第1个步骤【鼠标按下】（JSON数据格式）
+            base.ev_types.move = types[1];      //鼠标拖拽或触摸拖拽第1个步骤【鼠标移到】（JSON数据格式）
+            base.ev_types.end = types[2];		//鼠标拖拽或触摸拖拽第1个步骤【鼠标弹起】（JSON数据格式）
         },
 
         disabledEvents :  function () {
             var base = this;
-            base.$elem.on("dragstart.owl", function (event) { event.preventDefault(); });
+            base.$elem.on("dragstart.owl", function (event) { event.preventDefault(); });    //event.preventDefault()取消了事件的默认行为,事件的默认行为不会被执行，但是此事件仍然会传递给更上一层的先辈元素。。
             base.$elem.on("mousedown.disableTextSelect", function (e) {
                 return $(e.target).is('input, textarea, select, option');
             });
@@ -1091,25 +1092,25 @@ if (typeof Object.create !== "function") {
         customEvents : function () {
             /*jslint unparam: true*/
             var base = this;
-            base.$elem.on("owl.next", function () {
-                base.next();
+            base.$elem.on("owl.next", function () {    //切换到下一张图片
+                base.next();            
             });
-            base.$elem.on("owl.prev", function () {
+            base.$elem.on("owl.prev", function () {    //切换到前一张图片
                 base.prev();
             });
-            base.$elem.on("owl.play", function (event, speed) {
+            base.$elem.on("owl.play", function (event, speed) {    //自动播放
                 base.options.autoPlay = speed;
                 base.play();
                 base.hoverStatus = "play";
             });
-            base.$elem.on("owl.stop", function () {
+            base.$elem.on("owl.stop", function () {       //暂停播放
                 base.stop();
                 base.hoverStatus = "stop";
             });
-            base.$elem.on("owl.goTo", function (event, item) {
+            base.$elem.on("owl.goTo", function (event, item) {   //切换到指定图片（即点击某按钮时切换按钮对应的图片，如：用一组圆形图标按钮对应每张图，点击其中一个按钮就切换到它对应的图片）
                 base.goTo(item);
             });
-            base.$elem.on("owl.jumpTo", function (event, item) {
+            base.$elem.on("owl.jumpTo", function (event, item) {  //跳过某个滚动图片
                 base.jumpTo(item);
             });
         },
@@ -1451,14 +1452,14 @@ if (typeof Object.create !== "function") {
 
     $.fn.owlCarousel.options = {
 
-        items : 5,
+        items : 5,						//滚动图片数量，一般会重新赋值为orignalItems指定的数量。
         itemsCustom : false,
-        itemsDesktop : [1199, 4],
+        itemsDesktop : [1199, 4],        //数组第一项用于指定图片的宽度，此选项优于responsiveBaseWidth选项。
         itemsDesktopSmall : [979, 3],
         itemsTablet : [768, 2],
         itemsTabletSmall : false,
         itemsMobile : [479, 1],
-        singleItem : false,
+        singleItem : false,         //滚动栏是否只有一张图片。false表示有多张图片。
         itemsScaleUp : false,
 
         slideSpeed : 200,
@@ -1476,9 +1477,9 @@ if (typeof Object.create !== "function") {
         pagination : true,
         paginationNumbers : false,
 
-        responsive : true,
+        responsive : true,   //该选项用于updateItems() 函数内部判断，如果为false，则退出updateItems()  。
         responsiveRefreshRate : 200,
-        responsiveBaseWidth : window,
+        responsiveBaseWidth : window,    //指定滚动图片的宽度（a标签的宽度）
 
         baseClass : "owl-carousel",
         theme : "owl-theme",
@@ -1493,8 +1494,8 @@ if (typeof Object.create !== "function") {
         jsonSuccess : false,
 
         dragBeforeAnimFinish : true,
-        mouseDrag : true,
-        touchDrag : true,
+        mouseDrag : true,   //鼠标拖动（判断选项）
+        touchDrag : true,	//触摸拖动（移到端或多点触摸屏）（判断选项）
 
         addClassActive : false,
         transitionStyle : false,

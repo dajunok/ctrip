@@ -8,7 +8,7 @@ $(function(){
 		navigation: true,
 		navigationText: ["上一个","下一个"],
 		autoPlay: true,
-		stopOnHover: true
+		stopOnHover: true,
 	});
 	rt.hover(function(){
 		$('.owl-buttons').show();
