@@ -83,7 +83,7 @@ if (typeof Object.create !== "function") {
             base.baseClass();		//调用baseClass()函数给滚动栏添加baseClass和theme选项对应字符串指定的class属性
             base.eventTypes();      //调用eventTypes()函数给滚动栏添加鼠标拖动滚动图片的事件类型
             base.$userItems = base.$elem.children();  //保存滚动栏所有图片元素
-            base.itemsAmount = base.$userItems.length;  //保存滚动栏所有图片元素数量
+            base.itemsAmount = base.$userItems.length;  //保存滚动栏所有图片元素数量（即实际图片数量）
             base.wrapItems();  //重新包装滚动图片元素到新创建的三层div块元素中。
             base.$owlItems = base.$elem.find(".owl-item");  		//每张滚动图片包含在一个选择器为".owl-item"块元素中。
             base.$owlWrapper = base.$elem.find(".owl-wrapper");		//所有div.owl-item元素包含在一个选择器为".owl-wrapper"块元素中。
@@ -92,15 +92,15 @@ if (typeof Object.create !== "function") {
             base.prevArr = [0];	  //用于存储前一张滚动图片元素属性
             base.currentItem = 0; //用于存储当前滚动图片元素
             base.customEvents();  //该函数用于创建滚动图片自定义事件
-            base.onStartup();
+            base.onStartup();     //滚动栏启动函数
         },
 
-        onStartup : function () {
+        onStartup : function () {  //滚动栏启动函数
             var base = this;
-            base.updateItems();
-            base.calculateAll();
-            base.buildControls();
-            base.updateControls();
+            base.updateItems();         //更新滚动栏图片项相关选项（options）
+            base.calculateAll(); 		//计算图片相关值（css宽度、包含块的css宽度、最大滚动距离、保存图片索引、包含块大小size等等）。
+            base.buildControls();       //生成滚动栏控件（左右翻页按钮、底部页码活动块）
+            base.updateControls();		//更新控件（包括添加底部页码按钮圆点）
             base.response();
             base.moveEvents();
             base.stopOnHover();
@@ -214,10 +214,10 @@ if (typeof Object.create !== "function") {
             if (base.options.responsive === false) {
                 return false;
             }
-            if (base.options.singleItem === true) {
-                base.options.items = base.orignalItems = 1;
+            if (base.options.singleItem === true) {        //判断是否一张图片
+                base.options.items = base.orignalItems = 1;  //滚动时滚动窗口放置的图片数量（1张）
                 base.options.itemsCustom = false;
-                base.options.itemsDesktop = false;
+                base.options.itemsDesktop = false;         //itemsDesktop : [1199, 4]
                 base.options.itemsDesktopSmall = false;
                 base.options.itemsTablet = false;
                 base.options.itemsTabletSmall = false;
@@ -225,10 +225,10 @@ if (typeof Object.create !== "function") {
                 return false;
             }
 
-            width = $(base.options.responsiveBaseWidth).width();
+            width = $(base.options.responsiveBaseWidth).width();    //将width变量设置为responsiveBaseWidth选项的值，该选项默认是window（即浏览器宽度值）。
 
             if (width > (base.options.itemsDesktop[0] || base.orignalItems)) {
-                base.options.items = base.orignalItems;
+                base.options.items = base.orignalItems;  //图片数量相关选项
             }
             if (base.options.itemsCustom !== false) {
                 //Reorder array by screen size
@@ -264,7 +264,7 @@ if (typeof Object.create !== "function") {
             }
 
             //if number of items is less than declared
-            if (base.options.items > base.itemsAmount && base.options.itemsScaleUp === true) {
+            if (base.options.items > base.itemsAmount && base.options.itemsScaleUp === true) {   //itemsAmount指实际图片数量，itemsScaleUp选项指图片按比例进行缩放参数
                 base.options.items = base.itemsAmount;
             }
         },
@@ -302,10 +302,10 @@ if (typeof Object.create !== "function") {
             }
         },
 
-        appendItemsSizes : function () {
+        appendItemsSizes : function () {  //定义每张图片css宽度、将图片的排列索引绑定到对应图片项元素上面、计算每张图片的循环位置（依次为1,2,3、4...)绑定到对应的包含块div.owl-item元素上的"owl-roundPages"项中。
             var base = this,
                 roundPages = 0,
-                lastItem = base.itemsAmount - base.options.items;
+                lastItem = base.itemsAmount - base.options.items;   //lastItem：保存最后一张图片的索引。
 
             base.$owlItems.each(function (index) {
                 var $this = $(this);
@@ -318,11 +318,11 @@ if (typeof Object.create !== "function") {
                         roundPages += 1;
                     }
                 }
-                $this.data("owl-roundPages", roundPages);
+                $this.data("owl-roundPages", roundPages);   //将每张图片的循环位置（依次为1,2,3、4...)绑定到对应的包含块div.owl-item元素上的"owl-roundPages"项中。
             });
         },
 
-        appendWrapperSizes : function () {
+        appendWrapperSizes : function () {  //计算所有图片包含块owlWrapper的宽度=图片宽度*图片数量*2。
             var base = this,
                 width = base.$owlItems.length * base.itemWidth;
 
@@ -330,15 +330,15 @@ if (typeof Object.create !== "function") {
                 "width": width * 2,
                 "left": 0
             });
-            base.appendItemsSizes();
+            base.appendItemsSizes(); //定义每张图片css宽度、将图片的排列索引绑定到对应图片项元素上面、计算每张图片的循环位置（依次为1,2,3、4...)绑定到对应的包含块div.owl-item元素上的"owl-roundPages"项中。
         },
 
         calculateAll : function () {
             var base = this;
-            base.calculateWidth();
-            base.appendWrapperSizes();
-            base.loops();
-            base.max();
+            base.calculateWidth();     //计算滚动图片宽度
+            base.appendWrapperSizes();  //计算所有图片包含块owlWrapper的宽度=图片宽度*图片数量*2。
+            base.loops();  //初始化base.positionsInArray数组，该数组存储了一组图片的负数位置值，即将一组滚动图片隐藏于左侧。
+            base.max();    //计算左侧滚动到最大位置=(图片数量 - 1)*图片宽度*(-1)。并将该值保存在base.maximumPixels中。该函数返回左侧滚动到最大位置值。
         },
 
         calculateWidth : function () {
@@ -346,25 +346,25 @@ if (typeof Object.create !== "function") {
             base.itemWidth = Math.round(base.$elem.width() / base.options.items);
         },
 
-        max : function () {
+        max : function () {   //计算左侧滚动到最大位置=(图片数量 - 1)*图片宽度*(-1)。并将该值保存在base.maximumPixels中。
             var base = this,
-                maximum = ((base.itemsAmount * base.itemWidth) - base.options.items * base.itemWidth) * -1;
+                maximum = ((base.itemsAmount * base.itemWidth) - base.options.items * base.itemWidth) * -1;  //计算左侧滚动到最大位置
             if (base.options.items > base.itemsAmount) {
                 base.maximumItem = 0;
                 maximum = 0;
-                base.maximumPixels = 0;
+                base.maximumPixels = 0;   //保存左侧滚动到最大位置
             } else {
                 base.maximumItem = base.itemsAmount - base.options.items;
-                base.maximumPixels = maximum;
+                base.maximumPixels = maximum;  //保存左侧滚动到最大位置
             }
-            return maximum;
+            return maximum;   //返回左侧滚动到最大位置
         },
 
         min : function () {
             return 0;
         },
 
-        loops : function () {
+        loops : function () {			//初始化base.positionsInArray数组，该数组存储了一组图片的负数位置值，即将一组滚动图片隐藏于左侧。
             var base = this,
                 prev = 0,
                 elWidth = 0,
@@ -379,7 +379,7 @@ if (typeof Object.create !== "function") {
                 elWidth += base.itemWidth;
                 base.positionsInArray.push(-elWidth);
 
-                if (base.options.scrollPerPage === true) {
+                if (base.options.scrollPerPage === true) {  //逐页滚动，默认：scrollPerPage : false
                     item = $(base.$owlItems[i]);
                     roundPageNum = item.data("owl-roundPages");
                     if (roundPageNum !== prev) {
@@ -390,20 +390,20 @@ if (typeof Object.create !== "function") {
             }
         },
 
-        buildControls : function () {
+        buildControls : function () {  //生成滚动栏右侧底部的页码导航（常见的是底部一排圆点，圆点圆点之间的活动块）
             var base = this;
             if (base.options.navigation === true || base.options.pagination === true) {
-                base.owlControls = $("<div class=\"owl-controls\"/>").toggleClass("clickable", !base.browser.isTouch).appendTo(base.$elem);
+                base.owlControls = $("<div class=\"owl-controls\"/>").toggleClass("clickable", !base.browser.isTouch).appendTo(base.$elem); //toggleClass()：如果!base.browser.isTouch==false则 移除"clickable"类,如果!base.browser.isTouch==true则添加上"clickable"类。
             }
             if (base.options.pagination === true) {
-                base.buildPagination();
+                base.buildPagination();   //（常见的是底部一排圆点，圆点圆点之间的活动块）
             }
             if (base.options.navigation === true) {
-                base.buildButtons();
+                base.buildButtons();  //生成两个按钮（左右翻页箭头）
             }
         },
 
-        buildButtons : function () {
+        buildButtons : function () { //生成两个按钮（左右翻页箭头）
             var base = this,
                 buttonsWrapper = $("<div class=\"owl-buttons\"/>");
             base.owlControls.append(buttonsWrapper);
@@ -436,7 +436,7 @@ if (typeof Object.create !== "function") {
             });
         },
 
-        buildPagination : function () {
+        buildPagination : function () {  //（常见的是底部一排圆点，圆点圆点之间的活动块）
             var base = this;
 
             base.paginationWrapper = $("<div class=\"owl-pagination\"/>");
@@ -531,7 +531,7 @@ if (typeof Object.create !== "function") {
 
         updateControls : function () {
             var base = this;
-            base.updatePagination();
+            base.updatePagination();     //添加页码按钮（常见是滚动栏底部一排圆圈按钮图标）
             base.checkNavigation();
             if (base.owlControls) {
                 if (base.options.items >= base.itemsAmount) {
@@ -1460,7 +1460,7 @@ if (typeof Object.create !== "function") {
         itemsTabletSmall : false,
         itemsMobile : [479, 1],
         singleItem : false,         //滚动栏是否只有一张图片。false表示有多张图片。
-        itemsScaleUp : false,
+        itemsScaleUp : false,       //图片按比例进行缩放参数，false指不进行缩放
 
         slideSpeed : 200,
         paginationSpeed : 800,
@@ -1472,7 +1472,7 @@ if (typeof Object.create !== "function") {
         navigation : false,
         navigationText : ["prev", "next"],
         rewindNav : true,
-        scrollPerPage : false,
+        scrollPerPage : false,       // 逐页滚动
 
         pagination : true,
         paginationNumbers : false,
