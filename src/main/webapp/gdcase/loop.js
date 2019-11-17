@@ -25,13 +25,13 @@
     }
  
     //获取各元素，方便操作
-    var box=my$("box");
-    var inner=box.children[0];
-    var ulObj=inner.children[0];
-    var list=ulObj.children;
-    var olObj=inner.children[1];
-    var arr=my$("arr");
-    var imgWidth=inner.offsetWidth;
+    var box=my$("box");            	//div#box.box
+    var inner=box.children[0];     	//div.inner
+    var ulObj=inner.children[0];	//div.inner > ul
+    var list=ulObj.children;		//ul > li >a   图片列表
+    var olObj=inner.children[1];	//ol.bar 
+    var arr=my$("arr");             //div#arr
+    var imgWidth=inner.offsetWidth;		//图片宽度
     var right=my$("right");
     var pic=0;
     //根据li个数，创建小按钮
@@ -62,15 +62,15 @@
     //克隆一个ul中第一个li,加入到ul中的最后=====克隆
     ulObj.appendChild(ulObj.children[0].cloneNode(true));
  
-    var timeId=setInterval(onmouseclickHandle,2000);
+																var timeId=setInterval(onmouseclickHandle,2000);
     //左右焦点实现点击切换图片功能
-    box.οnmοuseοver=function () {
+    box.οnmοuseοver=function () {     //鼠标移入
         arr.style.display="block";
         clearInterval(timeId);
     };
-    box.οnmοuseοut=function () {
+    box.οnmοuseοut=function () {	//鼠标移出
         arr.style.display="none";
-        timeId=setInterval(onmouseclickHandle,1000);
+        timeId=setInterval(onmouseclickHandle,2000);
     };
  
     right.οnclick=onmouseclickHandle;
@@ -83,8 +83,11 @@
             ulObj.style.left = 0 + "px";//把ul的位置还原成开始的默认位置
         }
         pic++;//立刻设置pic加1,那么此时用户就会看到第二个图片了
-        animate(ulObj, -pic * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
-        //如果pic==5说明,此时显示第6个图(内容是第一张图片),第一个小按钮有颜色,
+						
+						animate(ulObj, -pic * imgWidth);//pic从0的值加1之后,pic的值是1,然后ul移动出去一个图片
+        
+		
+		//如果pic==5说明,此时显示第6个图(内容是第一张图片),第一个小按钮有颜色,
         if (pic == list.length - 1) {
             //第五个按钮颜色干掉
             olObj.children[olObj.children.length - 1].className = "";

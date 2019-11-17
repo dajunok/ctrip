@@ -52,10 +52,10 @@ ol li{
 
 }
 ol .current{
-	background-color: red;
+	background-color: none;
 }
 #arr{
-	display: none;
+	display: block;
 }
 #arr span{
 	width: 40px;

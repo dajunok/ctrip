@@ -446,10 +446,11 @@ window.onload=function(){
 	var picNum=0;
 	var timerId=setInterval(leftRoll, 3000);
 	function leftRoll(){
-		changePIC();
-		picNum++;	
+		picNum++;
+		movePIC();
+			
 	}
-	function changePIC(){
+	function movePIC(){
 		if(picNum==five_imgs.length){
 			picNum=0;
 		}
