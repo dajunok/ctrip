@@ -328,149 +328,46 @@ if(html_width>=four_mod_width){                                  //html_width：
 }
 
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
-//添加图片
-var five_a_pic=document.querySelector("#allyesId_init_img");
-var five_img_add=document.createElement("img");   //创建图片元素1。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg");
-five_img_add.setAttribute("alt", "img_one");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=9;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素2。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg");
-five_img_add.setAttribute("alt", "img_two");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=8;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素3。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg");
-five_img_add.setAttribute("alt", "img_three");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=7;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素4。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg");
-five_img_add.setAttribute("alt", "img_four");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=6;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素5。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg");
-five_img_add.setAttribute("alt", "img_five");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=5;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素6。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg");
-five_img_add.setAttribute("alt", "img_six");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=4;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素7。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg");
-five_img_add.setAttribute("alt", "img_seven");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=3;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素8。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg");
-five_img_add.setAttribute("alt", "img_eight");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=2;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素9。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg");
-five_img_add.setAttribute("alt", "img_nine");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="none";
-five_img_add.style.zIndex=1;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
+//添加滚动图片
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg' alt='第3张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg' alt='第4张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg' alt='第5张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg' alt='第6张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg' alt='第7张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
+
 //居中显示
 var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
+var five_div_mod=document.querySelector("div.mod-banner");
+five_div_mod.style.width=html_width+'px';
+var five_aList=document.querySelectorAll("div.pic_banner a");
 var five_imgs=document.querySelectorAll("div.pic_banner a img");
-var five_div_pic=document.querySelector("div.pic_banner");
-var five_div_pic_width=five_div_pic.offsetWidth;
-if(html_width>=five_div_pic_width){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
-	five_div_pic.style.left=(html_width-five_div_pic_width)/2+"px";
+//图片的left值根据浏览器窗口大小变化
+if(html_width>=1920){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
+	five_div_mod.style.width=1920+'px';
+	five_div_mod.style.left=(html_width-1920)/2+'px';
 	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.maxWidth=five_div_pic_width+"px";
 		five_imgs[i].style.left=0+"px";
+		five_aList[i].style.width=1920-(html_width-1920)/2+'px';
 	}
 }else if(html_width<=1000){
-	five_div_pic.style.left=0+"px";
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=-550+"px";
-		five_imgs[i].style.width=html_width+"px";	
+		five_aList[i].style.width=html_width+'px';
 	}
 }else {
-	five_div_pic.style.left=0+"px";
 	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.width=html_width+"px";	
+		five_imgs[i].style.left=0+"px";	
+		five_aList[i].style.width=html_width+'px';
 	}
 }
-
-
-//------------------------------------------------
-for (var i=0;i<five_imgs.length;i++){
-	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
-}
-//滚动效果（简单图片切换）
-//滚动效果（简单图片切换）
-window.onload=function(){
-	var picNum=0;
-	var timerId=setInterval(leftRoll, 3000);
-	function leftRoll(){
-		picNum++;
-		movePIC();
-			
-	}
-	function movePIC(){
-		if(picNum==five_imgs.length){
-			picNum=0;
-		}
-		for(var i=0;i<five_imgs.length;i++){
-			if(i==picNum){
-				five_imgs[i].style.display="block"
-			}else{
-				five_imgs[i].style.display="none"
-			}
-		}
-	}	
-}
-
-
-
-
-
-
-
-
+var five_div_pic=document.querySelector("div.pic_banner");
+var five_aWidth=five_aList[0].offsetWidth;
+five_div_pic.style.width=(five_aWidth*five_aList.length)+'px';
 
 
 
@@ -507,6 +404,165 @@ window.onload=function(){
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+//无限循环滚动效果
+window.onload=function(){
+	var picNum=0;
+	five_a_pic.style.width=html_width*five_imgs.length+"px";
+	window.clearInterval(timerId);
+	var timerId=setInterval(leftScroll, 3000);
+	function leftScroll(){
+		if(picNum>five_imgs.length-1){
+			picNum=0;
+			five_a_pic.style.left=0+'px';
+		}
+		picNum++;
+		move(five_a_pic,html_width*picNum);    //(five_imgs[picNum].offsetWidth)
+			
+	}
+	function move(elem,scrollWidth){
+		window.clearInterval(elem.timerID);		//
+		elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
+			var step=160;   //每次移动的距离
+			var current=elem.offsetLeft;
+			var target=scrollWidth;
+			step=Math.abs(current)>target ? -step : step;
+			current-=step;
+			if(Math.abs(current+target)>Math.abs(step)){
+				elem.style.left = current + "px";
+			} else{
+				window.clearInterval(elem.timerID);
+				elem.style.left = (-target) + "px";
+			}
+			
+		},10);
+	}	
+}
+//添加图片
+var five_a_pic=document.querySelector("#allyesId_init_img");
+var five_img_add=document.createElement("img");   //创建图片元素1。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg");
+five_img_add.setAttribute("alt", "img_one");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=9;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素2。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg");
+five_img_add.setAttribute("alt", "img_two");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=8;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素3。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg");
+five_img_add.setAttribute("alt", "img_three");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=7;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素4。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg");
+five_img_add.setAttribute("alt", "img_four");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=6;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素5。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg");
+five_img_add.setAttribute("alt", "img_five");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=5;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素6。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg");
+five_img_add.setAttribute("alt", "img_six");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=4;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素7。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg");
+five_img_add.setAttribute("alt", "img_seven");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=3;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素8。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg");
+five_img_add.setAttribute("alt", "img_eight");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=2;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+five_img_add=document.createElement("img");   //创建图片元素9。
+five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg");
+five_img_add.setAttribute("alt", "img_nine");
+//five_img_add.style.width=html_width+"px";
+five_img_add.style.height=340+"px";
+five_img_add.style.display="block";
+five_img_add.style.zIndex=1;
+five_a_pic.appendChild(five_img_add);
+//------------------------------------------------
+//居中显示
+var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
+var five_imgs=document.querySelectorAll("div.pic_banner a img");
+var five_div_pic=document.querySelector("div.pic_banner");
+var five_div_pic_width=five_div_pic.offsetWidth;
+if(html_width>=five_div_pic_width){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
+	five_div_pic.style.left=(html_width-five_div_pic_width)/2+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.maxWidth=five_div_pic_width+"px";
+		five_imgs[i].style.left=0+"px";
+	}
+}else if(html_width<=1000){
+	five_div_pic.style.left=0+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-550+"px";
+		five_imgs[i].style.width=html_width+"px";	
+	}
+}else {
+	five_div_pic.style.left=0+"px";
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.width=html_width+"px";	
+	}
+}
+
+
+//------------------------------------------------
+for (var i=0;i<five_imgs.length;i++){
+	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //jquery data()方法的使用
 var dom = document.body;
 $.data(dom, 'name', '张三');   //将数据绑定到body元素上

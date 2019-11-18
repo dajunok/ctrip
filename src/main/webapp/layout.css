@@ -1155,6 +1155,7 @@ ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
 /***=================================================【第五栏：搜索栏（滚动轮播广告）】==================================================================================================*/
 div.mod-banner{
 		position:relative;
+		/*overflow: hidden;*/
 		margin:0px;
 		padding:0px;
 		height:340px;		
@@ -1162,21 +1163,23 @@ div.mod-banner{
 		overflow-x:hidden;			/*隐藏多余内容，避免显示滚动条*/
 }
 div.pic_banner {
-		position:relative;
+		position:absolute;
 		margin:0px;
 		padding:0px;
-		width:1920px;
-		height:340px;	
+		height:340px;
+		left:0px;	
+		background:red;
 }
 div.pic_banner a{
 		position:relative;
-		display:block;
+		display:block;		
+		float: left;
 		margin:0px;
 		padding:0px;
-		left:0px;
-		height:340px;	
+		height:340px;
+				
 }
-div.pic_banner a img{
+div.pic_banner a >img{
 		position:absolute;
 		margin:0px;
 		padding:0px;
