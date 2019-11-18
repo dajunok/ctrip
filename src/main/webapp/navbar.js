@@ -352,25 +352,103 @@ if(html_width>=1920){                                  //html_width：浏览器�
 	five_div_mod.style.left=(html_width-1920)/2+'px';
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=0+"px";
-		five_aList[i].style.width=1920-(html_width-1920)/2+'px';
+		five_aList[i].style.width=1920+'px';
 	}
-}else if(html_width<=1000){
+}else if(html_width>=1170){
 	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.left=-550+"px";
+		five_imgs[i].style.left=-320+"px";
 		five_aList[i].style.width=html_width+'px';
 	}
 }else {
 	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.left=0+"px";	
+		five_imgs[i].style.left=-750+"px";	
 		five_aList[i].style.width=html_width+'px';
 	}
 }
 var five_div_pic=document.querySelector("div.pic_banner");
 var five_aWidth=five_aList[0].offsetWidth;
 five_div_pic.style.width=(five_aWidth*five_aList.length)+'px';
+console.log("End");
+//当离开页面时，停止图片滚动
+var visProp = getHiddenProp();
+if (visProp) {
+	var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+	document.addEventListener(evtname, function () {
+		var stat= document[getVisibilityState()];
+		//alert(stat);
+		if(stat=='hidden'){
+			window.clearInterval(timerId);
+		}else if(stat=='visible'){
+			timerId=setInterval(leftScroll,3000);
+		}
+	},false);
+}
+//无限循环滚动(带滑动效果）
+var picNum=0;
+window.clearInterval(timerId);
+var timerId=setInterval(leftScroll, 3000);   //向左滚动
+function leftScroll(){
+	if(picNum==five_aList.length-1){
+		picNum=0;
+		five_div_pic.style.left=0+'px';
+	}
+	picNum++;
+	move(five_div_pic,five_aWidth*picNum);  
+	//console.log(five_div_pic.offsetLeft);		
+		
+}
+function move(elem,scrollWidth){
+	window.clearInterval(elem.timerID);		//
+	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
+		var step=160;   //每次移动的距离
+		var current=elem.offsetLeft;
+		var target=scrollWidth;
+		step=Math.abs(current)>target ? -step : step;
+		current-=step;
+		if(Math.abs(current+target)>Math.abs(step)){
+			elem.style.left = current + "px";
+		} else{
+			window.clearInterval(elem.timerID);
+			elem.style.left = (-target) + "px";
+		}
+		
+	},10);
+}	
 
-
-
+//----------------------下面是页面是否可见监听事件相关函数
+//获取document.hidden属性：
+function getHiddenProp(){
+	var prefixes = ['webkit','moz','ms','o'];
+	
+	// if 'hidden' is natively supported just return it
+	if ('hidden' in document) return 'hidden';
+	
+	// otherwise loop over all the known prefixes until we find one
+	for (var i = 0; i < prefixes.length; i++){
+		if ((prefixes[i] + 'Hidden') in document) 
+			return prefixes[i] + 'Hidden';
+	}
+ 
+	// otherwise it's not supported
+	return null;
+}
+//获取document.visibilityState属性：
+function getVisibilityState() {
+	var prefixes = ['webkit', 'moz', 'ms', 'o'];
+	if ('visibilityState' in document) return 'visibilityState';
+	for (var i = 0; i < prefixes.length; i++) {
+		if ((prefixes[i] + 'VisibilityState') in document)
+			return prefixes[i] + 'VisibilityState';
+	}
+	// otherwise it's not supported
+	return null;
+}
+//跨浏览器函数，检查文档是否可见。
+function isHidden(){
+	var prop = getHiddenProp();
+	if (!prop) return false;    
+	return document[prop];
+}
 
 
 
