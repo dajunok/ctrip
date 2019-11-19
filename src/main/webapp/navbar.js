@@ -328,7 +328,7 @@ if(html_width>=four_mod_width){                                  //html_width：
 }
 
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
-//添加滚动图片
+//添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");
@@ -339,7 +339,17 @@ $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctri
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg' alt='第7张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
-
+//底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
+$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 559.5px; left: auto; height:18px; width: 252px;  bottom: 10px;background:red;'></div>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;background-image:url('//localhost:8080/ctrip/image/sprite/platform/css_sprites20191119.png');background-repeat:no-repeat;background-position:-23px 0px;background-position:center;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 4' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 5' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 6' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
 //居中显示
 var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var five_div_mod=document.querySelector("div.mod-banner");
@@ -353,6 +363,11 @@ if(html_width>=1920){                                  //html_width：浏览器�
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=0+"px";
 		five_aList[i].style.width=1920+'px';
+	}
+}else if(html_width>=1600){
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-220+"px";
+		five_aList[i].style.width=html_width+'px';
 	}
 }else if(html_width>=1170){
 	for(var i=0;i<five_imgs.length;i++){
@@ -449,6 +464,7 @@ function isHidden(){
 	if (!prop) return false;    
 	return document[prop];
 }
+
 
 
 

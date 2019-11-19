@@ -1156,8 +1156,7 @@ ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
 div.mod-banner{
 		position:absolute;		
 		margin:0px;
-		padding:0px;
-		height:340px;		
+		padding:0px;		
 		background:white;
 		overflow-x:hidden;		/*隐藏多余内容，避免显示滚动条overflow: hidden;*/
 		
