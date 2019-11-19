@@ -1188,8 +1188,23 @@ div.pic_banner a >img{
 		min-width:1780px; */
 		height:340px;			
 }
-
-
+span.swiper-pagination-bullet{
+		display:inline-block;
+		opacity: 1; 
+		margin-right: 4px; 
+		width: 22px; 
+		height: 22px;
+		vertical-align: middle;
+		/* background:green; */
+		background-image:url('//localhost:8080/ctrip/image/sprite/platform/css_sprites20191119.png'); 	/*使用sprite雪碧图图标*/
+		background-repeat:no-repeat;
+		background-position:-27px -234px;
+}
+span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+		width: 35px; 
+		height: 22px;		
+		background-position:-286px -135px;
+}
 
 
 

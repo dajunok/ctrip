@@ -340,16 +340,17 @@ $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctri
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
 //底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
-$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 559.5px; left: auto; height:18px; width: 252px;  bottom: 10px;background:red;'></div>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;background-image:url('//localhost:8080/ctrip/image/sprite/platform/css_sprites20191119.png');background-repeat:no-repeat;background-position:-23px 0px;background-position:center;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 4' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 5' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 6' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9' style='display:inline-block;opacity: 0.2; margin-right: 10px; width: 18px; height: 18px;background:green;'></span>")
+$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 559.5px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 4'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 5'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 6'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9'></span>");
+$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
 //居中显示
 var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var five_div_mod=document.querySelector("div.mod-banner");
@@ -370,6 +371,7 @@ if(html_width>=1920){                                  //html_width：浏览器�
 		five_aList[i].style.width=html_width+'px';
 	}
 }else if(html_width>=1170){
+	$("div.swiper-pagination").css("right","159px");  //调整分页圆圈包含元素的靠右位置
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=-320+"px";
 		five_aList[i].style.width=html_width+'px';
@@ -401,14 +403,16 @@ if (visProp) {
 //无限循环滚动(带滑动效果）
 var picNum=0;
 window.clearInterval(timerId);
-var timerId=setInterval(leftScroll, 3000);   //向左滚动
+var timerId=setInterval(leftScroll, 5000);   //向左滚动
 function leftScroll(){
 	if(picNum==five_aList.length-1){
 		picNum=0;
-		five_div_pic.style.left=0+'px';
+		five_div_pic.style.left = 0 + "px"
 	}
-	picNum++;
-	move(five_div_pic,five_aWidth*picNum);  
+	picNum++;	
+	move(five_div_pic,five_aWidth*picNum); 
+	$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+	$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
 	//console.log(five_div_pic.offsetLeft);		
 		
 }
@@ -417,6 +421,7 @@ function move(elem,scrollWidth){
 	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
 		var step=160;   //每次移动的距离
 		var current=elem.offsetLeft;
+		console.log(Math.abs(current)+"		"+html_width);
 		var target=scrollWidth;
 		step=Math.abs(current)>target ? -step : step;
 		current-=step;
