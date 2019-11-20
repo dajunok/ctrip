@@ -403,11 +403,12 @@ if (visProp) {
 }
 //无限循环滚动(带滑动效果）---完美实现版
 var timerId;
-var picNum=0;
+var picNum=0;    //picNum=five_aList.length-1时向右滚动
 if(picNum==0){
 	window.clearInterval(timerId);
 	timerId=setInterval(leftScroll, 5000);   //向左滚动
-}else if(picNum==9){
+}else if(picNum==five_aList.length-1){
+	five_div_pic.style.left = -five_aWidth*picNum + "px"
 	window.clearInterval(timerId);
 	timerId=setInterval(rightScroll, 5000);   //向右滚动
 }
@@ -421,6 +422,22 @@ function leftScroll(){       //向左循环滚动函数
 	move(five_div_pic,five_aWidth*picNum); 
 	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
 	if(picNum==five_aList.length-1){   
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+	}else{
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+	}
+}	
+function rightScroll(){       //向右循环滚动函数
+	if(picNum==0){
+		picNum=9;		
+		five_div_pic.style.left = -five_aWidth*(five_aList.length-1) + "px"		
+	}
+	picNum--;
+	move(five_div_pic,five_aWidth*picNum); 
+	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
+	if(picNum==0){   
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
 		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
 	}else{
@@ -444,24 +461,7 @@ function move(elem,scrollWidth){			//实现图片滑动效果函数
 		}
 		
 	},10);
-}	
-function rightScroll(){       //向右循环滚动函数
-	if(picNum==five_aList.length-1){
-		picNum=0;		
-		five_div_pic.style.left = 0 + "px"		
-	}
-	picNum++;
-	move(five_div_pic,five_aWidth*picNum); 
-	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
-	if(picNum==five_aList.length-1){   
-		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
-		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
-	}else{
-		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
-		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
-	}
 }
-
 
 
 
