@@ -228,6 +228,18 @@ secUl_tel.onmouseout=function(){	//鼠标移出时
 	}
 }
 //==================================================第三栏相关脚本================================================
+var thdList=document.querySelectorAll("ul#cui_nav_ul >li[id]");   //获取三栏列表项：【首页】、【酒店】、【跟团游】、【自由行】、【机票】、【火车】、【汽车▪船】、【用车】、【门票】、【攻略】、【全球卡】、【礼品卡】、【商旅】、【游轮】、【目的地】、【金融】、【跟多】。
+var thdStatus=0;
+switch(String(window.location.href)){       //window.location.href用于获取当前页地址
+	case "http://localhost:8080/ctrip/navigation_ctrip.html":
+		thdList[0].style.backgroundColor="red";   //"#0a56bb"
+		thdStatus=0;
+		break;
+	default:
+		break;	
+	
+	
+}
 var thdBase_nav=document.querySelector("div.base_nav");
 var base_nav_width=thdBase_nav.offsetWidth;
 if(html_width>=base_nav_width){                                  //html_width：浏览器窗口宽度 
@@ -286,9 +298,19 @@ for(var i=0;i<thdLiList.length;i++){
 		$(this).animate({backgroundColor: '#2577e3'});
 	}
 	thdLiList[i].onmouseout=function(){     //鼠标移出时
+		thdTriangle.style.display="none";
 		this.classList.remove("current");
 		this.children[1].style.display="none";  			//隐藏div.cui_subnav_wrap元素
 	}
+}
+var thdLi_a_List=document.querySelectorAll("ul#cui_nav_ul >li >a.cui_nav_non");
+for(var i=0;i<thdLi_a_List.length;i++){
+	thdLi_a_List[i].parentNode.onmouseover=function(){  //鼠标移入时
+		this.style.backgroundColor="#0a56bb";		
+	};
+	thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时		
+			this.style.backgroundColor="#2577e3";				
+	};
 }
 
 
@@ -296,6 +318,7 @@ for(var i=0;i<thdLiList.length;i++){
 
 
 //==================================================第四栏相关脚本================================================
+//居中显示
 var four_mod=document.querySelector("div.mod.cui_subway_internal");
 var four_mod_width=four_mod.offsetWidth;
 if(html_width>=four_mod_width){                                  //html_width：浏览器窗口宽度 
@@ -303,6 +326,174 @@ if(html_width>=four_mod_width){                                  //html_width：
 }else {
 	four_mod.style.left="0px";
 }
+
+//==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
+//添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素(由于循环滚动需要实际图片比滚动效果多出一张重复图片，即第一张和最后一张相同)
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg' alt='第3张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg' alt='第4张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg' alt='第5张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg' alt='第6张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg' alt='第7张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
+//底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
+$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 159px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 4'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 5'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 6'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9'></span>");
+$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");  //页面加载时，默认改变第一个分页按钮图片（改为圆角矩形），即它对应第一张图片。
+//居中显示
+var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
+var five_div_mod=document.querySelector("div.mod-banner");
+five_div_mod.style.width=html_width+'px';
+var five_aList=document.querySelectorAll("div.pic_banner a");
+var five_imgs=document.querySelectorAll("div.pic_banner a img");
+//图片的left值根据浏览器窗口大小变化
+if(html_width>=1920){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
+	five_div_mod.style.width=1920+'px';
+	five_div_mod.style.left=(html_width-1920)/2+'px';
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=0+"px";
+		five_aList[i].style.width=1920+'px';
+	}
+}else if(html_width>=1600){
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-220+"px";
+		five_aList[i].style.width=html_width+'px';
+	}
+	//$("div.swiper-pagination").css("right","559px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
+}else if(html_width>=1170){	
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-320+"px";
+		five_aList[i].style.width=html_width+'px';
+	}
+	$("div.swiper-pagination").css("right","159px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
+}else {
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=-750+"px";	
+		five_aList[i].style.width=html_width+'px';
+	}
+	$("div.swiper-pagination").css("right","10px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
+}
+var five_div_pic=document.querySelector("div.pic_banner");
+var five_aWidth=five_aList[0].offsetWidth;
+five_div_pic.style.width=(five_aWidth*five_aList.length)+'px';
+//当离开页面时，停止图片滚动
+var visProp = getHiddenProp();
+if (visProp) {
+	var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+	document.addEventListener(evtname, function () {
+		var stat= document[getVisibilityState()];
+		//alert(stat);
+		if(stat=='hidden'){
+			window.clearInterval(timerId);
+		}else if(stat=='visible'){
+			timerId=setInterval(leftScroll,3000);
+		}
+	},false);
+}
+//无限循环滚动(带滑动效果）---完美实现版
+var picNum=0;
+window.clearInterval(timerId);
+var timerId=setInterval(leftScroll, 5000);   //向左滚动
+function leftScroll(){       //循环滚动函数
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		five_div_pic.style.left = 0 + "px"		
+	}
+	picNum++;
+	move(five_div_pic,five_aWidth*picNum); 
+	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
+	if(picNum==five_aList.length-1){   
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+	}else{
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+	}
+}
+function move(elem,scrollWidth){		//实现图片滑动效果函数
+	window.clearInterval(elem.timerID);	
+	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
+		var step=160;   //每次移动的距离
+		var current=elem.offsetLeft;
+		var target=scrollWidth;
+		step=Math.abs(current)>target ? -step : step;
+		current-=step;
+		if(Math.abs(current+target)>Math.abs(step)){
+			elem.style.left = current + "px";
+		} else{
+			window.clearInterval(elem.timerID);
+			elem.style.left = (-target) + "px";
+		}
+		
+	},10);
+}	
+
+
+
+
+
+
+//----------------------下面是页面是否可见监听事件相关函数
+//获取document.hidden属性：
+function getHiddenProp(){
+	var prefixes = ['webkit','moz','ms','o'];
+	
+	// if 'hidden' is natively supported just return it
+	if ('hidden' in document) return 'hidden';
+	
+	// otherwise loop over all the known prefixes until we find one
+	for (var i = 0; i < prefixes.length; i++){
+		if ((prefixes[i] + 'Hidden') in document) 
+			return prefixes[i] + 'Hidden';
+	}
+ 
+	// otherwise it's not supported
+	return null;
+}
+//获取document.visibilityState属性：
+function getVisibilityState() {
+	var prefixes = ['webkit', 'moz', 'ms', 'o'];
+	if ('visibilityState' in document) return 'visibilityState';
+	for (var i = 0; i < prefixes.length; i++) {
+		if ((prefixes[i] + 'VisibilityState') in document)
+			return prefixes[i] + 'VisibilityState';
+	}
+	// otherwise it's not supported
+	return null;
+}
+//跨浏览器函数，检查文档是否可见。
+function isHidden(){
+	var prop = getHiddenProp();
+	if (!prop) return false;    
+	return document[prop];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -321,185 +512,127 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
-
-//==================================================第三栏相关脚本================================================
-//以下是第三栏相关的鼠标事件
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-var thdTriangle=document.createElement("div");  //创建白色三角形占位元素
-thdTriangle.style.position="absolute";
-thdTriangle.style.display="none";
-thdTriangle.style.top="33px";
-thdTriangle.style.left="132px";
-thdTriangle.style.width="20px";
-thdTriangle.style.height="11px";
-thdTriangle.style.backgroundImage="url('http://localhost:8080/ctrip/image/whiteTri-up.png')"; 
-thdTriangle.style.backgroundSize="25px 22px";
-thdTriangle.style.backgroundRepeat="no-repeat";
-thdTriangle.style.backgroundPosition="center";
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onclick=function(){    //鼠标点击时
-		this.classList.add("current");      //增加类名"current"
+//无限循环滚动(带滑动效果,但有点瑕疵）
+var picNum=0;
+window.clearInterval(timerId);
+var timerId=setInterval(leftScroll, 5000);   //向左滚动
+function leftScroll(){
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		clearInterval(timerId);
+		setTimeout("timerId=setInterval(leftScroll, 5000)",10); //如果此处不把返回值赋值给timerId，将导致前面语句clearInterval(timerId)在下次循环时无法关闭定时器（timerId是过去的值）
+		five_div_pic.style.left = 0 + "px"
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
+	}else{
+		picNum++;
+		console.log(picNum+" "+five_div_pic.style.left);
+		move(five_div_pic,five_aWidth*picNum); 
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");		
 	}
-	thdLiList[i].onmouseover=function(){    //鼠标移入时
-		this.classList.add("current");		//增加类名"current"
-		this.children[1].style.display="block";  			//显示div.cui_subnav_wrap元素
-		switch(this.id){
-			case "cui_nav_destination":   //汽车▪船
-				this.appendChild(thdTriangle);     //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="37px";
-				break;
-			case "cui_nav_g":        //全球购
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="30px";	
-				break;
-			case "cui_nav_lpk":        //礼品卡
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="30px";	
-				break;
-			default:
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="22px";				
-				break;
+}
+function move(elem,scrollWidth){
+	window.clearInterval(elem.timerID);		//
+	console.log(elem.offsetLeft);
+	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
+		var step=160;   //每次移动的距离
+		var current=elem.offsetLeft;
+		var target=scrollWidth;
+		step=Math.abs(current)>target ? -step : step;
+		current-=step;
+		if(Math.abs(current+target)>Math.abs(step)){
+			elem.style.left = current + "px";
+		} else{
+			window.clearInterval(elem.timerID);
+			elem.style.left = (-target) + "px";
 		}
-		//实现背景颜色由#0a56bb到#2577e3的过渡变化
-		$(this).css("background-color","#0a56bb"); 
-		$(this).animate({backgroundColor: '#2577e3'});
-	}
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		this.classList.remove("current");
-		this.children[1].style.display="none";  			//隐藏div.cui_subnav_wrap元素
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//以下是第三栏相关的鼠标事件
-//-------------
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onclick=function(){    //鼠标点击时
-		this.classList.remove("sub");
-		this.classList.add("clik");
-		return false;                   //此处用于终止刷新,避免跳转
-	}
-	thdLiList[i].onmouseover=function(){    //鼠标移入时
 		
-	}
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		this.classList.remove("clik");
-		this.classList.add("sub");
-	}
+	},10);
+	console.log("移到图片之后"+elem.offsetLeft);
 }
-style="display:none"
 
 
 
 
+//jquery data()方法的使用
+var dom = document.body;
+$.data(dom, 'name', '张三');   //将数据绑定到body元素上
+alert($('body').data('name'));
 
-
-
-
-
-
-
-
-
-
-
-//$('div#cui_nav').animate({backgroundColor: 'red'});
-
-$(function(){ 
-   $("div#cui_nav").css("background-color","yellow"); 
+//扩展JQuery函数库
+jQuery.extend({
+    min: function(a, b) {
+        return a < b ? a : b;
+    },
+    max: function(a, b) {
+        return a > b ? a : b;
+    }
 });
-
-//将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
-var script = document.createElement("script");
-script.language = "javascript";
-script.src="jquery-3.4.1.js";
-document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
-//---------------------------------------------------------------------------------------------
-script = document.createElement("script");
-script.language = "javascript";
-script.src="jquery.animate-colors.js";
-document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
-//---------------------------------------------------------------------------------------------
+jQuery.min(2, 3); //  2 
+jQuery.max(4, 5); //  5
+$.min(8,10);
+console.log(jQuery.min(2, 3),jQuery.max(4, 5),$.min(8,10));
 
 
 
-//以下是第三栏相关的鼠标事件
-var thdStatus=0;
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onmouseover=function(){     //鼠标移入时
-	};
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		
-	};	
+//广告轮播图片
+five_imgs[0]：//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg img_one            【泰国水灯节】
+five_imgs[1]：//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg img_two				【水底世界】
+five_imgs[2]：//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg img_three			【假期已过优哉游世界】
+five_imgs[3]：//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg img_four			【准备好燃一个冬天】
+five_imgs[4]：//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg img_five			【多伦多】
+five_imgs[5]：//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg img_six				【喜迎进博会】
+five_imgs[6]：//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg img_seven			【枫玩日本】
+five_imgs[7]：//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg img_eight			【一起来泡温泉】
+five_imgs[8]：//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg img_nine			【秋风起蟹飘香】
+//------------------------------------------------
+//滚动效果（简单图片切换）
+window.onload=function(){
+	var picNum=0;
+	var timerId=setInterval(leftRoll, 3000);
+	function leftRoll(){
+		changePIC();
+		picNum++;	
+	}
+	function changePIC(){
+		if(picNum==five_imgs.length){
+			picNum=0;
+		}
+		for(var i=0;i<five_imgs.length;i++){
+			if(i==picNum){
+				five_imgs[i].style.display="block"
+			}else{
+				five_imgs[i].style.display="none"
+			}
+		}
+	}	
 }
 
-alert(thdSubnavList[1].className);
-var thdCui_subnav_wrap=document.querySelector("li#cui_nav_hotel >div.cui_subnav_wrap");
-var thdParentNode=thdCui_subnav_wrap.parentNode.parentNode;
-thdParentNode.appendChild(thdCui_subnav_wrap); 
 
-alert(thdParentNode.lastElementChild.className);
-alert(thdParentNode.lastElementChild.firstElementChild.className);
-var csElement=document.querySelector("li.set-list.set-myorder-list a.person-text.nav-myctrip");
-alert(csElement.innerHTML);
+console.log(screen_width,html_width,document.body.scrollWidth);
+	for(var i=0;i<five_imgs.length;i++){
+		five_imgs[i].style.left=(html_width-1920)/2+"px";
+	}
 
-var nav_width=window.innerWidth;  							//获取浏览器窗口宽度：1640
-var nav_height=window.innerHeight;							//获取浏览器窗口高度：912
-var html_width=document.documentElement.clientWidth;        //HTML所在窗口宽度：1440 *  0.08`
-var html_height=document.documentElement.clientHeight;    	//HTML所在窗口高度：802
-var div=document.getElementsByClassName("nav-bar-cont")[0];	
-div.setAttribute("style","width:"+nav_width+"px;");  		//设置导航栏背景宽度为浏览器窗口宽度
-var h=div.offsetHeight;                                     //获取导航栏的高度
-var a=document.getElementsByClassName("selected")[0];
-a.setAttribute("style","line-height:"+h+"px;");             //设置a.selected元素的行高
-var slogan=document.getElementsByClassName("selected")[0];
- */
 
-/*设置导航栏div.nav-bar-cont元素的边框宽度*/
-// div.position="absolute";
-// div.style.borderLeftStyle="solid";
-// div.style.borderLeftColor="#f4f4f4";
-// div.style.with="1196px"; 
-// div.style.borderLeftWidth=(nav_width-1196)/2+"px";    	/*1196是div.nav-bar-cont元素的width内容宽度*/
-// div.style.borderRightWidth=(nav_width-1196)/2+"px";		/*1196是div.nav-bar-cont元素的width内容宽度*/
-// div.style.height="38px";
-// div.style.backgroundColor="#f4f4f4"; 
-/* border-left-style:solid;
-border-left-width:100px;
-border-left-color:#f4f4f4; */
-//alert("html_w："+html_width+"；html_h："+html_height);  //1280 610
-/* alert(div.className);  alert("w："+nav_width+"；h："+nav_height);
-alert("html_w："+html_width+"；html_h："+html_height); */
+
+var five_pics=document.querySelectorAll("#allyesId_init_img img");
+alert(five_pics.length);
+
+alert(String(window.location.href));
+thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时
+		if(String(this.children[0].href)==String(window.location.href)){
+			this.style.backgroundColor="#0a56bb";
+		}else{
+			this.style.backgroundColor="#2577e3";
+		};
+				
+	};
+
+
 
 //document.location.reload();//刷新当前页面  
 
 //alert(languageList[i].innerHTML);    //setTimeout(alert(languageList[i].innerHTML),1000);
+
+*/

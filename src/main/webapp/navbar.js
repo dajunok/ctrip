@@ -328,7 +328,7 @@ if(html_width>=four_mod_width){                                  //html_width：
 }
 
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
-//添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素
+//添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素(由于循环滚动需要实际图片比滚动效果多出一张重复图片，即第一张和最后一张相同)
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");
@@ -340,7 +340,7 @@ $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctri
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
 //底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
-$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 559.5px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
+$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 159px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3'></span>");
@@ -350,7 +350,7 @@ $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabind
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9'></span>");
-$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");  //页面加载时，默认改变第一个分页按钮图片（改为圆角矩形），即它对应第一张图片。
 //居中显示
 var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var five_div_mod=document.querySelector("div.mod-banner");
@@ -370,22 +370,23 @@ if(html_width>=1920){                                  //html_width：浏览器�
 		five_imgs[i].style.left=-220+"px";
 		five_aList[i].style.width=html_width+'px';
 	}
-}else if(html_width>=1170){
-	$("div.swiper-pagination").css("right","159px");  //调整分页圆圈包含元素的靠右位置
+	//$("div.swiper-pagination").css("right","559px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
+}else if(html_width>=1170){	
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=-320+"px";
 		five_aList[i].style.width=html_width+'px';
 	}
+	$("div.swiper-pagination").css("right","159px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
 }else {
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=-750+"px";	
 		five_aList[i].style.width=html_width+'px';
 	}
+	$("div.swiper-pagination").css("right","10px");  //调整分页圆圈包裹元素div.swiper-pagination的靠右位置
 }
 var five_div_pic=document.querySelector("div.pic_banner");
 var five_aWidth=five_aList[0].offsetWidth;
 five_div_pic.style.width=(five_aWidth*five_aList.length)+'px';
-console.log("End");
 //当离开页面时，停止图片滚动
 var visProp = getHiddenProp();
 if (visProp) {
@@ -400,28 +401,38 @@ if (visProp) {
 		}
 	},false);
 }
-//无限循环滚动(带滑动效果）
+//无限循环滚动(带滑动效果）---完美实现版
+var timerId;
 var picNum=0;
-window.clearInterval(timerId);
-var timerId=setInterval(leftScroll, 5000);   //向左滚动
-function leftScroll(){
-	if(picNum==five_aList.length-1){
-		picNum=0;
-		five_div_pic.style.left = 0 + "px"
-	}
-	picNum++;	
-	move(five_div_pic,five_aWidth*picNum); 
-	$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
-	$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
-	//console.log(five_div_pic.offsetLeft);		
-		
+if(picNum==0){
+	window.clearInterval(timerId);
+	timerId=setInterval(leftScroll, 5000);   //向左滚动
+}else if(picNum==9){
+	window.clearInterval(timerId);
+	timerId=setInterval(rightScroll, 5000);   //向右滚动
 }
-function move(elem,scrollWidth){
-	window.clearInterval(elem.timerID);		//
+
+function leftScroll(){       //向左循环滚动函数
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		five_div_pic.style.left = 0 + "px"		
+	}
+	picNum++;
+	move(five_div_pic,five_aWidth*picNum); 
+	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
+	if(picNum==five_aList.length-1){   
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+	}else{
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+	}
+}
+function move(elem,scrollWidth){			//实现图片滑动效果函数
+	window.clearInterval(elem.timerID);		
 	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
 		var step=160;   //每次移动的距离
 		var current=elem.offsetLeft;
-		console.log(Math.abs(current)+"		"+html_width);
 		var target=scrollWidth;
 		step=Math.abs(current)>target ? -step : step;
 		current-=step;
@@ -434,6 +445,26 @@ function move(elem,scrollWidth){
 		
 	},10);
 }	
+function rightScroll(){       //向右循环滚动函数
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		five_div_pic.style.left = 0 + "px"		
+	}
+	picNum++;
+	move(five_div_pic,five_aWidth*picNum); 
+	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
+	if(picNum==five_aList.length-1){   
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+	}else{
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+	}
+}
+
+
+
+
 
 //----------------------下面是页面是否可见监听事件相关函数
 //获取document.hidden属性：
@@ -503,161 +534,63 @@ function isHidden(){
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
-//无限循环滚动效果
-window.onload=function(){
-	var picNum=0;
-	five_a_pic.style.width=html_width*five_imgs.length+"px";
-	window.clearInterval(timerId);
-	var timerId=setInterval(leftScroll, 3000);
-	function leftScroll(){
-		if(picNum>five_imgs.length-1){
-			picNum=0;
-			five_a_pic.style.left=0+'px';
-		}
+var timerId=setInterval(leftScroll, 5000);   //向左滚动
+function leftScroll(){       //向左循环滚动函数
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		five_div_pic.style.left = 0 + "px"		
+	}
+	picNum++;
+	move(five_div_pic,five_aWidth*picNum); 
+	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
+	if(picNum==five_aList.length-1){   
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+	}else{
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+	}
+}
+
+
+
+
+//无限循环滚动(带滑动效果,但有点瑕疵）
+var picNum=0;
+window.clearInterval(timerId);
+var timerId=setInterval(leftScroll, 5000);   //向左滚动
+function leftScroll(){
+	if(picNum==five_aList.length-1){
+		picNum=0;		
+		clearInterval(timerId);
+		setTimeout("timerId=setInterval(leftScroll, 5000)",10); //如果此处不把返回值赋值给timerId，将导致前面语句clearInterval(timerId)在下次循环时无法关闭定时器（timerId是过去的值）
+		five_div_pic.style.left = 0 + "px"
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
+	}else{
 		picNum++;
-		move(five_a_pic,html_width*picNum);    //(five_imgs[picNum].offsetWidth)
-			
-	}
-	function move(elem,scrollWidth){
-		window.clearInterval(elem.timerID);		//
-		elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
-			var step=160;   //每次移动的距离
-			var current=elem.offsetLeft;
-			var target=scrollWidth;
-			step=Math.abs(current)>target ? -step : step;
-			current-=step;
-			if(Math.abs(current+target)>Math.abs(step)){
-				elem.style.left = current + "px";
-			} else{
-				window.clearInterval(elem.timerID);
-				elem.style.left = (-target) + "px";
-			}
-			
-		},10);
-	}	
-}
-//添加图片
-var five_a_pic=document.querySelector("#allyesId_init_img");
-var five_img_add=document.createElement("img");   //创建图片元素1。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg");
-five_img_add.setAttribute("alt", "img_one");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=9;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素2。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg");
-five_img_add.setAttribute("alt", "img_two");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=8;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素3。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg");
-five_img_add.setAttribute("alt", "img_three");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=7;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素4。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg");
-five_img_add.setAttribute("alt", "img_four");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=6;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素5。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg");
-five_img_add.setAttribute("alt", "img_five");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=5;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素6。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg");
-five_img_add.setAttribute("alt", "img_six");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=4;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素7。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg");
-five_img_add.setAttribute("alt", "img_seven");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=3;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素8。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg");
-five_img_add.setAttribute("alt", "img_eight");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=2;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-five_img_add=document.createElement("img");   //创建图片元素9。
-five_img_add.setAttribute("src", "//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg");
-five_img_add.setAttribute("alt", "img_nine");
-//five_img_add.style.width=html_width+"px";
-five_img_add.style.height=340+"px";
-five_img_add.style.display="block";
-five_img_add.style.zIndex=1;
-five_a_pic.appendChild(five_img_add);
-//------------------------------------------------
-//居中显示
-var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
-var five_imgs=document.querySelectorAll("div.pic_banner a img");
-var five_div_pic=document.querySelector("div.pic_banner");
-var five_div_pic_width=five_div_pic.offsetWidth;
-if(html_width>=five_div_pic_width){                                  //html_width：浏览器窗口宽度 ,图片的最大宽度：1920px
-	five_div_pic.style.left=(html_width-five_div_pic_width)/2+"px";
-	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.maxWidth=five_div_pic_width+"px";
-		five_imgs[i].style.left=0+"px";
-	}
-}else if(html_width<=1000){
-	five_div_pic.style.left=0+"px";
-	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.left=-550+"px";
-		five_imgs[i].style.width=html_width+"px";	
-	}
-}else {
-	five_div_pic.style.left=0+"px";
-	for(var i=0;i<five_imgs.length;i++){
-		five_imgs[i].style.width=html_width+"px";	
+		console.log(picNum+" "+five_div_pic.style.left);
+		move(five_div_pic,five_aWidth*picNum); 
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");		
 	}
 }
-
-
-//------------------------------------------------
-for (var i=0;i<five_imgs.length;i++){
-	console.log("five_imgs["+i+"]："+five_imgs[i].getAttribute("src"),five_imgs[i].getAttribute("alt"));
+function move(elem,scrollWidth){			//实现图片滑动效果函数
+	window.clearInterval(elem.timerID);		
+	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
+		var step=160;   //每次移动的距离
+		var current=elem.offsetLeft;
+		var target=scrollWidth;
+		step=Math.abs(current)>target ? -step : step;
+		current-=step;
+		if(Math.abs(current+target)>Math.abs(step)){
+			elem.style.left = current + "px";
+		} else{
+			window.clearInterval(elem.timerID);
+			elem.style.left = (-target) + "px";
+		}
+		
+	},10);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -717,18 +650,6 @@ window.onload=function(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 console.log(screen_width,html_width,document.body.scrollWidth);
 	for(var i=0;i<five_imgs.length;i++){
 		five_imgs[i].style.left=(html_width-1920)/2+"px";
@@ -750,153 +671,9 @@ thdLi_a_List[i].parentNode.onmouseout=function(){  //鼠标移出时
 	};
 
 
-//==================================================第三栏相关脚本================================================
-//以下是第三栏相关的鼠标事件
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-var thdTriangle=document.createElement("div");  //创建白色三角形占位元素
-thdTriangle.style.position="absolute";
-thdTriangle.style.display="none";
-thdTriangle.style.top="33px";
-thdTriangle.style.left="132px";
-thdTriangle.style.width="20px";
-thdTriangle.style.height="11px";
-thdTriangle.style.backgroundImage="url('http://localhost:8080/ctrip/image/whiteTri-up.png')"; 
-thdTriangle.style.backgroundSize="25px 22px";
-thdTriangle.style.backgroundRepeat="no-repeat";
-thdTriangle.style.backgroundPosition="center";
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onclick=function(){    //鼠标点击时
-		this.classList.add("current");      //增加类名"current"
-	}
-	thdLiList[i].onmouseover=function(){    //鼠标移入时
-		this.classList.add("current");		//增加类名"current"
-		this.children[1].style.display="block";  			//显示div.cui_subnav_wrap元素
-		switch(this.id){
-			case "cui_nav_destination":   //汽车▪船
-				this.appendChild(thdTriangle);     //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="37px";
-				break;
-			case "cui_nav_g":        //全球购
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="30px";	
-				break;
-			case "cui_nav_lpk":        //礼品卡
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="30px";	
-				break;
-			default:
-				this.appendChild(thdTriangle);   //将白色三角形占位元素添加到当前元素下面作为子元素
-				thdTriangle.style.display="block";
-				thdTriangle.style.zIndex="50";
-				thdTriangle.style.left="22px";				
-				break;
-		}
-		//实现背景颜色由#0a56bb到#2577e3的过渡变化
-		$(this).css("background-color","#0a56bb"); 
-		$(this).animate({backgroundColor: '#2577e3'});
-	}
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		this.classList.remove("current");
-		this.children[1].style.display="none";  			//隐藏div.cui_subnav_wrap元素
-	}
-}
-
-//以下是第三栏相关的鼠标事件
-//-------------
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onclick=function(){    //鼠标点击时
-		this.classList.remove("sub");
-		this.classList.add("clik");
-		return false;                   //此处用于终止刷新,避免跳转
-	}
-	thdLiList[i].onmouseover=function(){    //鼠标移入时
-		
-	}
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		this.classList.remove("clik");
-		this.classList.add("sub");
-	}
-}
-style="display:none"
-
-
-
-//$('div#cui_nav').animate({backgroundColor: 'red'});
-
-$(function(){ 
-   $("div#cui_nav").css("background-color","yellow"); 
-});
-
-//将所有div.cui_subnav_wrap元素移动到ul#cui_nav_ul元素下面作为它的子元素
-var script = document.createElement("script");
-script.language = "javascript";
-script.src="jquery-3.4.1.js";
-document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
-//---------------------------------------------------------------------------------------------
-script = document.createElement("script");
-script.language = "javascript";
-script.src="jquery.animate-colors.js";
-document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件引入到head中
-//---------------------------------------------------------------------------------------------
-
-
-
-//以下是第三栏相关的鼠标事件
-var thdStatus=0;
-var thdLiList=document.querySelectorAll("ul#cui_nav_ul >li.sub");
-for(var i=0;i<thdLiList.length;i++){
-	thdLiList[i].onmouseover=function(){     //鼠标移入时
-	};
-	thdLiList[i].onmouseout=function(){     //鼠标移出时
-		
-	};	
-}
-
-alert(thdSubnavList[1].className);
-var thdCui_subnav_wrap=document.querySelector("li#cui_nav_hotel >div.cui_subnav_wrap");
-var thdParentNode=thdCui_subnav_wrap.parentNode.parentNode;
-thdParentNode.appendChild(thdCui_subnav_wrap); 
-
-alert(thdParentNode.lastElementChild.className);
-alert(thdParentNode.lastElementChild.firstElementChild.className);
-var csElement=document.querySelector("li.set-list.set-myorder-list a.person-text.nav-myctrip");
-alert(csElement.innerHTML);
-
-var nav_width=window.innerWidth;  							//获取浏览器窗口宽度：1640
-var nav_height=window.innerHeight;							//获取浏览器窗口高度：912
-var html_width=document.documentElement.clientWidth;        //HTML所在窗口宽度：1440 *  0.08`
-var html_height=document.documentElement.clientHeight;    	//HTML所在窗口高度：802
-var div=document.getElementsByClassName("nav-bar-cont")[0];	
-div.setAttribute("style","width:"+nav_width+"px;");  		//设置导航栏背景宽度为浏览器窗口宽度
-var h=div.offsetHeight;                                     //获取导航栏的高度
-var a=document.getElementsByClassName("selected")[0];
-a.setAttribute("style","line-height:"+h+"px;");             //设置a.selected元素的行高
-var slogan=document.getElementsByClassName("selected")[0];
- */
-
-/*设置导航栏div.nav-bar-cont元素的边框宽度*/
-// div.position="absolute";
-// div.style.borderLeftStyle="solid";
-// div.style.borderLeftColor="#f4f4f4";
-// div.style.with="1196px"; 
-// div.style.borderLeftWidth=(nav_width-1196)/2+"px";    	/*1196是div.nav-bar-cont元素的width内容宽度*/
-// div.style.borderRightWidth=(nav_width-1196)/2+"px";		/*1196是div.nav-bar-cont元素的width内容宽度*/
-// div.style.height="38px";
-// div.style.backgroundColor="#f4f4f4"; 
-/* border-left-style:solid;
-border-left-width:100px;
-border-left-color:#f4f4f4; */
-//alert("html_w："+html_width+"；html_h："+html_height);  //1280 610
-/* alert(div.className);  alert("w："+nav_width+"；h："+nav_height);
-alert("html_w："+html_width+"；html_h："+html_height); */
 
 //document.location.reload();//刷新当前页面  
 
 //alert(languageList[i].innerHTML);    //setTimeout(alert(languageList[i].innerHTML),1000);
+
+*/
