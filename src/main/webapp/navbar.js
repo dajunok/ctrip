@@ -329,28 +329,29 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
 //添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素(由于循环滚动需要实际图片比滚动效果多出一张重复图片，即第一张和最后一张相同)
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg' alt='第3张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg' alt='第4张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg' alt='第5张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg' alt='第6张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg' alt='第7张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");
-$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");  	//【秋风起蟹飘香】			对应分页按钮索引：0
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");		//【泰国水灯节】			对应分页按钮索引：8
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg061800000153tqtB182.jpg' alt='第2张图'></a>");		//【水底世界】				对应分页按钮索引：7
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg07180000014z5e4355F.jpg' alt='第3张图'></a>");		//【假期已过优哉游世界】	对应分页按钮索引：6
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg081800000152wg552A8.jpg' alt='第4张图'></a>");		//【准备好燃一个冬天】		对应分页按钮索引：5
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0e19000001837lm1D87.jpg' alt='第5张图'></a>");		//【多伦多】				对应分页按钮索引：4
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0j190000017avfw48B1.jpg' alt='第6张图'></a>");		//【喜迎进博会】			对应分页按钮索引：3
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0k1700000130bhaCA00.jpg' alt='第7张图'></a>");		//【枫玩日本】				对应分页按钮索引：2
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");		//【一起来泡温泉】			对应分页按钮索引：1
+$("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");		//【秋风起蟹飘香】			对应分页按钮索引：0
 //底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
 $("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 159px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 2'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 3'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 4'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 5'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 6'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 7'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 8'></span>");
-$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 9'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='1' role='button' aria-label='Go to slide 2'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='2' role='button' aria-label='Go to slide 3'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='3' role='button' aria-label='Go to slide 4'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='4' role='button' aria-label='Go to slide 5'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='5' role='button' aria-label='Go to slide 6'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='6' role='button' aria-label='Go to slide 7'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='7' role='button' aria-label='Go to slide 8'></span>");
+$("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='8' role='button' aria-label='Go to slide 9'></span>");
 $("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");  //页面加载时，默认改变第一个分页按钮图片（改为圆角矩形），即它对应第一张图片。
+
 //居中显示
 var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var five_div_mod=document.querySelector("div.mod-banner");
@@ -403,7 +404,8 @@ if (visProp) {
 }
 //无限循环滚动(带滑动效果）---完美实现版
 var timerId;
-var picNum=0;    //picNum=five_aList.length-1时向右滚动
+var picNum=0;    //picNum=five_aList.length-1时向右滚动;picNum=0向左滚
+five_div_pic.sta=picNum;   //存储滚动栏当前显示图片的索引
 if(picNum==0){
 	window.clearInterval(timerId);
 	timerId=setInterval(leftScroll, 5000);   //向左滚动
@@ -416,17 +418,23 @@ if(picNum==0){
 function leftScroll(){       //向左循环滚动函数
 	if(picNum==five_aList.length-1){
 		picNum=0;		
-		five_div_pic.style.left = 0 + "px"		
+		five_div_pic.style.left = 0 + "px"	
 	}
-	picNum++;
+	//console.log("picNum："+picNum+"; ");
+	picNum++;	
+	//console.log(five_div_pic.sta);
 	move(five_div_pic,five_aWidth*picNum); 
 	//切换滚动栏底部活动分页按钮图标（即该成圆角矩形）
 	if(picNum==five_aList.length-1){   
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
 		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
+		five_div_pic.sta=0;   //存储滚动栏当前显示图片的索引
+		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta);
 	}else{
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
-		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
+		five_div_pic.sta=picNum;   //存储滚动栏当前显示图片的索引
+		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta);
 	}
 }	
 function rightScroll(){       //向右循环滚动函数
@@ -462,6 +470,19 @@ function move(elem,scrollWidth){			//实现图片滑动效果函数
 		
 	},10);
 }
+//分页按钮鼠标点击事件（滚动栏底部白色分页圆圈）
+$("div.swiper-pagination").children().each(function(){
+	$(this).click(function(){
+		clearInterval(timerId);
+		setTimeout("timerId=setInterval(leftScroll, 5000)",10); 
+		picNum=3;
+		console.log("暂停滚动！！");
+
+	})
+});
+
+
+
 
 
 
@@ -534,6 +555,8 @@ function isHidden(){
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+$("div.swiper-pagination").children().each(function(){console.log($(this).attr("tabindex"))});
+$("div.swiper-pagination").find("span").eq(0).attr("tabindex");
 var timerId=setInterval(leftScroll, 5000);   //向左滚动
 function leftScroll(){       //向左循环滚动函数
 	if(picNum==five_aList.length-1){
