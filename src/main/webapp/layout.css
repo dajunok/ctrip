@@ -1193,6 +1193,8 @@ span.swiper-pagination-bullet{
 		width: 22px; 
 		height: 22px;
 		vertical-align: middle;
+		cursor: pointer;
+		outline:none;    			/*去掉点击时显示蓝色边框线*/
 		/* background:green; */
 		background-image:url('//localhost:8080/ctrip/image/sprite/platform/css_sprites20191119.png'); 	/*使用sprite雪碧图图标*/
 		background-repeat:no-repeat;

@@ -327,6 +327,9 @@ if(html_width>=four_mod_width){                                  //html_width：
 	four_mod.style.left="0px";
 }
 
+
+
+
 //==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
 //添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素(由于循环滚动需要实际图片比滚动效果多出一张重复图片，即第一张和最后一张相同)
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");  	//【秋风起蟹飘香】			对应分页按钮索引：0
@@ -340,7 +343,7 @@ $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctri
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0q180000015149r095F.jpg' alt='第8张图'></a>");		//【一起来泡温泉】			对应分页按钮索引：1
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");		//【秋风起蟹飘香】			对应分页按钮索引：0
 //底部图片分页切换按钮（一排白色圆圈+活动圆角矩形）相关脚本
-$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; display: inline-block; right: 159px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
+$("div.mod-banner").append("<div class='swiper-pagination' style='position:absolute; cursor: pointer;display: inline-block; right: 159px; left: auto; height:22px;line-height:22px;width: 250px;  bottom: 10px;'></div>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='0' role='button' aria-label='Go to slide 1'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='1' role='button' aria-label='Go to slide 2'></span>");
 $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabindex='2' role='button' aria-label='Go to slide 3'></span>");
@@ -388,6 +391,7 @@ if(html_width>=1920){                                  //html_width：浏览器�
 var five_div_pic=document.querySelector("div.pic_banner");
 var five_aWidth=five_aList[0].offsetWidth;
 five_div_pic.style.width=(five_aWidth*five_aList.length)+'px';
+
 //当离开页面时，停止图片滚动
 var visProp = getHiddenProp();
 if (visProp) {
@@ -403,6 +407,11 @@ if (visProp) {
 	},false);
 }
 //无限循环滚动(带滑动效果）---完美实现版
+var spanLength=$("div.swiper-pagination").find("span").length;   //计算分页按钮个数
+for(var i=0;i<spanLength;i++){		//此函数给分页按钮添加属性对应图片相关信息
+	$("div.swiper-pagination").find("span").eq(i).attr("picNum",i);  //存储图片的索引
+	$("div.swiper-pagination").find("span").eq(i).attr("left",five_aWidth*i);  //存储图片偏移量offsetLeft的绝对值
+}
 var timerId;
 var picNum=0;    //picNum=five_aList.length-1时向右滚动;picNum=0向左滚
 five_div_pic.sta=picNum;   //存储滚动栏当前显示图片的索引
@@ -414,7 +423,6 @@ if(picNum==0){
 	window.clearInterval(timerId);
 	timerId=setInterval(rightScroll, 5000);   //向右滚动
 }
-
 function leftScroll(){       //向左循环滚动函数
 	if(picNum==five_aList.length-1){
 		picNum=0;		
@@ -429,12 +437,12 @@ function leftScroll(){       //向左循环滚动函数
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
 		$("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");
 		five_div_pic.sta=0;   //存储滚动栏当前显示图片的索引
-		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta);
+		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta+"	Left："+five_div_pic.offsetLeft);
 	}else{
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
 		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
 		five_div_pic.sta=picNum;   //存储滚动栏当前显示图片的索引
-		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta);
+		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta+"	Left："+five_div_pic.offsetLeft);
 	}
 }	
 function rightScroll(){       //向右循环滚动函数
@@ -453,7 +461,7 @@ function rightScroll(){       //向右循环滚动函数
 		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");	
 	}
 }
-function move(elem,scrollWidth){			//实现图片滑动效果函数
+function move(elem,scrollWidth){			//实现图片滑动效果函数（从elem元素当前的偏移量（offsetLeft）滑动到指定偏移量scrollWidth。
 	window.clearInterval(elem.timerID);		
 	elem.timerID=setInterval(function(){   //定时器的id值存储到elem对象的属性中
 		var step=160;   //每次移动的距离
@@ -470,14 +478,15 @@ function move(elem,scrollWidth){			//实现图片滑动效果函数
 		
 	},10);
 }
-//分页按钮鼠标点击事件（滚动栏底部白色分页圆圈）
+//分页按钮鼠标点击事件（滚动栏底部白色分页圆圈）滑动到指定分页按钮位置。
 $("div.swiper-pagination").children().each(function(){
 	$(this).click(function(){
-		clearInterval(timerId);
-		setTimeout("timerId=setInterval(leftScroll, 5000)",10); 
-		picNum=3;
-		console.log("暂停滚动！！");
-
+		clearInterval(timerId);  //停止循环滚动（防止影响分页按钮滑动）
+		setTimeout("timerId=setInterval(leftScroll, 5000)",10);		 //重启循环滚动，它将暂停5010毫秒（不是10毫秒哦！！）
+		picNum=$(this).attr("picNum")*1;    //改变图片索引值，以便恢复循环滚动后，接着从当前分页按钮对应图片往后循环滚动。
+		move(five_div_pic,$(this).attr("left")*1);  //图片包裹元素five_div_pic滑动到指定偏移量（存储在当前分页按钮属性left中）。
+		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");  
+		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");  //改变点击分页按钮的图标为当前活动按钮图标（半圆角矩形，非活动状态时为白色圆圈）。
 	})
 });
 
