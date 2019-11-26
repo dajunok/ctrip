@@ -10,6 +10,7 @@ document.getElementsByTagName("body")[0].appendChild(script); //将jq的js文件
 
 
 var html_width=document.documentElement.clientWidth;         //获取浏览器窗口宽度：1640
+var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var nav=document.getElementsByClassName("nav-bar-cont")[0];  
 var nav_width=nav.offsetWidth;
 
@@ -29,7 +30,14 @@ if(html_width>nav_width){
 
 
 //当浏览器窗口改变时刷新
-window.onresize = function(){ location.reload();}
+window.onresize = function(){ 
+		html_w=document.documentElement.clientWidth;         //获取浏览器窗口宽度：1640
+		if(html_width != html_w){
+			location.reload();
+		}	
+
+	
+}
 
 
 //设置导航ul.language_list鼠标触发事件
@@ -330,7 +338,7 @@ if(html_width>=four_mod_width){                                  //html_width：
 
 
 
-//==================================================第五栏：搜索栏（滚动广告）相关脚本================================================
+//==================================================第五栏：【水平滑动轮播广告】相关脚本================================================
 //添加滚动图片及底部分页圆圈按钮和圆角活动矩形元素(由于循环滚动需要实际图片比滚动效果多出一张重复图片，即第一张和最后一张相同)
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg0t1800000152y0m2769.jpg' alt='第9张图'></a>");  	//【秋风起蟹飘香】			对应分页按钮索引：0
 $("div#allyesId").prepend("<a href='#' target=''><img src='//localhost:8080/ctrip/image/dimg04/zg021800000159zf14CFB.jpg' alt='第1张图'></a>");		//【泰国水灯节】			对应分页按钮索引：8
@@ -356,7 +364,6 @@ $("div.swiper-pagination").append("<span class='swiper-pagination-bullet' tabind
 $("div.swiper-pagination").find("span").eq(0).addClass(" swiper-pagination-bullet-active");  //页面加载时，默认改变第一个分页按钮图片（改为圆角矩形），即它对应第一张图片。
 
 //居中显示
-var screen_width=window.screen.width;       //屏幕分辨率的宽度:1680px
 var five_div_mod=document.querySelector("div.mod-banner");
 five_div_mod.style.width=html_width+'px';
 var five_aList=document.querySelectorAll("div.pic_banner a");
@@ -442,7 +449,7 @@ function leftScroll(){       //向左循环滚动函数
 		$("div.swiper-pagination").find("span").removeClass(" swiper-pagination-bullet-active");
 		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");
 		five_div_pic.sta=picNum;   //存储滚动栏当前显示图片的索引
-		console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta+"	Left："+five_div_pic.offsetLeft);
+		//console.log("picNum："+picNum+"; "+"five_div_pic.sta："+five_div_pic.sta+"	Left："+five_div_pic.offsetLeft);
 	}
 }	
 function rightScroll(){       //向右循环滚动函数
@@ -490,12 +497,6 @@ $("div.swiper-pagination").children().each(function(){
 	})
 });
 
-
-
-
-
-
-
 //----------------------下面是页面是否可见监听事件相关函数
 //获取document.hidden属性：
 function getHiddenProp(){
@@ -531,8 +532,15 @@ function isHidden(){
 	return document[prop];
 }
 
-
-
+//==================================================第五栏：【搜索框】相关脚本================================================
+//居中显示
+var mod_search=document.querySelector("div.mod.mod-search");
+var mod_search_width=mod_search.offsetWidth;
+if(html_width>=mod_search_width){                                  //html_width：浏览器窗口宽度 
+	mod_search.style.left=(html_width-mod_search_width)/2+"px";
+}else {
+	mod_search.style.left="0px";
+}
 
 
 

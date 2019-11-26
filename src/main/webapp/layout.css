@@ -1152,7 +1152,7 @@ ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
 	background-position:-23px -78px;
 }
 
-/***=================================================【第五栏：搜索栏（滚动轮播广告）】==================================================================================================*/
+/***=================================================【第五栏：水平滑动轮播广告】==================================================================================================*/
 div.mod-banner{
 		position:absolute;		
 		margin:0px;
@@ -1186,7 +1186,7 @@ div.pic_banner a >img{
 		min-width:1780px; */
 		height:340px;			
 }
-span.swiper-pagination-bullet{
+span.swiper-pagination-bullet{  
 		display:inline-block;
 		opacity: 1; 
 		margin-right: 4px; 
@@ -1207,8 +1207,27 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active{
 }
 
 
-
-
+/***=================================================【第五栏：搜索框】==================================================================================================*/
+div.mod.mod-search{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:1px;
+	background:rgba(0,0,255,0);
+}
+div#searchBox{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	top:8px;
+	width:584px;
+	height:306px;
+	border-left-style:solid;    /*设置边框*/
+	border-left-color:#ff9915;
+	border-left-width:4px;	
+	background:rgba(255,255,255,1);
+}
 
 
 
