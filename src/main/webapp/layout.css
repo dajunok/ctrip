@@ -1220,21 +1220,85 @@ div#searchBox{
 	position:relative;
 	margin:0px;
 	padding:0px;
-	top:8px;
+	top:17px;
 	width:584px;
-	height:306px;
-	border-left-style:solid;    /*设置边框*/
-	border-left-color:#ff9915;
-	border-left-width:4px;	
+	height:300px;
 	background:rgba(255,255,255,1);
 }
-
-
-
-
-
-
-
+ul#searchBoxUl{
+	position: absolute;
+	margin:0px;
+	padding:0px;
+    top: 0;
+    left: 0;
+	width: 90px;
+    height: 300px;
+    background-color: #2577e3;   
+}
+ul.s_tab li {    
+    display: inline-block;
+	float: left;
+    width: 60px;
+    height: 42px;
+    padding: 0 17px 0 13px;
+    margin: 0;
+    border-left: 4px solid #2577e3;  	/*设置边框*/
+    font: 16px/42px "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+    text-align: left; 
+    color: #fff;
+}
+ul.s_tab li:hover{
+	border-left: 4px solid #ff9915;		/*设置边框*/
+    background: #fff;
+    color: #2577e3;
+}
+ul.s_tab li b {
+    position: relative;
+    display: block;
+    height: 42px;
+    border-bottom: 1px dashed #aac3f1;
+    font-weight: normal;
+}
+ul.s_tab li:last-of-type b {
+    border-bottom: none;
+}
+ul.s_tab li:hover b{
+	border-bottom: none;
+}
+div.s_content {    
+    margin-left: 90px;
+	padding: 20px 20px 5px;
+    width: 451px;
+    height: 275px;
+	text-align: left;
+	background-color: white;
+	_overflow: hidden;
+}
+p.s_subtab_a {
+    position: relative;
+	margin: 0;
+    padding: 0;
+    height: 27px;
+    line-height: 20px;
+	margin-bottom: 8px;
+	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/
+    background-position: 0 -96px;
+    background-repeat: repeat-x;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;	
+}
+p.s_subtab_a a {
+    position: relative;
+	display: block;
+    margin-right: 20px;  
+    height: 25px;
+	line-height: 20px;
+    float: left;    
+    outline: none medium;
+	font-size: 14px;
+    font-weight: bold;
+	color: #666;
+    cursor: pointer;   /*指定光标样式为小手*/
+}
 
 
 
