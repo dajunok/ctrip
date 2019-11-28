@@ -663,6 +663,84 @@
         <a href="javascript:void(0);" data-index="4" class="">酒店+景点</a>
         <a href="javascript:void(0);" data-index="5" class="">会议&#x2022;团房</a>
     </p>
+    <!-- 国内酒店 --><!-- 国内酒店 html -->
+<form id="chinaHotelForm" method="post" name="chinaHotelForm" action="//hotels.ctrip.com/Domestic/ShowHotelList.aspx" mapAction="//hotels.ctrip.com/Domestic/ShowHotelMap.aspx" twhotelAction="//hotels.ctrip.com/international/ShowHotelList.aspx">
+<div class="s_item_cont">
+    <div class="s_item w100">目的地<input type="text" value="中文/拼音" class="w01" name="CityName" id="HD_CityName" maxlength="100" autocomplete="off" />
+        <input type="hidden" id="HD_CityId" name="cityId" />
+        <input type="hidden" id="HD_CityPy" name="cityPY" />
+    </div>
+    <div class="s_item_hotel" id="HD_SearchHistory" style="display:none">
+        <a class="s_history_btn" href="javascript:;"><i></i>搜索历史</a>
+        <div class="history_list"></div>
+    </div>
+</div>
+<div class="s_item_cont">
+    <div class="s_item">入住日期<input type="text" value="yyyy-mm-dd" name="checkIn" id="HD_CheckIn" autocomplete="off"/></div>
+    <div class="s_item2">退房日期<input class="w170" type="text" value="yyyy-mm-dd" name="checkOut" id="HD_CheckOut" autocomplete="off"/></div>
+</div>
+
+
+
+<div class="s_item_cont">
+	<div class="s_item">房间数
+		<select id="J_roomCountList">
+			<option selected="selected" value="1">1间</option>
+			<option value="2">2间</option>
+			<option value="3">3间</option>
+			<option value="4">4间</option>
+			<option value="5">5间</option>
+			<option value="6">6间</option>
+			<option value="7">7间</option>
+			<option value="8">8间</option>
+			<option value="9">9间</option>
+            <option value="10">10间</option>
+		</select>
+	</div>
+	<div class="s_item2">住客数
+		<div id="J_RoomGuestInfoDiv" class="n_gst38578 J_cildNumBox n_gst38578_active">
+			<input id="J_RoomGuestInfoTxt" type="text" value="1成人" class="w170" readonly="true">
+			<i class="n_gst38578_tri"></i>
+			<!-- 住客数浮层 -->
+			<div id="J_cildNumSelectorBox" style="display:none;">
+			</div>
+		</div>
+	</div>
+	<div id="J_intelHotelChildPolicyContent" class="s_tips_details hidden" data-regisalready="true" style="top: 171px; left: 348.852px;">
+		18周岁及以上为成人。
+		<br>
+		0-17周岁儿童请参照各酒店入住政策。
+	</div>
+</div>
+	<input type="hidden" name="RoomGuestCount" id="J_RoomGuestCount" value="" />
+<div class="s_item_cont">
+    <div class="s_item">酒店级别
+    	<select id="searchHotelLevelSelect" name="Star">
+        <option selected="selected" value="0">不限</option>
+        <option value="5">五星级/豪华</option>
+        <option value="4">四星级/高档</option>
+        <option value="3">三星级/舒适</option>
+        <option value="2">二星级以下/经济</option>
+        </select>
+    </div>
+
+    <div id="hotelAddressDiv" class="s_item2">关键词
+        <input type="text" _cqnotice="(选填)酒店名/地标/商圈" id="HD_TxtKeyword" name="keywordNew" class="w170" autocomplete="on" maxlength="100" style="">
+        <input type="hidden" id="hotelAreaName" name="keyword" />
+        <input type="hidden" id="positionArea" name="positionArea" />
+        <input type="hidden" id="positionId" name="positionId" />
+        <input type="hidden" id="zoneId" name="zoneId" />
+        <input type="hidden" id="locationId" name="locationId" />
+        <input type="hidden" id="metroId" name="metroId" />
+        <input type="hidden" id="landMarkId" name="landMarkId" />
+        <input type="hidden" id="forTW" name="city" />
+        <input type="hidden" id="district_city" name="district_city" />
+    </div>
+</div>
+<div class="s_button_area">
+    <input type="button" value="搜索" class="s_btn" title="搜索" id="HD_Btn" />
+</div>
+</form>
 
 
 </div>	<!-- 酒店搜索结束 -->

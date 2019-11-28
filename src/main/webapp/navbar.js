@@ -541,8 +541,21 @@ if(html_width>=mod_search_width){                                  //html_width�
 }else {
 	mod_search.style.left="0px";
 }
-
-
+//---“酒店”相关事件
+$('p.s_subtab_a#hotelSwitch').on('click','a',function(){    //酒店标签栏鼠标点击事件
+	$('p.s_subtab_a#hotelSwitch').find('a').removeClass('current');
+	$('p.s_subtab_a#hotelSwitch').find('a').css('color','#666');
+	$(this).addClass('current');
+	$(this).css('color','#06c');
+});
+$('p.s_subtab_a#hotelSwitch').on('mouseover','a',function(){    //酒店标签栏鼠标移入事件
+	$(this).css('color','#06c');
+});
+$('p.s_subtab_a#hotelSwitch').on('mouseout','a',function(){     //酒店标签栏鼠标移出事件 
+	if($(this).attr('class')!=='current'){
+		$(this).css('color','#666');
+	}	
+});
 
 
 
@@ -572,6 +585,24 @@ if(html_width>=mod_search_width){                                  //html_width�
 
 
 /* -----------------------------------临时测试后作废内容---------------------------------------------
+//---“酒店”相关事件
+$('p.s_subtab_a#hotelSwitch').find('a').click(function(){    //酒店标签栏鼠标点击事件
+	$('p.s_subtab_a#hotelSwitch').find('a').removeClass('current');
+	$('p.s_subtab_a#hotelSwitch').find('a').css('color','#666');
+	$(this).addClass('current');
+	$(this).css('color','#06c');
+});
+$('p.s_subtab_a#hotelSwitch').find('a').mouseover(function(){    //酒店标签栏鼠标移入事件
+	$(this).css('color','#06c');
+});
+$('p.s_subtab_a#hotelSwitch').find('a').mouseout(function(){     //酒店标签栏鼠标移出事件 
+	if($(this).attr('class')!=='current'){
+		$(this).css('color','#666');
+	}	
+});
+
+
+
 $("div.swiper-pagination").children().each(function(){console.log($(this).attr("tabindex"))});
 $("div.swiper-pagination").find("span").eq(0).attr("tabindex");
 var timerId=setInterval(leftScroll, 5000);   //向左滚动

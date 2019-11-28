@@ -1281,9 +1281,9 @@ p.s_subtab_a {
     height: 27px;
     line-height: 20px;
 	margin-bottom: 8px;
-	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/
-    background-position: 0 -96px;
+	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/    
     background-repeat: repeat-x;
+	background-position: 0 -96px;
     font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;	
 }
 p.s_subtab_a a {
@@ -1299,7 +1299,14 @@ p.s_subtab_a a {
 	color: #666;
     cursor: pointer;   /*指定光标样式为小手*/
 }
-
+p.s_subtab_a  a.current {       
+    padding-bottom: 2px;	
+	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/    
+    background-repeat: repeat-x;	
+	background-position: 50% -10px;
+	color: #06c;
+	cursor: default;
+}
 
 
 
