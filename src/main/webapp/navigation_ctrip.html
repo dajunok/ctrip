@@ -666,7 +666,8 @@
     <!-- 国内酒店 --><!-- 国内酒店 html -->
 <form id="chinaHotelForm" method="post" name="chinaHotelForm" action="//hotels.ctrip.com/Domestic/ShowHotelList.aspx" mapAction="//hotels.ctrip.com/Domestic/ShowHotelMap.aspx" twhotelAction="//hotels.ctrip.com/international/ShowHotelList.aspx">
 <div class="s_item_cont">
-    <div class="s_item w100">目的地<input type="text" value="中文/拼音" class="w01" name="CityName" id="HD_CityName" maxlength="100" autocomplete="off" />
+    <div class="s_item w100">目的地
+    	<input type="text" value="中文/拼音" class="w01" name="CityName" id="HD_CityName" maxlength="100" autocomplete="off" />
         <input type="hidden" id="HD_CityId" name="cityId" />
         <input type="hidden" id="HD_CityPy" name="cityPY" />
     </div>
@@ -677,7 +678,9 @@
 </div>
 <div class="s_item_cont">
     <div class="s_item">入住日期<input type="text" value="yyyy-mm-dd" name="checkIn" id="HD_CheckIn" autocomplete="off"/></div>
-    <div class="s_item2">退房日期<input class="w170" type="text" value="yyyy-mm-dd" name="checkOut" id="HD_CheckOut" autocomplete="off"/></div>
+    <div class="s_item2">退房日期
+    	<input class="w170" type="text" value="yyyy-mm-dd" name="checkOut" id="HD_CheckOut" autocomplete="off"/>
+    </div>
 </div>
 
 
@@ -697,7 +700,7 @@
             <option value="10">10间</option>
 		</select>
 	</div>
-	<div class="s_item2">住客数
+	<div class="s_item2">住客数	
 		<div id="J_RoomGuestInfoDiv" class="n_gst38578 J_cildNumBox n_gst38578_active">
 			<input id="J_RoomGuestInfoTxt" type="text" value="1成人" class="w170" readonly="true">
 			<i class="n_gst38578_tri"></i>
@@ -706,7 +709,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="J_intelHotelChildPolicyContent" class="s_tips_details hidden" data-regisalready="true" style="top: 171px; left: 348.852px;">
+	<div style="display:none;" id="J_intelHotelChildPolicyContent" class="s_tips_details hidden" data-regisalready="true" style="top: 171px; left: 348.852px;">
 		18周岁及以上为成人。
 		<br>
 		0-17周岁儿童请参照各酒店入住政策。

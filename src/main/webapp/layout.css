@@ -15,12 +15,16 @@ body {
     background-color: #ffffff;
 	margin:0px;
 }
-button {
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button  {
     margin: 0;
     padding: 0;
 }
 
 input,button:focus{ outline:none; }           /*去除所有输入框、按钮的默认样式*/
+
+input[type="button"], input[type="submit"] {  /*改变按钮和其他控件的外观，使其类似于原生控件*/
+    -webkit-appearance: none;
+}
 
 /*设置导航块第一行*/
 .cui-nav-bar{	position:relative;
@@ -1307,14 +1311,128 @@ p.s_subtab_a  a.current {
 	color: #06c;
 	cursor: default;
 }
-
-
-
-
-
-
-
-
+/*国内酒店表单CSS样式--Start*/
+.s_item_cont,.s_item_cont3{
+    position: relative;
+    clear: both;         /**/
+    width: 100%;
+    height: 42px;
+    line-height: 28px;
+}
+div.s_item_cont:after {
+	display: block;
+	height: 0;
+    clear: both;
+    content: '.';
+    visibility: hidden;  
+    overflow: hidden;
+}
+.s_content .s_item, .s_content .s_item2 {    
+    display: inline;	
+    padding-top: 5px;
+	float: left;
+    height: 35px;
+	line-height: 26px;
+    text-align: left;
+    text-align: right;
+    text-indent: -100px;
+	font-size: 14px;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+}
+.s_item {
+    width: 211px;
+}
+.s_item2 {
+    width: 240px;
+}
+div.w100 {
+    width: 100%;
+}
+.s_item input, .s_item2 input, .s_item3 input, .c_item input {
+    padding-left: 3px;
+    margin-left: 10px;
+	width: 140px;
+    height: 28px;    
+    outline: none;
+    color: #333;
+	border-color: #bbb #ddd #ddd #bbb;         /*边框属性设置*/
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 1px #ddd inset;
+	font: 14px/28px "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+}
+input.w01 {
+    width: 380px;
+}
+input[type="text"] {
+    border-radius: 0;
+}
+.s_content select {		/*房间数、酒店级别...下拉选项框*/		
+    width: 145px;
+    height: 28px;
+    margin: 0 0 0 10px;
+    border-radius: none;
+    font-family: 'microsoft yahei', simsun;
+    font-size: 12px;
+}
+.n_gst38578 {					/*住客数下拉选项框*/
+	position: relative;
+    display: inline-block;    
+    margin-left: 6px;
+    width: 170px;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #333;
+	cursor: default;
+	z-index: 99;
+}
+.s_content .w170 {
+    width: 160px;
+}
+.n_gst38578_tri {				/*通过CSS边框属性实现三角形图标（三角形-朝下）*/
+    position: absolute;    
+    top: 10px;
+    right: 6px;
+    width: 0;
+    height: 0;    
+    border-width: 5px 5px 0px;
+    border-color: #666 transparent transparent;
+    border-style: solid dashed dashed;
+	overflow: hidden;
+	z-index: 2;
+}
+.s_button_area {					/* search button area 搜索按钮块*/
+    position: absolute;    
+    right: 20px;
+    bottom: 22px;
+    width: 200px;
+    text-align: right;
+	z-index: 10;
+}
+.s_btn, .s_btn_disabled {		/*搜索按钮，类.s_btn_disabled用于禁用状态*/
+    position: relative;
+    width: 145px;
+    height: 33px;   
+    text-align: center;
+    letter-spacing: 0.4em;							/*设置字母间距*/
+    text-indent: 0.4em;								/*文本缩进*/
+    box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);		/*阴影*/
+    border-radius: 3px;								/*边框圆角*/
+    *-webkit-filter: chroma(color=#000000);			/*CSS滤镜:Chroma属性*/
+    *filter: chroma(color=#000000);
+    overflow: visible;
+	color: #fff;
+    font-size: 16px;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+    font-weight: bold;
+	cursor: pointer;  	/*鼠标样式*/
+}
+.s_btn {
+    text-shadow: 1px 1px 0 #cf7000;
+    background-color: #ffb000;
+    border: solid 1px #e77c00;
+}
+/*国内酒店表单CSS样式--End*/
 
 
 
