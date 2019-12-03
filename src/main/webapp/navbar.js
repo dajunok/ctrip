@@ -489,13 +489,6 @@ $("div.swiper-pagination").children().each(function(){
 		$("div.swiper-pagination").find("span").eq(picNum).addClass(" swiper-pagination-bullet-active");  //改变点击分页按钮的图标为当前活动按钮图标（半圆角矩形，非活动状态时为白色圆圈）。
 	})
 });
-
-
-
-
-
-
-
 //----------------------下面是页面是否可见监听事件相关函数
 //获取document.hidden属性：
 function getHiddenProp(){
