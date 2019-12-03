@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue.js框架</title>
+  <script type="text/javascript"  src="vue.js" charset="utf-8" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+<body>
+	<div id="app">
+	{{ message }}
+	</div>
+	<div id="app-2">
+	  <span v-bind:title="message">
+			 鼠标悬停几秒钟查看此处动态绑定的提示信息！
+	  </span>
+	</div>
+	<div id="app-3">
+	  <p v-if="seen">现在你看到我了</p>
+	</div>
+	<div id="app-4">
+		<ol>
+			<li v-for="todo in todos">{{todo.text}}</li>
+		</ol>
+	</div>
+	<div id="app-5">
+		<p>{{message}}</p>
+		<button v-on:click="reverseMessage">反转消息</button>
+	</div>
+	<div id="app-6">
+		<p>{{message}}</p>
+		<input type="text" v-model="message">
+	</div>
+	<div id="app-7">  <!--使用组件 todo-item -->
+		<todo-item 
+				v-for="item in groceryList" 
+				v-bind:todo="item" 
+				v-bind:key="item.id"
+		></todo-item>
+	</div>
+	<div id="app-8">
+		<p>{{foo}}</p>
+		<button v-on:click="foo='baz'">Change it</button>
+	</div>
+	<div id="example">
+		<p>Original message:"{{message}}"</p>
+		<p>Computed reversed message:"{{reversedMessage}}" 当前时间:"{{now}}"</p>
+	</div>
+	<!--计算属性 vs 侦听属性-->
+	<div id="demo">{{fullName}}</div>
+	
+	<!--侦听器-->
+	<div id="watch-example">
+		<p>Ask a yes/no question:<input type="text" v-model="question"></p>
+		<p>{{answer}}</p>
+	</div>
+	
+	<div class="static" v-bind:class="{active:isActive,'text-danger':hasError}"></div>
+	<div id='app-9' class="static" v-bind:class="classObject"></div>
+	
+
+
+<script type="text/javascript"  src="vue_text.js" charset="utf-8" ></script>
+</body>
+</html>

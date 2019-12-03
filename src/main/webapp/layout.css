@@ -15,12 +15,16 @@ body {
     background-color: #ffffff;
 	margin:0px;
 }
-button {
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button  {
     margin: 0;
     padding: 0;
 }
 
 input,button:focus{ outline:none; }           /*去除所有输入框、按钮的默认样式*/
+
+input[type="button"], input[type="submit"] {  /*改变按钮和其他控件的外观，使其类似于原生控件*/
+    -webkit-appearance: none;
+}
 
 /*设置导航块第一行*/
 .cui-nav-bar{	position:relative;
@@ -1152,7 +1156,7 @@ ul.line-list > li >i.cui-icon-foreign {  /*外币兑换*/
 	background-position:-23px -78px;
 }
 
-/***=================================================【第五栏：搜索栏（滚动轮播广告）】==================================================================================================*/
+/***=================================================【第五栏：水平滑动轮播广告】==================================================================================================*/
 div.mod-banner{
 		position:absolute;		
 		margin:0px;
@@ -1186,7 +1190,7 @@ div.pic_banner a >img{
 		min-width:1780px; */
 		height:340px;			
 }
-span.swiper-pagination-bullet{
+span.swiper-pagination-bullet{  
 		display:inline-block;
 		opacity: 1; 
 		margin-right: 4px; 
@@ -1207,24 +1211,228 @@ span.swiper-pagination-bullet.swiper-pagination-bullet-active{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/***=================================================【第五栏：搜索框】==================================================================================================*/
+div.mod.mod-search{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	width:1196px;
+	height:1px;
+	background:rgba(0,0,255,0);
+}
+div#searchBox{
+	position:relative;
+	margin:0px;
+	padding:0px;
+	top:17px;
+	width:584px;
+	height:300px;
+	background:rgba(255,255,255,1);
+}
+ul#searchBoxUl{
+	position: absolute;
+	margin:0px;
+	padding:0px;
+    top: 0;
+    left: 0;
+	width: 90px;
+    height: 300px;
+    background-color: #2577e3;   
+}
+ul.s_tab li {    
+    display: inline-block;
+	float: left;
+    width: 60px;
+    height: 42px;
+    padding: 0 17px 0 13px;
+    margin: 0;
+    border-left: 4px solid #2577e3;  	/*设置边框*/
+    font: 16px/42px "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+    text-align: left; 
+    color: #fff;
+}
+ul.s_tab li:hover{
+	border-left: 4px solid #ff9915;		/*设置边框*/
+    background: #fff;
+    color: #2577e3;
+}
+ul.s_tab li b {
+    position: relative;
+    display: block;
+    height: 42px;
+    border-bottom: 1px dashed #aac3f1;
+    font-weight: normal;
+}
+ul.s_tab li:last-of-type b {
+    border-bottom: none;
+}
+ul.s_tab li:hover b{
+	border-bottom: none;
+}
+div.s_content {    
+    margin-left: 90px;
+	padding: 20px 20px 5px;
+    width: 451px;
+    height: 275px;
+	text-align: left;
+	background-color: white;
+	_overflow: hidden;
+}
+p.s_subtab_a {
+    position: relative;
+	margin: 0;
+    padding: 0;
+    height: 27px;
+    line-height: 20px;
+	margin-bottom: 8px;
+	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/    
+    background-repeat: repeat-x;
+	background-position: 0 -96px;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;	
+}
+p.s_subtab_a a {
+    position: relative;
+	display: block;
+    margin-right: 20px;  
+    height: 25px;
+	line-height: 20px;
+    float: left;    
+    outline: none medium;
+	font-size: 14px;
+    font-weight: bold;
+	color: #666;
+    cursor: pointer;   /*指定光标样式为小手*/
+}
+p.s_subtab_a  a.current {       
+    padding-bottom: 2px;	
+	background-image: url('//localhost:8080/ctrip/image/sprite/index/un_bg_line_141218.png'); /*使用sprite雪碧图图标*/    
+    background-repeat: repeat-x;	
+	background-position: 50% -10px;
+	color: #06c;
+	cursor: default;
+}
+/*国内酒店表单CSS样式--Start*/
+.s_item_cont,.s_item_cont3{
+    position: relative;
+    clear: both;         /**/
+    width: 100%;
+    height: 42px;
+    line-height: 28px;
+}
+div.s_item_cont:after {
+	display: block;
+	height: 0;
+    clear: both;
+    content: '.';
+    visibility: hidden;  
+    overflow: hidden;
+}
+.s_content .s_item, .s_content .s_item2 {    
+    display: inline;	
+    padding-top: 5px;
+	float: left;
+    height: 35px;
+	line-height: 26px;
+    text-align: left;
+    text-align: right;
+    text-indent: -100px;
+	font-size: 14px;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+}
+.s_item {
+    width: 211px;
+}
+.s_item2 {
+    width: 240px;
+}
+div.w100 {
+    width: 100%;
+}
+.s_item input, .s_item2 input, .s_item3 input, .c_item input {
+    padding-left: 3px;
+    margin-left: 10px;
+	width: 140px;
+    height: 28px;    
+    outline: none;
+    color: #333;
+	border-color: #bbb #ddd #ddd #bbb;         /*边框属性设置*/
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 1px 1px 1px #ddd inset;
+	font: 14px/28px "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+}
+input.w01 {
+    width: 380px;
+}
+input[type="text"] {
+    border-radius: 0;
+}
+.s_content select {		/*房间数、酒店级别...下拉选项框*/		
+    width: 145px;
+    height: 28px;
+    margin: 0 0 0 10px;
+    border-radius: none;
+    font-family: 'microsoft yahei', simsun;
+    font-size: 12px;
+}
+.n_gst38578 {					/*住客数下拉选项框*/
+	position: relative;
+    display: inline-block;    
+    margin-left: 6px;
+    width: 170px;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #333;
+	cursor: default;
+	z-index: 99;
+}
+.s_content .w170 {
+    width: 160px;
+}
+.n_gst38578_tri {				/*通过CSS边框属性实现三角形图标（三角形-朝下）*/
+    position: absolute;    
+    top: 10px;
+    right: 6px;
+    width: 0;
+    height: 0;    
+    border-width: 5px 5px 0px;
+    border-color: #666 transparent transparent;
+    border-style: solid dashed dashed;
+	overflow: hidden;
+	z-index: 2;
+}
+.s_button_area {					/* search button area 搜索按钮块*/
+    position: absolute;    
+    right: 20px;
+    bottom: 22px;
+    width: 200px;
+    text-align: right;
+	z-index: 10;
+}
+.s_btn, .s_btn_disabled {		/*搜索按钮，类.s_btn_disabled用于禁用状态*/
+    position: relative;
+    width: 145px;
+    height: 33px;   
+    text-align: center;
+    letter-spacing: 0.4em;							/*设置字母间距*/
+    text-indent: 0.4em;								/*文本缩进*/
+    box-shadow: 0 1px 0 rgba(95, 50, 0, 0.7);		/*阴影*/
+    border-radius: 3px;								/*边框圆角*/
+    *-webkit-filter: chroma(color=#000000);			/*CSS滤镜:Chroma属性*/
+    *filter: chroma(color=#000000);
+    overflow: visible;
+	color: #fff;
+    font-size: 16px;
+    font-family: "Microsoft YaHei", SimSun, Tahoma, Verdana, Arial, sans-serif;
+    font-weight: bold;
+	cursor: pointer;  	/*鼠标样式*/
+}
+.s_btn {
+    text-shadow: 1px 1px 0 #cf7000;
+    background-color: #ffb000;
+    border: solid 1px #e77c00;
+}
+/*国内酒店表单CSS样式--End*/
 
 
 
