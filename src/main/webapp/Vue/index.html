@@ -54,12 +54,64 @@
 		<p>Ask a yes/no question:<input type="text" v-model="question"></p>
 		<p>{{answer}}</p>
 	</div>
-	
+	<!--Class 与 Style 绑定-->
 	<div class="static" v-bind:class="{active:isActive,'text-danger':hasError}"></div>
 	<div id='app-9' class="static" v-bind:class="classObject"></div>
+	<!--绑定内联样式-->
+	<div id='app-10' v-bind:style="{color:activeColor,fontSize:fontSize+'px'}">智慧鸟</div>
+	<div id='app-11' v-bind:style="styleObject">笨鸟先飞</div>
+	<div id="app-12" v-bind:style="[baseStyles,overridingStyles]">突飞猛进</div>
+	<div id="app-13" :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">厚德载物</div>
 	
-
-
+	<!--条件渲染-->
+	<h1 v-if="awesome">Vue is awesome!</h1>
+	<h1 v-else>Oh no </h1>
+	
+	<div id="app-14" v-if="Math.abs(-0.8) > 0.5">Now you see me</div>
+	<div v-else>Now you don't</div>
+	<!--v-if使用的时候key值的用法-->
+	<div id="root">
+		<div v-if="show">用户名:<input type="text" key='userName'></div>
+		<div v-else=>邮箱名:<input type="text" key='password'></div>
+	</div>
+	<!-- template标签在vue实例绑定的元素内部 -->
+	<div id="app-16">
+		<template v-if="true">
+			<div>我是template</div>
+			<div>我是template</div>
+		</template>
+		<template v-if="true">
+			<div>我是template</div>
+			<div>我是template</div>
+		</template>
+		<template v-for="a in 3">
+			<div>我是template</div>
+			<div>我是template</div>
+		</template>
+	</div>
+	
+	<div id='v-17' ><p v-for='item in items'>{{ item.message }}</p></div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <script type="text/javascript"  src="vue_text.js" charset="utf-8" ></script>
 </body>
 </html>

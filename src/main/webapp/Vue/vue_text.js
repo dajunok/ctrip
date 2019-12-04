@@ -203,17 +203,73 @@ var app9 = new Vue({
 	  }
   }
 })
+//----------------<!--绑定内联样式-->
+var app10 = new Vue({
+  el: '#app-10',
+  data: {
+	activeColor: 'red',
+	fontSize: 30
+  }
+});
 
+var app11 = new Vue({
+  el: '#app-11',
+  data: {
+	styleObject:{
+		color: 'green',
+		fontSize:'30px'
+	}
+  }
+});
 
+var app12 = new Vue({
+  el: '#app-12',
+  data: {
+	baseStyles:{
+		color: 'white',
+		fontSize:'30px'
+	},
+	overridingStyles:{
+		width:'150px',
+		height:'50px',
+		background:'red'
+	}
+	
+  }
+});
+//----------<!--条件渲染-->
+new Vue({
+	el:'h1',
+	data:{
+		awesome:true
+	}
+})
 
+new Vue({
+	el:'#app-14'
+});
 
+//<!--v-if使用的时候key值的用法-->
+var vm_15=new Vue({
+　　el:'#root',
+　　data:{
+　　　show:true
+　　}
+});
 
+let vm_16=new Vue({			//与var关键字类似，用于声明变量，但它们之间有区别
+	el:"#app-16"
+});
 
-
-
-
-
-
+var vm_17=new Vue({			//与var关键字类似，用于声明变量，但它们之间有区别
+	el:"#v-17",
+	data: {
+		items: [
+		  { message: 'Foo' },
+		  { message: 'Bar' }
+		]
+  }
+});
 
 
 
