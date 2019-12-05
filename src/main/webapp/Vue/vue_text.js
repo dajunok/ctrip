@@ -272,14 +272,68 @@ var vm_17=new Vue({			//与var关键字类似，用于声明变量，但它们�
 });
 
 
+//<!-- 显示过滤/排序后的结果 -->
+let vm_18=new Vue({
+	el:"#app-18",
+	data: {  numbers: [ 1, 2, 3, 4, 5 ]},
+	computed: {
+	  evenNumbers: function () {
+		return this.numbers.filter(function (number) {
+		  return number % 2 === 0
+		})
+	  }
+	}	
+});
 
 
+Vue.component('todo-item2', {   //创建组件todo-item2
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+  props: ['title']
+});
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Do the dishes',
+      },
+      {
+        id: 2,
+        title: 'Take out the trash',
+      },
+      {
+        id: 3,
+        title: 'Mow the lawn'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+});
 
-
-
-
-
-
+Vue.component('alert-box', {
+  template: `
+    <div class="demo-alert-box">
+      <strong>Error!</strong>
+      <slot></slot>
+    </div>
+  `
+})
 
 
 

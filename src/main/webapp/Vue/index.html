@@ -95,10 +95,27 @@
 		<div  v-for="item in items">{{item.message}}</div>
 	</div>
 	
+	<!-- 显示过滤/排序后的结果 -->
+	<ul id="app-18">
+		<li v-for="n in evenNumbers">{{n}}</li>
+	</ul>
 	
-	
-	
-	
+	<!-- 在组件上使用 v-for -->
+	<div id="todo-list-example">
+		<form action="" v-on:submit="">
+			<label for="new-todo">Add a todo</label>
+			<input v-model="newTodoText" id="new-todo" placeholder="E.g. Feed the cat">
+			<button>Add</button>
+		</form>
+		<ul>
+			<li is="todo-item2" 
+				v-for="(todo, index) in todos" 
+				v-bind:key="todo.id" 
+				v-bind:title="todo.title" 
+				v-on:remove="todos.splice(index, 1)"
+			></li>
+		</ul>
+	</div>
 	
 	
 	
