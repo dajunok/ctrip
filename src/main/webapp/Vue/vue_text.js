@@ -333,8 +333,37 @@ Vue.component('alert-box', {
       <slot></slot>
     </div>
   `
-})
+});
 
+let vue_19=new Vue({
+	el:"#app-19",
+	data:{
+		meth:""
+	
+	},
+	methods:{
+		fun:function(){	this.meth="我是一个函数";}
+	}
+	
+})
+// <!-- 表单输入绑定(双向数据绑定) -->
+new Vue({
+	el:"#app-20",
+	data:{
+		message:"数据双向绑定",
+		checked:false,
+		disable:false,
+		checkedNames:[],
+		picked:'',
+		selected: '',
+		options: [
+		  { text: 'One', value: 'A' },
+		  { text: 'Two', value: 'B' },
+		  { text: 'Three', value: 'C' }
+		],
+		selected2: 'A',
+	}
+})
 
 
 

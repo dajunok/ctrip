@@ -117,6 +117,53 @@
 		</ul>
 	</div>
 	
+	<div id="app-19">{{meth}}</div>
+	
+	<!-- 表单输入绑定(双向数据绑定) -->
+	<div id="app-20">
+		<input type="text" v-model="message" placeholder="edit me">
+		<p>Message is：{{message}}</p>
+		<!-- 复选框 -->
+		<input type="checkbox" id="checkbox" v-model="checked" :disabled="disable">
+		<label for="checkbox">{{checked}}</label>
+		<br>
+		<!-- 多个复选框绑定到一个数组 -->
+		<input type="checkbox" id="jack" value="Jack" v-model="checkedNames"><!--checkedNames是数组v-model就绑定到属性value，点击时将对应值添加到数组，如果是布尔值就绑定checked属性（也就是说vue是通过数据类型进行智能绑定的）  -->
+		<label for="jack">Jack</label>
+		<input type="checkbox" id="john" value="John" v-model="checkedNames">
+		<label for="john">John</label>
+		<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+		<label for="mike">Mike</label>
+		<br>
+		<span>Checked Names:{{checkedNames}}</span>
+		<br>
+		<!-- 单选按钮 -->
+		<input type="radio" name="dxz" id="one" value="One" v-model="picked">   <!--对于单选按钮v-model会智能绑定到value属性 -->
+		<label for="one">One</label>
+		<br>
+		<input type="radio" name="dxz" id="two" value="Two" v-model="picked">
+		<label for="one">Two</label>
+		<br>
+		<input type="radio" name="dxz" id="three" value="Three" v-model="picked">
+		<label for="one">Three</label>
+		<br>
+		<span>Picked:{{picked}}</span>
+		<br>
+		<!-- 选择框 -->		
+		<select name="01" id="" v-model="selected"><!--v-model默认绑定option的value属性，如果value属性没设置就绑定到innerHtml -->
+			<option value="" disabled>请选择</option>
+			<option value="a">A</option>	
+			<option value="b">B</option>
+			<option>C</option><!--此处v-model绑定option的innerHtml -->
+		</select>
+		<span>Selected:{{selected}}</span>
+		<br>
+		<!-- 用 v-for 渲染的动态选项： -->
+		<select name="02" id="" v-model="selected2">
+			<option v-for="option in options" :value="option.value">{{option.text}}</option>
+		</select>
+		<span>Selected2:{{selected2}}</span>
+	</div>
 	
 	
 	
