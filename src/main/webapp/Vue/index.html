@@ -201,7 +201,7 @@
 	</div>
 	<!--在组件上使用 v-model  -->
 	<div id="app-22">
-		<custom-input v-model="searchText"></custom-input>
+		<input is=custom-input v-model.lazy="searchText"></input><!--子组件添加.lazy懒加载不起作用？ -->
 		<p>{{searchText}}</p>
 	</div>
 	
