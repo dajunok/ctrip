@@ -364,6 +364,121 @@ new Vue({
 		selected2: 'A',
 	}
 })
+//-------<!-- 表单修饰符 -->
+new Vue({
+	el: '#app-21',
+	data: {
+		message:'测试',
+		num:123456,
+		str:''
+	}
+});
+//-----------组件基础
+// 定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  data: function () {		//	对于组件data 必须是一个函数，这样的好处就是每个实例可以维护一份被返回对象的独立的拷贝，如果 data 是一个对象则会影响到其他实例
+    return {
+      count: 0
+    }
+  },
+  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
+
+new Vue({
+	el:"#components-demo",
+	methods:{
+		handleClick:function(){
+　　　　　　alert("OK");
+　　　　}
+	}
+})
+//通过 Prop 向子组件传递数据
+Vue.component('blog-post',{     	//定义全局组件
+	props:['title','content'],
+	template:'<h3>{{ title }}   {{content}}</h3>'
+})
+new Vue({
+	el:"#post"
+})
+
+
+//<!-- 监听子组件事件 ：子组件可以通过调用内建的 $emit 方法 并传入事件名称来触发一个事件-->
+Vue.component('blog-event', {
+  props: ['post'],
+  template: `
+    <div class="blog-event">
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text',0.1,'第2个参数')">
+        Enlarge text
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+})
+new Vue({
+  el: '#blog-posts-events-demo',
+  data: {
+    posts: [
+      { id: 1, title: '纳粹元首',content:"内容1"},
+      { id: 2, title: '我的奋斗',content:"内容2" },
+      { id: 3, title: '希特勒',content:"内容3" }
+    ],
+	postFontSize:1
+  },
+  methods: {
+  onEnlargeText: function (enlargeAmount,arg2) {
+    this.postFontSize += enlargeAmount;
+	console.log(arg2);
+  }
+}
+
+})
+//<!--在组件上使用 v-model  -->
+Vue.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+})
+new Vue({
+	el:'#app-22',
+	data:{
+		searchText:'输入文本'
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

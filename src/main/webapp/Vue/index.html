@@ -138,7 +138,7 @@
 		<span>Checked Names:{{checkedNames}}</span>
 		<br>
 		<!-- 单选按钮 -->
-		<input type="radio" name="dxz" id="one" value="One" v-model="picked">   <!--对于单选按钮v-model会智能绑定到value属性 -->
+		<input type="radio" name="dxz" id="one" value="One" v-model="picked">   <!--对于单选按钮v-model会智能绑定到value属性 属性name用于分组-->
 		<label for="one">One</label>
 		<br>
 		<input type="radio" name="dxz" id="two" value="Two" v-model="picked">
@@ -163,14 +163,47 @@
 			<option v-for="option in options" :value="option.value">{{option.text}}</option>
 		</select>
 		<span>Selected2:{{selected2}}</span>
+		<br>
 	</div>
-	
-	
-	
-	
-	
-	
-	
+	<!-- 表单修饰符 -->
+	<div id="app-21">
+		<input type="text" v-model.lazy="message">	<!-- 加上lazy修饰符，message并不是实时更新的，而是在失焦或按回车时才更新。 -->
+		<p>{{message}}</p>
+		<br>
+		<input type="number" v-model.number="num">
+		<p>数据类型：{{typeof num}}</p>		<!-- .number修饰符，将输入转换为Number类型 -->
+		<p>{{num}}</p>
+		<br>
+		<textarea name="txt" id="" cols="30" rows="10" v-model.trim="str"></textarea><!-- 修饰符 .trim 可以自动过滤输入的首尾空格。 -->
+		<p>{{str}}</p>
+	</div>
+	<!-- 组件基础 -->
+	<div id="components-demo">
+		<button-counter @click.native='handleClick'></button-counter><!-- 通过.native修饰符绑定原生事件 -->
+		<button-counter @click='handleClick'></button-counter>
+	</div>
+	<!-- 通过 Prop 向子组件传递数据 -->
+	<div id="post">
+		<blog-post title="My journey with Vue" content="内容1"></blog-post>
+		<blog-post title="Blogging with Vue" content="内容2"></blog-post>
+		<blog-post title="Why Vue is so fun" content="内容3"></blog-post>
+	</div>
+	<!-- 监听子组件事件 -->
+	<div id="blog-posts-events-demo">
+	  <div :style="{ fontSize: postFontSize + 'em' }"><!-- enlarge-text是子组件自定义事件，postFontSize是一个data数据，$event是自定义事件传入的第1个参数-->
+		<blog-event
+			v-for="post in posts"
+			v-bind:key="post.id"
+			v-bind:post="post"
+			v-on:enlarge-text="postFontSize += $event"
+		></blog-event>
+	  </div>
+	</div>
+	<!--在组件上使用 v-model  -->
+	<div id="app-22">
+		<custom-input v-model="searchText"></custom-input>
+		<p>{{searchText}}</p>
+	</div>
 	
 	
 	
