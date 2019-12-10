@@ -450,6 +450,81 @@ new Vue({
 	}
 })
 
+//--------------------------------------------<!-- 将原生事件绑定到组件 -->
+// 注册组件
+// 因为base-input的外层是一个label元素，所以默认情况下使用v-on:focus是无效的，所以需要配合$listeners使用，该属性可以把事件的监听指向组件中某个特定的元素
+// 注意：如果父级的事件添加了.native修饰符，在$listeners中不会体现出来的
+/**名词解释
+inheritAttrs：默认值true,继承所有的父组件属性（除props的特定绑定）作为普通的HTML特性应用在子组件的根元素上，如果你不希望组件的根元素继承特性设置inheritAttrs: false,但是class属性会继承（简单的说，inheritAttrs：true 继承除props之外的所有属性；inheritAttrs：false 只继承class属性）
+$attrs--继承所有的父组件属性（除了prop传递的属性、class 和 style ），一般用在子组件的子元素上，如第一个例子的<input v-bind="$attrs"/>
+$listeners--属性，它是一个对象，里面包含了作用在这个组件上的所有监听器，你就可以配合 v-on="$listeners" 将所有的事件监听器指向这个组件的某个特定的子元素。（相当于子组件继承父组件的事件）
+**/
+Vue.component('base-input',{
+	inheritAttrs: false,
+	props: ['label','value'],
+	template: `
+		<label id="base-label">\
+			{{label}}\
+			<input v-bind:value="value" v-bind="$attrs" v-on="inputListeners"/>
+		</label>
+	`,
+	data: function() {
+		return {
+			
+		}
+	},
+	computed: {
+		inputListeners () {
+			var vm = this
+			return Object.assign({},
+				this.$listeners,      //"$listeners" 将所有的事件监听器指向这个组件的某个特定的子元素。
+				{
+					input: function () {
+						vm.$emit('input', event.target.value)
+					},
+					focus: function (event) {
+						vm.$emit('focus', '哈哈哈，onfocus了')
+					}
+				}
+			)
+		}
+	},
+	mounted: function(){
+		console.log(`$attrs:`)
+		console.log(this.$attrs)
+		console.log(`$listeners:`)
+		console.log(this.$listeners) // 父级添加的所有属性都在这里
+	},
+	methods: {
+		
+	}
+})
+new Vue({
+	el: '#app-23',
+	data: {
+		username: ''
+	},
+	created: function(){
+	
+	},
+	beforeUpdate: function(){
+	
+	},
+	computed: {
+		
+	},
+	beforeUpdate: function () {
+		console.log(this.username)
+	},
+	methods: {
+		handleBaseInputFocus: function(ev){
+			console.log(ev)
+		},
+		handleBaseInputClick: function(ev){
+			console.log(ev.type)
+		}
+	}
+})
 
 
 

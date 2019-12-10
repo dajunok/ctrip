@@ -204,7 +204,16 @@
 		<input is=custom-input v-model.lazy="searchText"></input><!--子组件添加.lazy懒加载不起作用？ -->
 		<p>{{searchText}}</p>
 	</div>
-	
+	<!-- 将原生事件绑定到组件 -->
+	<div id="app-23">
+        <base-input
+            v-model="username" 
+            label="基础输入组件"
+            @click.native="handleBaseInputClick"
+            v-on:focus="handleBaseInputFocus"
+            placeholder="请输入您的名字"
+            class="username-input"/>
+    </div>
 	
 	
 	
