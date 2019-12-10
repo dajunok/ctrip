@@ -214,7 +214,13 @@
             placeholder="请输入您的名字"
             class="username-input"/>
     </div>
-	
+	<!-- 通过插槽分发内容 -->
+	<div id="test-slot">
+		<test-slot>
+			<h3>{{name}}</h3>
+			<p>Something bad happened.</p>
+		</test-slot>
+	</div>
 	
 	
 	

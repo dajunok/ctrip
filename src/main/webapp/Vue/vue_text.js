@@ -526,8 +526,26 @@ new Vue({
 	}
 })
 
+//------<!-- 通过插槽分发内容 -->
+Vue.component("test-slot",{
+           // 插槽允许有默认内容
+           template:
+               `<div>
+                    <strong>Error!</strong>
+                    <slot></slot>
+                </div>
+               `,
+            data:function () {
+                return {
+                    name:"perry"
+                }
+            }
+        });
 
-
+new Vue({
+        el:'#test-slot',
+        data:{name:"500 error"}
+});
 
 
 
