@@ -526,8 +526,9 @@ new Vue({
 	}
 })
 
-//------<!-- 通过插槽分发内容 -->
-Vue.component("test-slot",{
+//--------------------------<!-- 通过插槽分发内容 -->
+//1、单个插槽slot
+Vue.component("single-slot",{
            // 插槽允许有默认内容
            template:
                `<div>
@@ -541,17 +542,121 @@ Vue.component("test-slot",{
                 }
             }
         });
+//2、具名插槽slot
+Vue.component("slot-name",{
+           template:
+               `<div>
+                      <header>
+                            <slot name="header"></slot>
+                      </header>
+                     <main>
+                        <slot ></slot>
+                     </main>
+                     <footer>
+                        <slot name="footer"></slot>
+                     </footer>
+ 
+                </div>
+               `
+});
+//3、作用域slot，作用域插槽在解决需要动态生成字符串模板时非常有用，特别针对控件编写者
+Vue.component("datagrid",{
+            props:{
+                data:null
+            },
+            template:`
+               <table>
+                    <thead>
+                        <slot name="headslot"></slot>
+                    </thead>
+                    <tbody>
+                        <tr  v-for="item in data">
+                            <slot name="bodyslot" :item="item">{{item.text}</slot>
+                        </tr>
+                   </tbody>
+               </table>
+           `
+});
 
 new Vue({
         el:'#test-slot',
-        data:{name:"500 error"}
+        data:{
+			name:"500 error",
+			todos:[
+				{text:"A",id:1,isTrue:true},
+				{text:"B",id:2,isTrue:true},
+				{text:"C",id:3,isTrue:false},
+				{text:"D",id:4,isTrue:true},
+			]
+		}
 });
 
+//--------------------------<!-- 动态切换组件 --> -------------------------------------------
+Vue.component('tab-posts', {
+	data: function () {
+		return {
+			posts: [
+				{
+					id: 1,
+					title: '赶在618前夕，微信更新了两个支付与电商功能',
+					content: '本周末，中国消费者即将迎来上半年最大的消费网购峰值，6月17日父亲节，6月18日端午节，也是京东、天猫等电商的618购物节。略微出人意料但又在情理之中的是，中国最大的社交平台微信，近日密集上线了两个与支付和电商相关的功能。'        
+				},
+				{
+					id: 2, 
+					title: '腾讯要花32亿收购《绝地求生》开发商10%股份',
+					content: '目前腾讯和蓝洞已经接近达成协议，如果交易成功，腾讯将成为蓝洞的第二大股东。'
+				},
+				{
+					id: 3,
+					title: '这两个地球之眼是真的吗？形成原因至今仍是谜团',
+					content: '一名俄罗斯男子乘坐直升机游览时，经过俄罗斯萨哈林岛（库页岛）时，看到一个巨大的坑洞。地球上坑坑洞洞很多，本该不用大惊小怪。但当飞机离得更近，换了个角度看这个坑时，他震惊了，这分明就是“地球的眼睛”。'
+				}
+			],
+			selectedPost: null
+		}
+	},  
+	template: `
+		<div class="posts-tab">
+			<ul class="posts-sidebar">
+				<li
+					v-for="post in posts"
+					v-bind:key="post.id"
+					v-bind:class="{selected:post === selectedPost}"
+					v-on:click="selectedPost = post">
+					{{ post.title }}
+				</li>
+			</ul>
+			<div class="selected-post-container">
+				<div
+					v-if="selectedPost"
+					class="selected-post">
+					<h3>{{ selectedPost.title }}</h3>
+					<div v-html="selectedPost.content"></div>
+				</div>
+				<strong v-else>
+					请点击某个标签页
+				</strong>
+			</div>
+		</div>  
+	`
+});
 
+Vue.component('tab-archive', {
+	template: '<div>archive 页面</div>'
+});
 
-
-
-
+let dynamic=new Vue({
+	el: '#dynamic-component-demo',
+	data: {    
+				currentTab: 'Posts',
+				tabs: ['Posts', 'Archive']
+	},
+	computed: {
+		currentTabComponent: function () {
+			return 'tab-' + this.currentTab.toLowerCase();
+		}
+	}
+});
 
 
 

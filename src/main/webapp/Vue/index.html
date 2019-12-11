@@ -214,13 +214,89 @@
             placeholder="请输入您的名字"
             class="username-input"/>
     </div>
-	<!-- 通过插槽分发内容 -->
+	<!------------------通过插槽分发内容----------->	
 	<div id="test-slot">
-		<test-slot>
+		<!-- 1、单个插槽slot -->
+		<single-slot>
 			<h3>{{name}}</h3>
 			<p>Something bad happened.</p>
-		</test-slot>
+		</single-slot>
+		<!-- 2、具名插槽slot -->
+		<slot-name>
+		   <h3>开始</h3>
+	　　　　<p>Default slot内容1</p>
+		   <template slot="header">
+				  <ul>
+					   <li>主页</li>
+					   <li>分诊</li>
+					   <li>护理</li>
+					   <li>病历</li>
+				   </ul>
+			</template>
+			<template slot="footer">
+			   <p>结尾</p>
+			</template>
+		</slot-name>
+		<!-- 3、作用域插槽slot-scope -->
+		<datagrid :data="todos">
+		   <template slot="headslot">
+				  <tr>
+					<td>id</td>
+					<td>text</td>
+					<td>isTrue</td>
+				   </tr>
+		   </template>
+		  <template slot="bodyslot" slot-scope="slotProps"><!-- 其中slot-scope="{item}"语句也可以通过"slot-scope="slotProps"来实现数据传递，slotProps对像相当于当slot对象上所有props属性的根，通过slotProps对象都能访问到-->
+						<td>{{slotProps.item.id}}</td>
+						<td>{{slotProps.item.text}}</td>
+						<td>{{slotProps.item.isTrue}}</td>
+		  </template>
+		</datagrid>
 	</div>
+	<!------------------动态切换组件----------->
+	<link rel="stylesheet" type="text/css" href="vue.css" media="all" />
+	<div id="dynamic-component-demo">
+		<button 
+			v-for="tab in tabs"
+			v-bind:key="tab"
+			v-bind:class="['tab-button',{active:currentTab === tab}]"
+			v-on:click="currentTab = tab"
+		>{{tab}}
+		</button>
+		<keep-alive><!-- 失活的组件将会被缓存！ -->
+			<component
+				v-bind:is="currentTabComponent"
+				class="tab"></component>
+		</keep-alive>
+	</div>
+	<!------------------异步组件----------->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
