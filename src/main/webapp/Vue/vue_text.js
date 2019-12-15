@@ -689,9 +689,14 @@ const myapp = new Vue({
   router
 }).$mount('#app-24')
 
-// 现在，应用已经启动了！
-
-
+//----------------<!------------------依赖注入provide 和 inject----------->
+// 父级组件提供 'foo'
+var Provider = {
+  provide: {
+    foo: 'bar'
+  },
+  // ...
+}
 
 
 
