@@ -285,7 +285,13 @@
 	</div>
 	<!------------------依赖注入provide 和 inject----------->
 	
-	
+	<!------------------单元素/组件的过渡----------->
+	<div id="demo-25">
+		<button v-on:click="show=!show">Toggle</button>
+		<transition name="fade">
+			<p v-if="show">hello</p>
+		</transition>
+	</div>
 	
 	
 	

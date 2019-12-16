@@ -690,15 +690,16 @@ const myapp = new Vue({
 }).$mount('#app-24')
 
 //----------------<!------------------依赖注入provide 和 inject----------->
-// 父级组件提供 'foo'
-var Provider = {
-  provide: {
-    foo: 'bar'
-  },
-  // ...
-}
 
 
+
+//<!------------------单元素/组件的过渡----------->
+new Vue({
+  el: '#demo-25',
+  data: {
+    show: true
+  }
+});
 
 
 
