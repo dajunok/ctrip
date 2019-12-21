@@ -1,0 +1,16 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "我的webpack项目",
+  "main": "main.js",
+  "dependencies": {
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "LLJ",
+  "license": "ISC"
+}
