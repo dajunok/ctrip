@@ -6,3 +6,4 @@ target/
 node_modules/
 pom.properties
 package.json
+package-lock.json
