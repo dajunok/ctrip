@@ -265,9 +265,10 @@
 		>{{tab}}
 		</button>
 		<keep-alive><!-- 失活的组件将会被缓存！ -->
-			<component
-				v-bind:is="currentTabComponent"
-				class="tab"></component>
+				<component
+					v-bind:is="currentTabComponent"
+					class="tab">
+				</component>
 		</keep-alive>
 	</div>
 	<!------------------路由----------->

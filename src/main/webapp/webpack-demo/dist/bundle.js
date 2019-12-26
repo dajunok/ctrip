@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["myLibrary"] = factory();
+	else
+		root["myLibrary"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -93,7 +103,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./main.css?");
+eval("// extracted by mini-css-extract-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teUxpYnJhcnkvLi9tYWluLmNzcz8yMTRmIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vbWFpbi5jc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./main.css\n");
 
 /***/ }),
 
@@ -104,7 +114,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./main
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("//通过CommonJS规范导入CSS模块\r\n__webpack_require__(/*! ./main.css */ \"./main.css\");\r\n//通过CommonJS规范导入show函数\r\nconst show =__webpack_require__(/*! ./show.js */ \"./show.js\");\r\nshow('Webpack');\n\n//# sourceURL=webpack:///./main.js?");
+eval("//通过CommonJS规范导入CSS模块\r\n__webpack_require__(/*! ./main.css */ \"./main.css\");\r\n//通过CommonJS规范导入show函数\r\nconst show =__webpack_require__(/*! ./show.js */ \"./show.js\");\r\nshow('Webpack');//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teUxpYnJhcnkvLi9tYWluLmpzPzFkNTAiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxtQkFBTyxDQUFDLDhCQUFZO0FBQ3BCO0FBQ0EsWUFBWSxtQkFBTyxDQUFDLDRCQUFXO0FBQy9CIiwiZmlsZSI6Ii4vbWFpbi5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8v6YCa6L+HQ29tbW9uSlPop4TojIPlr7zlhaVDU1PmqKHlnZdcclxucmVxdWlyZSgnLi9tYWluLmNzcycpO1xyXG4vL+mAmui/h0NvbW1vbkpT6KeE6IyD5a+85YWlc2hvd+WHveaVsFxyXG5jb25zdCBzaG93ID1yZXF1aXJlKCcuL3Nob3cuanMnKTtcclxuc2hvdygnV2VicGFjaycpOyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./main.js\n");
 
 /***/ }),
 
@@ -115,8 +125,9 @@ eval("//通过CommonJS规范导入CSS模块\r\n__webpack_require__(/*! ./main.cs
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("//操作DOM元素，将content显示到网页上\r\nfunction show(content){\r\n  window.document.getElementById('app').innerText='Hello,'+content;\r\n  //console.log(content);\r\n}\r\n//通过CommonJS规范导出show函数\r\nmodule.exports=show;\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./show.js?");
+eval("//操作DOM元素，将content显示到网页上\r\nfunction show(content){\r\n  window.document.getElementById('app').innerText='Hello,'+content;\r\n  //console.log(content);\r\n}\r\n//通过CommonJS规范导出show函数\r\nmodule.exports=show;\r\n\r\n\r\n\r\n\r\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teUxpYnJhcnkvLi9zaG93LmpzP2QxODYiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiLi9zaG93LmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy/mk43kvZxET03lhYPntKDvvIzlsIZjb250ZW505pi+56S65Yiw572R6aG15LiKXHJcbmZ1bmN0aW9uIHNob3coY29udGVudCl7XHJcbiAgd2luZG93LmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdhcHAnKS5pbm5lclRleHQ9J0hlbGxvLCcrY29udGVudDtcclxuICAvL2NvbnNvbGUubG9nKGNvbnRlbnQpO1xyXG59XHJcbi8v6YCa6L+HQ29tbW9uSlPop4TojIPlr7zlh7pzaG935Ye95pWwXHJcbm1vZHVsZS5leHBvcnRzPXNob3c7XHJcblxyXG5cclxuXHJcblxyXG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./show.js\n");
 
 /***/ })
 
 /******/ });
+});
