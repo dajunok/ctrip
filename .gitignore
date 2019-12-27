@@ -4,6 +4,8 @@
 target
 target/
 node_modules/
+node_global/
+node_cache/
 pom.properties
 package.json
 package-lock.json
